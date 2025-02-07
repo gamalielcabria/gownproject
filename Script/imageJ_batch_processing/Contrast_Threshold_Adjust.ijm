@@ -39,7 +39,7 @@ for (i = 0; i < fileList.length; i++) {
             run("Enhance Contrast...", "saturated=0.30");
             setAutoThreshold("Default dark");
             //run("Threshold...");
-            setThreshold(14, 255);
+            setThreshold(19, 255);
         }
         setOption("BlackBackground", true);
         run("Convert to Mask");
