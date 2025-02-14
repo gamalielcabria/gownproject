@@ -29,14 +29,15 @@ for (i = 0; i < fileList.length; i++) {
         selectImage(fileName + "_edited");
         run("8-bit");
         run("Median...", "radius=2");
+        run("Enhance Contrast...", "saturated=0.30");
         run("Subtract Background...", "rolling=50 sliding");
+        run("Enhance Contrast...", "saturated=0.50");
         if (fileName == "D2-SMPL-DAPI-BR1-10X-1.png") {
             //run("Enhance Contrast...", "saturated=2.50");
             setAutoThreshold("Default dark");
             //run("Threshold...");
             setThreshold(54, 255);
         } else {
-            run("Enhance Contrast...", "saturated=0.30");
             setAutoThreshold("Default dark");
             //run("Threshold...");
             setThreshold(19, 255);
