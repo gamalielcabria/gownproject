@@ -90,7 +90,7 @@ def gc_img_openai_processing(folder_path, output_file=None):
 
 
 # # # Path to the folder containing images for testing purposes
-folder_path = '/home/glbcabria/Workbench/P3/Results/GCPhotos/D2'
+folder_path = '/home/glbcabria/Workbench/P3/Results/GCPhotos/GWMix'
 gc_img_openai_processing(folder_path)
 
 

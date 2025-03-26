@@ -3,26 +3,26 @@ library("ggplot2")
 setwd("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/")
 getwd()
 
-# Read the CSV file
-csv_D1<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D-1/Edited/D-1.summary.csv", col_names=TRUE)
-csv_D2<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D2/Edited/D2.summary.csv", col_names=TRUE)
-csv_D8<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D8/Edited/D8.summary.csv", col_names=TRUE)
-csv_D14<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D14/Edited/D14.summary.csv", col_names=TRUE)
-
-csv_D1<-csv_D1 %>% 
+# Read the CSV file and compile it to a single 
+csv_D1<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D-1/Edited/D-1.summary.csv", col_names=TRUE) %>% 
     mutate(Slice=gsub("SMPL","D0-SMPL",Slice)) %>%
     mutate(DF=0.5)
+csv_D2<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D2/Edited/D2.summary.csv", col_names=TRUE) %>% mutate(DF=0.5)
+csv_D8<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D8/Edited/D8.summary.csv", col_names=TRUE) %>% mutate(DF=0.5)
+csv_D14<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D14/Edited/D14.summary.csv", col_names=TRUE) %>% mutate(DF=1.0)
+#csv_D22<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D22/Edited/D22.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
+#csv_D32<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D32/Edited/D32.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
+#csv_D43<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D32/Edited/D43.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
 
-csv_D2<-csv_D2 %>% mutate(DF=0.5)
-csv_D8<-csv_D8 %>% mutate(DF=0.5) 
-csv_D14<-csv_D14 %>% mutate(DF=1.0)
+combined_df<-rbind(csv_D1,csv_D2,csv_D8,csv_D14)#, csv_D22, csv_D32, csv_D43)
 
-cellcountdf<-rbind(csv_D1,csv_D2,csv_D8,csv_D14)
-cellcountdf<-cellcountdf %>%
+
+# Running the Counting
+cellcountdf<-combined_df %>%
     filter(Slice != "Slice" & Use != "N") %>%
     mutate(CorrectCount = ifelse( is.na(Corrected), Count, Corrected)) %>%
     mutate(FinalCount = ( as.numeric(CorrectCount) * DF) / (6.25e-6)) %>%
-    separate(Slice, c('Day', 'SMPL', 'DAPI', 'Experiment', 'Mag', 'Box'), sep = '-') %>%
+    separate(col = Slice, into = c('Day', 'SMPL', 'DAPI', 'Experiment', 'Mag', 'Box'), sep = '-') %>%
     select(-c("Total Area","Average Size","%Area",
         "Mean","Corrected","Count","DF","CorrectCount","Use",
         "SMPL", "DAPI", "Mag"
@@ -61,6 +61,8 @@ count_summary<-cellcountdf %>%
 # Volume of the 1/16 of the corner cells:
 # 0.25mm*0.25*0.10mm = 0.00625 cubic mm = 6.25e-6 ml
 
+
+# Plotting the results
 plot_count<-ggplot(count_summary) +
     geom_line(aes(x=Day, y=Mean.Count, color=Setup)) +
     geom_point(aes(x=Day, y=Mean.Count, color=Setup), size=2) +
@@ -73,9 +75,13 @@ plot_count<-ggplot(count_summary) +
         )
 plot_count
 
-ggsave(plot = plot_count, filename = "/home/glbcabria/Workbench/P3/Results/plot_count_D1-D14.png",
+
+# Saving the output
+ggsave(plot = plot_count, filename = "/home/glbcabria/Workbench/P3/Results/plot_count_D1-D43.png",
     width = 2000,
     height = 2000,
     units = "px",
     dpi = 300
     )
+
+write_csv(count_summary, file = "/home/glbcabria/Workbench/P3/Results/count_summary.csv")
