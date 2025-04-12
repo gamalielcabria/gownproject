@@ -8,7 +8,9 @@ library(ggsci)
 
 # args <- commandArgs(trailingOnly = TRUE)
 # input<-as.character(args[1])
-input <- '/home/glbcabria/Workbench/P3/Results/GCPhotos/D2_GC.csv'
+#input <- '/home/glbcabria/Workbench/P3/Results/GCPhotos/D2_GC.csv'
+input <- '/home/glbcabria/Workbench/P3/Results/GCPhotos/D43_GC.csv'
+
 input_ssa <- '/home/glbcabria/Workbench/P3/Results/GCPhotos/SurfaceAreaPerReplicate.csv'
 input_ccs <- '/home/glbcabria/Workbench/P3/Results/count_summary.csv'
 dataframe <- read_csv(input, col_names = TRUE)
@@ -50,7 +52,14 @@ gc_df<- dataframe %>%
   )) %>%
   mutate(Replicate = str_extract(Sample, "(\\d)$")) %>%
   unite("SampleID",Rock:Replicate, sep = "-",remove = FALSE) %>%
-  select(-Sample)
+  select(-Sample) %>%
+  mutate(IncTime = as.numeric(IncTime, units = "hours")) %>%
+  #filter(!(IncTime > 190)) %>%
+  #filter(!(IncTime < 40)) %>%
+  #filter(!(Rock != 'Coal' & Amount == 0)) %>% # Filtered every points that is not coal that has 0 value in Amount
+  filter(!(Rock == 'Coal' & Amount > 0)) %>% #Filtering Coal with Growth Day2
+  filter(!(Rock == 'Sand' & Experiment == 'Low Nitrate-No Oxygen' & Replicate == 3) ) %>% #Filtering Sand with Growth Day2
+  filter(!(Rock == 'Sandstone' & Experiment == 'Low Nitrate-With Oxygen' & Replicate == 3) ) #Filtering Sand with Growth Day43
 
 ####################
 # Rate Calculation #
@@ -161,6 +170,50 @@ plot_DNP_agg_norm  <- ggplot(gc_df%>%#filter(Amount != 0)%>%
     )
 plot_DNP_agg_norm
 
+########################################
+# Representative DNP and abline graphs #
+########################################
+
+#Processing reps only
+sslnno3 <- gc_df %>% filter(Rock == 'Sandstone' & Experiment == 'Low Nitrate-With Oxygen')# & Replicate == 1)
+shlnno3 <- gc_df %>% filter(Rock == 'Shale' & Experiment == 'Low Nitrate-With Oxygen')# & Replicate == 2)
+salnno1 <- gc_df %>% filter(Rock == 'Sand' & Experiment == 'Low Nitrate-With Oxygen')# & Replicate == 1)
+colnno2 <- gc_df %>% filter(Rock == 'Coal' & Experiment == 'Low Nitrate-With Oxygen')# & Replicate == 2)
+rep_df<- rbind(sslnno3,shlnno3,salnno1,colnno2)  %>% 
+  mutate(Experiment=gsub("Low ", '', Experiment))
+
+rep_gc_df_aggregate_slopes <- rep_df %>%#filter(Amount != 0)%>%
+  filter(!grepl('CTRL',SampleID))%>%
+  group_by(Rock, Experiment) %>%
+  summarise(slope = coef(lm(Amount ~ IncTime))[2],  # Extract slope
+            intercept = coef(lm(Amount ~ IncTime))[1],  # Extract intercept
+            .groups = "drop")
+
+# Plot Representative
+plot_DNP_agg_norm_rep  <- ggplot(rep_df%>%
+                               filter(!grepl('CTRL',SampleID)), 
+                             aes(x=IncTime, y=Amount))+
+  geom_point(aes(color=Rock, shape=Experiment), size=3)+
+  geom_abline(data = rep_gc_df_aggregate_slopes, 
+              aes(slope = slope, intercept = intercept), 
+              color = "black", linetype = "dashed", linewidth = 1) +
+  facet_wrap(Rock ~ Experiment)+
+  scale_y_continuous(
+    labels = function(x) label_comma() ((x/100) * moles_total * 1e9 ), 
+    name = "nmol N2O"
+  ) +
+  scale_color_jco() +
+  xlab("Incubation Time (hrs)") +
+  theme_light() +
+  theme(
+    axis.text = element_text(size = 20),
+    axis.title = element_text(size = 20),
+    strip.text = element_text(size = 20),
+    legend.position = "none"#,
+    #aspect.ratio = 850/790
+  ) 
+plot_DNP_agg_norm_rep
+
 
 ###################
 # Plot Statistics #
@@ -172,7 +225,8 @@ plot_DNP_agg_norm
   stat_gc_norm <- normalized_gc_df_slopes %>%
     mutate(Normalized.Rate = (Normalized.Rate/100) * moles_total * 1e9 ) %>% 
     mutate(xint=(0-intercept)/slope) %>%
-    filter(!grepl('CTRL',SampleID))
+    filter(!grepl('CTRL',SampleID)) %>% 
+    mutate(Experiment=gsub("Low ", '', Experiment))
 
 # Stat of Normalized Slopes
   stat_plot_norm <- ggboxplot(stat_gc_norm,
@@ -245,11 +299,11 @@ plot_DNP_agg_norm
   #                                    font.label = list(size =14, face = "bold"))
   plot_norm_cc_sa_rate
   
-  ggsave("/home/glbcabria/Workbench/P3/Results/GCPhotos/plot_norm_cc_sa_rate.png", plot_norm_cc_sa_rate,
-         width = 3900, height = 2600,
-         units = c('px'),
-         dpi = 200
-         )
+  # ggsave("/home/glbcabria/Workbench/P3/Results/GCPhotos/plot_norm_cc_sa_rate.png", plot_norm_cc_sa_rate,
+  #        width = 3900, height = 2600,
+  #        units = c('px'),
+  #        dpi = 200
+  #        )
 
   
 #=================================================================#
@@ -300,23 +354,35 @@ plot_DNP_agg_norm
 #   
 # stat_plot
 # 
-# stat_plot2 <- ggboxplot(stat_gc,
-#                        x = 'Experiment',
-#                        y = 'slope',
-#                        color = 'Experiment',
-#                        add = c("jitter", "mean_sd"),
-#                        palette = "jco") +
-#   stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
-#   stat_compare_means(comparisons = list(c("Low Nitrate-With Oxygen", "Low Nitrate-No Oxygen"), c("No Nitrate-No Oxygen", "Low Nitrate-No Oxygen") ), 
-#                      method = "wilcox.test",
-#                      label="p.signif") +
-#   # stat_compare_means(method = "anova", label.y = max(df$Value) + 1) +
-#   ylab("Denitrification Rate (ppm N2O per hour)") +
-#   theme_minimal() + 
-#   facet_grid(~Rock)
-# stat_plot2
+stat_gc_norm_expt <- stat_gc_norm %>%
+  mutate(Experiment=gsub('-','\n',Experiment))
+  
+stat_plot2 <- ggboxplot(stat_gc_norm_expt,
+                       x = 'Experiment',
+                       y = 'slope',
+                       color = 'Experiment',
+                       add = c("jitter", "mean_sd"),
+                       palette = "jama") +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
+  stat_compare_means(comparisons = list(c("Nitrate\nWith Oxygen", "Nitrate\nNo Oxygen"), 
+                                        c("No Nitrate\nNo Oxygen", "Nitrate\nNo Oxygen") ),
+                     method = "t.test",
+                     label="p.signif") +
+  ylab("Denitrification Rate\n(nmol N2O per hour per cell)" ) +
+    theme_minimal()+
+    theme(
+      axis.text = element_text(size = 18),
+      axis.title.y = element_text(size = 20),
+      axis.title.x = element_text(size = 20),
+      #legend.text = element_text(size = 12),
+      #legend.title = element_text(size = 15),
+      legend.position = "none"
+    )
+stat_plot2
 
 # # Output the table
+# write_csv(stat_gc_norm, file = "~/Workbench/P3/Results/GCPhotos/D43_stat_gc_norm.csv")
+#
 # gc_processed_output <- paste0("Table_Processed", basename(input))
 # write_csv(gc_df, file = gc_processed_output)
 # 

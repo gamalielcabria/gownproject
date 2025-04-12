@@ -1,5 +1,7 @@
 library("tidyverse")
 library("ggplot2")
+library("scales")
+library("ggsci")
 setwd("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/")
 getwd()
 
@@ -10,11 +12,12 @@ csv_D1<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D-1/Edite
 csv_D2<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D2/Edited/D2.summary.csv", col_names=TRUE) %>% mutate(DF=0.5)
 csv_D8<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D8/Edited/D8.summary.csv", col_names=TRUE) %>% mutate(DF=0.5)
 csv_D14<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D14/Edited/D14.summary.csv", col_names=TRUE) %>% mutate(DF=1.0)
-#csv_D22<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D22/Edited/D22.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
-#csv_D32<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D32/Edited/D32.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
-#csv_D43<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D32/Edited/D43.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
+csv_D22<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D22/Edited/D22.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
+csv_D31<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D32/Edited/D32.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
+csv_D36<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D36.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
+csv_D43<-read_csv("/home/glbcabria/Workbench/P3/Results/CellcountPhotos/D43.summary.csv", col_names = TRUE) %>% mutate(DF=1.0)
 
-combined_df<-rbind(csv_D1,csv_D2,csv_D8,csv_D14)#, csv_D22, csv_D32, csv_D43)
+combined_df<-rbind(csv_D1,csv_D2,csv_D8,csv_D14, csv_D22, csv_D31, csv_D36, csv_D43)
 
 
 # Running the Counting
@@ -61,27 +64,38 @@ count_summary<-cellcountdf %>%
 # Volume of the 1/16 of the corner cells:
 # 0.25mm*0.25*0.10mm = 0.00625 cubic mm = 6.25e-6 ml
 
+jco_colors <- pal_npg()(3) 
 
 # Plotting the results
 plot_count<-ggplot(count_summary) +
     geom_line(aes(x=Day, y=Mean.Count, color=Setup)) +
     geom_point(aes(x=Day, y=Mean.Count, color=Setup), size=2) +
     facet_wrap(~Rock.Type) +
-    scale_color_discrete(
+      scale_color_manual(
         labels = c(
-        "LN-NO" = "0.5mM Nitrate - No Oxygen",
-        "LN-WO" = "0.5mM Nitrate - With Oxygen",
-        "NN-NO" = "No Nitrate - No Oxygen") 
-        )
+          "LN-NO" = "Nitrate No Oxygen",
+          "LN-WO" = "Nitrate With Oxygen",
+          "NN-NO" = "No Nitrate No Oxygen"),
+        values =  jco_colors
+        ) + scale_y_log10(
+          breaks = trans_breaks("log10", function(x) 10^x),
+          labels = trans_format("log10", math_format(10^.x))
+        ) +  
+  ylab("Log of mean cell count per mL") +
+  theme_minimal()
+  
 plot_count
 
 
-# Saving the output
-ggsave(plot = plot_count, filename = "/home/glbcabria/Workbench/P3/Results/plot_count_D1-D43.png",
-    width = 2000,
-    height = 2000,
-    units = "px",
-    dpi = 300
-    )
 
-write_csv(count_summary, file = "/home/glbcabria/Workbench/P3/Results/count_summary.csv")
+
+
+# Saving the output
+# ggsave(plot = plot_count, filename = "/home/glbcabria/Workbench/P3/Results/plot_count_D1-D43.png",
+#     width = 2000,
+#     height = 2000,
+#     units = "px",
+#     dpi = 300
+#     )
+# 
+# write_csv(count_summary, file = "/home/glbcabria/Workbench/P3/Results/count_summary.csv")

@@ -1,0 +1,58 @@
+---
+title: "Project0 - Analysis of AIWIP GOWN Diversity and Denitrification potential"
+author: "Gamaliel Lysander B. Cabria"
+date: "08/11/2024"
+output: html_notebook
+---
+
+# Project 0
+
+## Analysis of the Amplicon Sequence Diversity
+
+
+### DADA2 Pipeline
+The input will be using raw 
+```{r}
+library(dada2)
+library(tidyverse)
+
+input<-"/home/glbcabria/Workbench/P0/qc" #Contains raw *fastq.gz 
+
+# Listing inputs
+forward_fq <- sort(list.files(input, pattern="_R1_paired.trim.fastq.gz", full.names = TRUE))
+reverse_fq <- sort(list.files(input, pattern="_R2_paired.trim.fastq.gz", full.names = TRUE))
+sample_names <- sapply(strsplit(basename(forward_fq), "_"), `[`, 1)
+
+plotQualityProfile(forward_fq[1:2])
+plotQualityProfile(reverse_fq[1:2])
+
+# Filter and Trimming
+filt_for_fq <- file.path(input, "filtered", paste0(sample_names, "_F_filt.fastq.gz"))
+filt_rev_fq <- file.path(input, "filtered", paste0(sample_names, "_R_filt.fastq.gz"))
+names(filt_for_fq) <- sample_names
+names(filt_rev_fq) <- sample_names
+
+filtntrim <- filterAndTrim(
+    forward_fq, filt_for_fq,
+    reverse_fq, filt_rev_fq,
+    truncLen = c(265,225),
+    #maxReads = 100000, #Comment out on first run to see the distribution of reads
+    maxN=0, maxEE=c(2,2), truncQ=2, 
+    rm.phix=TRUE,
+    compress=TRUE, 
+    multithread=TRUE
+)
+
+# Error Rate
+forward_err <- learnErrors(filt_for_fq, multithread = TRUE)
+reverse_err <- learnErrors(filt_rev_fq, multithread = TRUE)
+
+plotErrors(forward_err, nominalQ = TRUE)
+plotErrors(reverse_err, nominalQ = TRUE)
+
+# Sample Inference
+dada_for <- dada(filt_for_fq, forward_err, multithread = TRUE)
+dada_rev <- dada(filt_rev_fq, reverse_err, multithread = TRUE)
+
+dada_for[[1]]
+```
