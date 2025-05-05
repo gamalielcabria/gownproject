@@ -1,35 +1,20 @@
----
-title: "Project0 - Analysis of AIWIP GOWN Diversity and Denitrification potential"
-author: "Gamaliel Lysander B. Cabria"
-date: "08/11/2024"
-output: html_notebook
----
-
-# Project 0
-
-## Analysis of the Amplicon Sequence Diversity
-
-
-### DADA2 Pipeline
-The input will be using raw 
-```{r}
+#DADA2_exploratory.R
 library(dada2)
 library(tidyverse)
 
-input<-"/home/glbcabria/Workbench/P0/qc" #Contains raw *fastq.gz 
+input <- "/home/glbcabria/Workbench/P0/qc" #Contains raw *fastq.gz 
 
-# # Taking in inputs for SLURM
-# args <- commandArgs(trailingOnly = TRUE)
-# if (length(args) < 1) {
-   n_cores <- 12
-#   cat("No number of cores provided. Defaulting to 12 cores.\n")
-# } else {
-#   n_cores <- as.numeric(args[1])
-#   if (is.na(n_cores) || n_cores < 1) {
-#     stop("Invalid number of cores.")
-#   }
-# }
-
+# Taking in inputs for SLURM
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) < 1) {
+  n_cores <- 12
+  cat("No number of cores provided. Defaulting to 12 cores.\n")
+} else {
+  n_cores <- as.numeric(args[1])
+  if (is.na(n_cores) || n_cores < 1) {
+    stop("Invalid number of cores.")
+  }
+}
 
 # Listing inputs
 forward_fq <- sort(list.files(input, pattern="_R1_paired.trim.fastq.gz", full.names = TRUE))
@@ -44,10 +29,7 @@ for (i in seq_along(forward_fq)){
     print(plotQualityProfile(c(forward_fq[i],reverse_fq[i])))
     dev.off()
 }
-```
-Estimation of the size for use in `filtntrim` can be done using the red curves in this plot. I saved it alongside the input and per Sample Name.
 
-```{r}
 # Filter and Trimming
 filt_for_fq <- file.path(input, "filtered", paste0(sample_names, "_F_filt.fastq.gz"))
 filt_rev_fq <- file.path(input, "filtered", paste0(sample_names, "_R_filt.fastq.gz"))
@@ -57,7 +39,7 @@ names(filt_rev_fq) <- sample_names
 filtntrim <- filterAndTrim(
     forward_fq, filt_for_fq,
     reverse_fq, filt_rev_fq,
-    truncLen = c(240,240),
+    truncLen = c(260,260),
     #maxReads = 100000, #Comment out on first run to see the distribution of reads
     maxN=0, maxEE=c(2,2), truncQ=2, 
     rm.phix=TRUE,
@@ -73,10 +55,7 @@ plot_errs_for <- plotErrors(forward_err, nominalQ = TRUE)
 plot_errs_rev <- plotErrors(reverse_err, nominalQ = TRUE)
 ggsave(plot = plot_errs_for, filename = paste0(input,'/plot_errs_for.png'))
 ggsave(plot = plot_errs_rev, filename = paste0(input,'/plot_errs_rev.png'))
-```
-The errors are used for error-correction per sample. Similar to error correction in spades? Also visualization of Errors can sho what is the most common nucleotide shift.
 
-```{r}
 # Sample Inference
 dada_for <- dada(filt_for_fq, forward_err, multithread = n_cores, pool = TRUE, DETECT_SINGLETONS=TRUE)
 dada_rev <- dada(filt_rev_fq, reverse_err, multithread = n_cores, pool = TRUE, DETECT_SINGLETONS=TRUE)
@@ -84,37 +63,20 @@ dada_rev <- dada(filt_rev_fq, reverse_err, multithread = n_cores, pool = TRUE, D
 dada_for[[1]]
 denoisedF<-sapply(dada_for, function(x) sum(getUniques(x)))
 denoisedR<-sapply(dada_rev, function(x) sum(getUniques(x)))
-denoisedF
-denoisedR
 
-```
-Inspecting the dada-class object can show how many sequence variants from number of input sequences
-
-```{r}
+# Inspecting the dada-class object can show how many sequence variants from number of input sequences
 merged_reads <- mergePairs(dada_for, filt_for_fq, dada_rev, filt_rev_fq, verbose=TRUE)
-# Inspect the merger data.frame from the first sample
-head(merged_reads[[1]])
-```
 
-```{r}
 # Constructing sequence table
 seqtab <- makeSequenceTable(merged_reads)
 dim(seqtab)
 merged_counts <- sapply(merged_reads, function(x) sum(x$abundance))
 print(merged_counts)
-# table(nchar(getSequences(seqtab)))
-```
 
-```{r}
 # Remove Chimeras
 seqtab.nochim <- removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
 dim(seqtab.nochim)
 
-nochim_counts<- rowSums(seqtab.nochim)
-nochim_counts
-```
-
-```{r}
 # Tracking
 getN <- function(x) sum(getUniques(x))
 track <- cbind(filtntrim, sapply(dada_for, getN), sapply(dada_rev, getN), sapply(merged_reads, getN), rowSums(seqtab.nochim))
@@ -127,4 +89,3 @@ mutate(Percent_Merged = merged / filtered ) %>%
 mutate(Percent_NoChimeras = nonchim / filtered )
 
 write.csv(final_track, file = 'track.csv')
-```

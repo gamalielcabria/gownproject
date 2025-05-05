@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bioinformatics Training: Lesson 2 &#8212; Bioinformatics 101</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lesson2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Bioinformatics 101 Training: Lesson 1" href="Lesson1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Bioinformatics101.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Bioinformatics 101 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Bioinformatics 101 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Bioinformatics101.html">
+                    Bioinformatics 101
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson1.html">Bioinformatics 101 Training: Lesson 1</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bioinformatics Training: Lesson 2</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLesson2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lesson2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bioinformatics Training: Lesson 2</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bioinformatics Training: Lesson 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-completion">Auto-completion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-question-mark">The Question Mark</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redirectors">Redirectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-and">The ‘&gt;’ and ‘&lt;’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pipe">The pipe ‘|’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-redirectors">Error redirectors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bioinformatic-file-types-and-formats">Bioinformatic File types and formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-file-formats">Sequence File Formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fastq-format">The  FASTQ format</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#phred-score">Phred Score</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fasta-format">The  FASTA format</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-format">Alignment Format</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sam-or-sequence-alignment-map-format">The SAM or Sequence Alignment Map format</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-file-formats">Other File formats</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-operations-in-terminal">Common operations in Terminal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bioinformatics-training-lesson-2">
+<h1>Bioinformatics Training: Lesson 2<a class="headerlink" href="#bioinformatics-training-lesson-2" title="Link to this heading">#</a></h1>
+<section id="basic-operations">
+<h2>Basic Operations<a class="headerlink" href="#basic-operations" title="Link to this heading">#</a></h2>
+<section id="auto-completion">
+<h3>Auto-completion<a class="headerlink" href="#auto-completion" title="Link to this heading">#</a></h3>
+<p>Let us return to our home directory <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>. In this directory, create three folders named <code class="docutils literal notranslate"><span class="pre">test11</span></code>, <code class="docutils literal notranslate"><span class="pre">test20</span></code>, and <code class="docutils literal notranslate"><span class="pre">test21</span></code> using the <code class="docutils literal notranslate"><span class="pre">mkdir</span></code> command. Check your folder using <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<p>Afterwards, try typing <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">te</span></code> and tap the <strong>tab button</strong> once. As you can see, it should auto-complete it to test as it is the next complete <code class="docutils literal notranslate"><span class="pre">string</span></code> without conflict in our folder. Now, that we have <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">test</span></code> in our line, try tapping the <strong>tab button</strong> twice. It should ring a bell and prompt all possible matches with our initial user input.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">test11</span>&#160;&#160; <span class="pre">test20</span>&#160;&#160; <span class="pre">test21</span></code></p>
+</div></blockquote>
+<br>
+</section>
+<section id="wildcards">
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Link to this heading">#</a></h3>
+<p>Sometimes, we need to work on multiple files folders at the same time but they have different names (e.g. the test1, test 20 and test21). The default command-line shell that we are using allows manipulation of the files through the use of special characters called wildcards <code class="docutils literal notranslate"><span class="pre">*</span></code>.</p>
+<blockquote>
+<div><p><em><strong><ins>Try running this command:</ins></strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">te*</span></code></p>
+</div></blockquote>
+<p>The above command results in listing all files in the folder that starts with <code class="docutils literal notranslate"><span class="pre">te</span></code>. This can be used also in a more specific manner.</p>
+<blockquote>
+<div><p><em><strong><ins>Try running this command:</ins></strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">test*1</span></code></p>
+</div></blockquote>
+<p>Using the wildcard within the string matches anyword that starts with <code class="docutils literal notranslate"><span class="pre">test</span></code> and ends with <code class="docutils literal notranslate"><span class="pre">1</span></code>.  It is useful also when runnning commands of files with the same file extension: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">*.fasta</span> <span class="pre">./folder/</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the command line, the * means any character, any number of times (including 0 times).</p>
+</div>
+<p>Let us try removing all the folder we made earlier that start with <code class="docutils literal notranslate"><span class="pre">test</span></code> simultaneously:</p>
+<blockquote>
+<div><p><em><strong><ins>Try running this command:</ins></strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">test*</span></code></p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>⚠️ Removing files using wildcards should be done carefully as use of wildcards can result in unintended results (e.g. using <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">*</span></code> to delete all files within the folder)</p>
+</div>
+<section id="the-question-mark">
+<h4>The Question Mark<a class="headerlink" href="#the-question-mark" title="Link to this heading">#</a></h4>
+<p>Another type of wildcard is the use of <code class="docutils literal notranslate"><span class="pre">?</span></code> mark. Unlike the <code class="docutils literal notranslate"><span class="pre">*</span></code> which can match 1 or more strings e.g. (<code class="docutils literal notranslate"><span class="pre">test11111</span></code> and <code class="docutils literal notranslate"><span class="pre">test11</span></code>), the use of <code class="docutils literal notranslate"><span class="pre">test*1</span></code> will match both files while use of <code class="docutils literal notranslate"><span class="pre">test?1</span></code> will only match <code class="docutils literal notranslate"><span class="pre">test11</span></code>.</p>
+<blockquote>
+<div><p><em><strong><ins>Try running this command:</ins></strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">test?1</span></code></p>
+</div></blockquote>
+<p>Which one matches your query?</p>
+<br>
+</section>
+</section>
+<section id="redirectors">
+<h3>Redirectors<a class="headerlink" href="#redirectors" title="Link to this heading">#</a></h3>
+<p>The redirection symbols allow the change of destination of outputs (oe even inputs in some instances). Rather than outputs directly showing to your terminal screen, it can be redirected to another command or file. Additionally, redirectors can also be use to push an input to a command.</p>
+<section id="the-and">
+<h4>The ‘&gt;’ and ‘&lt;’<a class="headerlink" href="#the-and" title="Link to this heading">#</a></h4>
+<p>The ‘&gt;’ redirector indicates that the output of any command or process on its left will be transferred to a file indicated on its right. It’s most basic structure follows this: <code class="docutils literal notranslate"><span class="pre">[command]</span> <span class="pre">[any</span> <span class="pre">arguments]</span> <span class="pre">&gt;</span> <span class="pre">[output</span> <span class="pre">file]</span></code></p>
+<blockquote>
+<div><p><em><strong><ins>Try running this command:</ins></strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-all</span> <span class="pre">&gt;</span> <span class="pre">list.txt</span></code></p>
+<p>then, open <code class="docutils literal notranslate"><span class="pre">list.txt</span></code></p>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be warned that using an <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> output redirector with an output file that already exists in the destination will lead to the overwriting of that file. To append an existing file (adding output on the end of the file), please use the append <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> redirector instead.</p>
+</div>
+<p>Meanwhile, the ‘&lt;’ redirector indicates  that the file in the right of the <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> will be used as an input to the command to its left: <code class="docutils literal notranslate"><span class="pre">[command][options/arguments]</span> <span class="pre">&lt;</span> <span class="pre">[input</span> <span class="pre">file]</span></code></p>
+<blockquote>
+<div><p><em><strong><ins>Example:</ins></strong></em></p>
+<div class="highlight-mail notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>In this example, we can add the attachment <code class="docutils literal notranslate"><span class="pre">NewsFlash.zip</span></code> to the command line <code class="docutils literal notranslate"><span class="pre">mail</span></code> command rather than just sending plain text for email.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mail</span></code> command is command-line command used to send email. It is useful to incorporate in programs or scripts that need immediate notification to the user if they have errors or the run have finished.</p>
+</div>
+</section>
+<section id="the-pipe">
+<h4>The pipe ‘|’<a class="headerlink" href="#the-pipe" title="Link to this heading">#</a></h4>
+<p>If you want your output to be redirected not into a file but to another process or command, the <code class="docutils literal notranslate"><span class="pre">|</span></code> or pipe redirector is primarily used. It can be used not only once on a line but can be used to chain several commands to gether. A basic structure would look like this: <code class="docutils literal notranslate"><span class="pre">[command</span> <span class="pre">1]</span> <span class="pre">|</span> <span class="pre">[command</span> <span class="pre">2]</span> <span class="pre">|</span> <span class="pre">[command</span> <span class="pre">3]</span> <span class="pre">&gt;</span> <span class="pre">[output</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">STDOUT]</span></code></p>
+<blockquote>
+<div><p><em><strong><ins>Try running this command:</ins></strong></em></p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">./data/all</span> <span class="pre">|</span> <span class="pre">head</span> <span class="pre">-n</span> <span class="pre">20</span> <span class="pre">&gt;</span> <span class="pre">list.txt</span></code></p>
+</div></blockquote>
+</section>
+<section id="error-redirectors">
+<h4>Error redirectors<a class="headerlink" href="#error-redirectors" title="Link to this heading">#</a></h4>
+<p>Several programs often outputed also the errors in STDOUT or terminal screen. You can separate the errors and redirect it to a new distinct file using <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> redirection. It works similar as the normal output redirection but the difference is it will only filter ‘error’ outputs designated by the program you use.</p>
+<p>The ‘error’ redirector <code class="docutils literal notranslate"><span class="pre">2&gt;</span></code> can be used alongside a ‘output’ redirector but designate it as such <code class="docutils literal notranslate"><span class="pre">1&gt;</span></code>. One example would be like this: <code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">nonexistentfile.txt</span> <span class="pre">1&gt;</span> <span class="pre">file.out</span> <span class="pre">2&gt;</span> <span class="pre">file.err</span></code>.</p>
+<br>
+</section>
+</section>
+</section>
+<section id="bioinformatic-file-types-and-formats">
+<h2>Bioinformatic File types and formats<a class="headerlink" href="#bioinformatic-file-types-and-formats" title="Link to this heading">#</a></h2>
+<section id="sequence-file-formats">
+<h3>Sequence File Formats<a class="headerlink" href="#sequence-file-formats" title="Link to this heading">#</a></h3>
+<p>Sequencing of DNA and RNA often produce signals of light, chromatogram peaks or electric current as an indication of a nucleotide base. These raw signals are converted into ASCII or computer friendly code using a ‘basecaller’ or basecalling program. Most of the files that we analysed in bioinformatic analysis are already in this ASCII or alphanumeric format that is readable to both machines and humans.</p>
+<p>To learn more about basecaller, please look into in this <a class="reference external" href="https://nanoporetech.com/platform/technology/basecalling">nanopore guide</a>.</p>
+<section id="the-fastq-format">
+<h4>The  FASTQ format<a class="headerlink" href="#the-fastq-format" title="Link to this heading">#</a></h4>
+<p>The most common file format after basecalling is the <em><strong>fastq</strong></em> format or colloquially known as <em>Quality FASTA</em> format. The fastq files contained both nucleotide sequence information, represented with characters as AGCTN*, and the quality score of each nucleotide, which are represented by different alphanumeric characters. The quality score is based on <strong>Phred Q Score</strong> system in which quality is computed as probabilty of error <em>Pe</em> [2], as computed by this equation:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Qphred=-10</span> <span class="pre">x</span> <span class="pre">log10(Pe)</span></code></p>
+</div></blockquote>
+<p>The fastQ file format is composed of four lines:</p>
+<ol class="arabic simple">
+<li><p>Line 1 is the sequence identifier and description and commonly known as <em>header</em>. It often starts with ‘&#64;’ symbol and followed with sequencing information such as sequencer and flow cell lane used.</p></li>
+<li><p>The second line contains the RAW sequence data and denoted using <code class="docutils literal notranslate"><span class="pre">AGCT</span></code> characters used in FASTA file.</p></li>
+<li><p>Line 3 contains the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol that separates sequences and quality</p></li>
+<li><p>The fourthe line meanwhiles contains the quality score of the file in Phred Score Format</p></li>
+</ol>
+<div class="image3">
+<img src="https://biocorecrg.github.io/RNAseq_course_2019/images/fastq_format.png" alt="Sourced from https://biocorecrg.github.io/RNAseq_course_2019/fastq.html">
+</div>
+<section id="phred-score">
+<h5>Phred Score<a class="headerlink" href="#phred-score" title="Link to this heading">#</a></h5>
+<p>The quality scores ranges from 0-40 with 40 indicating the highest level of quality. Phred quality score can be interpreted as a factor of accuracy as shown in this table:</p>
+<center>Quality Scores and Accuracy</center>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Phred Score</p></th>
+<th class="head"><p>Probability of incorrect call</p></th>
+<th class="head"><p>Base Call Accuracy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>1 in 10</p></td>
+<td><p>90%</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>1 in 100</p></td>
+<td><p>99%</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>1 in 1,000</p></td>
+<td><p>99.9%</p></td>
+</tr>
+<tr class="row-odd"><td><p>40</p></td>
+<td><p>1 in 10,000</p></td>
+<td><p>99.99%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The ASCII representation of this quality score in fastq files can be seen in this image adapted from <a class="reference external" href="https://learn.gencore.bio.nyu.edu/ngs-file-formats/quality-scores/">NYU</a>:
+<br></p>
+<div class="image">
+<img src="https://learn.gencore.bio.nyu.edu/wp-content/uploads/2018/01/Screen-Shot-2018-01-07-at-1.34.33-PM-768x492.png">
+</div>
+<br>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Phred-64 format is only used by Illumina sequencers while Phred-33 is primarily used by other sequencing file format.</p>
+</div>
+</section>
+</section>
+<section id="the-fasta-format">
+<h4>The  FASTA format<a class="headerlink" href="#the-fasta-format" title="Link to this heading">#</a></h4>
+<p>FASTA files are the most common file format you will encounter when doing bioinformatic analysis. Unlike FASTQ files with quality score, FASTA files primarily contains only the sequence information using <code class="docutils literal notranslate"><span class="pre">AGCT</span></code> characters for nucleotides. Aside from this, the <code class="docutils literal notranslate"><span class="pre">N</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> are also used as unspecified based and stop character.</p>
+<br>
+<div class="image3">
+<center>
+    <img src="https://www.researchgate.net/profile/Jiangning-Song/publication/331702618/figure/fig2/AS:745823247810566@1554829527399/An-example-of-the-FASTA-format-used-in-iLearn.ppm">
+</center>
+</div>
+<center><ins>A nucleotide FASTA File</ins></center>
+<br>
+<p>The <em><strong>FASTA</strong></em> file format is composed of two lines per sequence. The first line starts with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> composes the header line. It often has the sequence name and other properties depending on the program used. The second line is composed of the nucleotide sequence file. This can be on capital or small characters.</p>
+<p>When reading FASTA format of protein sequences, we use single amino acid representations.</p>
+<div class="image3">
+<center>
+    <img src="https://www.integratedbreeding.net/courses/genomics-and-comparative-genomics/www.generationcp.org/UserFiles/Image/genomics/amino.gif">
+</center>
+</div>
+<p>Here is a sample of a protein FASTA file:
+<br></p>
+<div class="image">
+<center>
+    <img src="https://training.galaxyproject.org/training-material/topics/proteomics/images/Fasta_sequence.png">
+</center>
+<center><ins>Protein FASTA File</ins></center>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The two formats should not be used at the same file as the nucleotide fasta format can be interpreted as a protein fasta file.</p>
+</div>
+<br>
+</section>
+</section>
+<section id="alignment-format">
+<h3>Alignment Format<a class="headerlink" href="#alignment-format" title="Link to this heading">#</a></h3>
+<p>In many downstream analysis, fasta/fastq files are aligned to create a large genome sequence file. Among the most common alignment format used here are the <strong>SAM</strong> and <strong>BAM</strong> format. ‘BAM’ is the binary file format of ‘SAM’ and often used for its smaller file size.</p>
+<section id="the-sam-or-sequence-alignment-map-format">
+<h4>The SAM or Sequence Alignment Map format<a class="headerlink" href="#the-sam-or-sequence-alignment-map-format" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">script</span> false --no-raise-error
+1:497:R:-272+13M17D24M	113	1	497	37	37M	15	100338662	0	CGGGTCTGACCTGAGGAGAACTGTGCTCCGCCTTCAG	0;==-==9;&gt;&gt;&gt;&gt;&gt;=&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;=&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;	XT:A:U	NM:i:0	SM:i:37	AM:i:0	X0:i:1	X1:i:0	XM:i:0	XO:i:0	XG:i:0	MD:Z:37
+19:20389:F:275+18M2D19M	99	1	17644	0	37M	=	17919	314	TATGACTGCTAATAATACCTACACATGTTAGAACCAT	&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;&lt;&gt;&gt;&gt;&lt;&lt;&gt;&gt;4::&gt;&gt;:&lt;9	RG:Z:UM0098:1	XT:A:R	NM:i:0	SM:i:0	AM:i:0	X0:i:4	X1:i:0	XM:i:0	XO:i:0	XG:i:0	MD:Z:37
+19:20389:F:275+18M2D19M	147	1	17919	0	18M2D19M	=	17644	-314	GTAGTACCAACTGTAAGTCCTTATCTTCATACTTTGT	;44999;499&lt;8&lt;8&lt;&lt;&lt;8&lt;&lt;&gt;&lt;&lt;&lt;&lt;&gt;&lt;7&lt;;&lt;&lt;&lt;&gt;&gt;&lt;&lt;	XT:A:R	NM:i:2	SM:i:0	AM:i:0	X0:i:4	X1:i:0	XM:i:0	XO:i:1	XG:i:2	MD:Z:18^CA19
+9:21597+10M2I25M:R:-209	83	1	21678	0	8M2I27M	=	21469	-244	CACCACATCACATATACCAAGCCTGGCTGTGTCTTCT	&lt;;9&lt;&lt;5&gt;&lt;&lt;&lt;&lt;&gt;&lt;&lt;&lt;&gt;&gt;&lt;&lt;&gt;&lt;&gt;&gt;&lt;9&gt;&gt;&lt;&gt;&gt;&gt;9&gt;&gt;&gt;&lt;&gt;	XT:A:R	NM:i:2	SM:i:0	AM:i:0	X0:i:5	X1:i:0	XM:i:0	XO:i:1	XG:i:2	MD:Z:35
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown above, it is composed of several columns that describes a reads position in the genome. The meaning of each column can be seen here:</p>
+<div class="image2">
+    <img src="https://bioinformatics.media.uconn.edu/wp-content/uploads/sites/15/2017/01/format2-768x247.png">
+</div>
+We will not discuss this in detail but will tackle in the future. 
+<br>
+</section>
+</section>
+<section id="other-file-formats">
+<h3>Other File formats<a class="headerlink" href="#other-file-formats" title="Link to this heading">#</a></h3>
+<p>Multiple other file formats are used in Bioinformatics. We will tackle them in detail when we encounter them in our analysis. Here are some of the file formats that are common in a bioinformatic workflow.</p>
+<center><em><b>Bioinformatic files</b></em></center> 
+<div class="term_table">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>File Formats</strong></p></th>
+<th class="head"><p><strong>Extension</strong></p></th>
+<th class="head"><p><strong>Definitions</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FASTQ</p></td>
+<td><p>.fastq or .fq</p></td>
+<td><p>contains sequence information and the quality of the sequences</p></td>
+</tr>
+<tr class="row-odd"><td><p>FASTA</p></td>
+<td><p>.fasta or .fa</p></td>
+<td><p>basic file containing description and sequence information</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>.fna</p></td>
+<td><p>an alternative extension used to denote a nucleotide fasta format</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>.faa</p></td>
+<td><p>an alternative extension used to denote a protein fasta format</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>.fa.gz or .fasta.gz or .fq.gz</p></td>
+<td><p>gunzipped compressed format of FASTA or FASTQ for smaller file size</p></td>
+</tr>
+<tr class="row-odd"><td><p>SAM</p></td>
+<td><p>.sam</p></td>
+<td><p>a sequence alignment format that details position of each nucleotide. May include quality score and other options depending on the program used</p></td>
+</tr>
+<tr class="row-even"><td><p>BAM</p></td>
+<td><p>.bam</p></td>
+<td><p>a compressed or binary form of SAM to lower file size</p></td>
+</tr>
+<tr class="row-odd"><td><p>General Feature Format</p></td>
+<td><p>.gff or .gff2 or .gff3</p></td>
+<td><p>is a file format used to describe genes and other general feature of the genome</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p>It is consisting of several columns describing the genes, gene names, position and orientation of the genes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gene Transfer format</p></td>
+<td><p>.gtf</p></td>
+<td><p>Similar to GFF files but may containe gene structure data</p></td>
+</tr>
+<tr class="row-even"><td><p>Variant Calling File</p></td>
+<td><p>.vcf</p></td>
+<td><p>VCf is the standard format when storing gene variation data such as <em>indels</em> and <em>single nucleotide polymorphisms (SNPs)</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<section id="common-operations-in-terminal">
+<h3>Common operations in Terminal<a class="headerlink" href="#common-operations-in-terminal" title="Link to this heading">#</a></h3>
+<div class=term_table>  
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Terminologies</strong></p></th>
+<th class="head"><p><strong>Definitions</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tab</span></code></p></td>
+<td><p>Auto-completion of files or programs available in the terminal</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>A catch-all wildcard that matches 0 or more instances</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>A single character wildcard that matches just 1 character instance</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p>Output redirector that allows both STDOUT and STDERR to be save to a file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>Input redirector that allows files to fill in as STDIN to the command or program</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td><p>Append redirector add STDOUT to the end of the file rather than replacing it</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2&gt;</span></code></p></td>
+<td><p>error redirection separates STDERR outputs to a file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1&gt;</span></code></p></td>
+<td><p>STDOUT only redirection to a file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">|</span></code></p></td>
+<td><p>Pipe redirection allows to chain a STDOUT as STDIN to another program</p></td>
+</tr>
+<tr class="row-odd"><td><p>STDIN</p></td>
+<td><p>Standard input are inputs that are often provided to a program or command via terminal</p></td>
+</tr>
+<tr class="row-even"><td><p>STDOUT</p></td>
+<td><p>Standard output are output of programs and commands and are often shown into the terminal rather than a file</p></td>
+</tr>
+<tr class="row-odd"><td><p>STDERR</p></td>
+<td><p>Standard errors are error outputs of programs and commands that is also often shown in terminal</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="acknowledgement">
+<h1>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Link to this heading">#</a></h1>
+<p>This tutorial is adapted from <em>Intro to Unix</em> from Happy Belly Bioinformatics by Michael D. Lee or known as <a class="reference external" href="https://astrobiomike.github.io/unix/">AstroBioMike in github</a>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="citation">
+<h1>Citation<a class="headerlink" href="#citation" title="Link to this heading">#</a></h1>
+<p>[1] Lee, M. (2019). Happy Belly Bioinformatics: an open-source resource dedicated to helping biologists utilize bioinformatics. Journal of Open Source Education, 4(41), 53, <a class="reference external" href="https://doi.org/10.21105/jose.00053">https://doi.org/10.21105/jose.00053</a></p>
+<p>[2] Cock, P.J.A, C.J. Fields, N. Goto, M.L. Heuer, &amp; P.M. Rice (2010). The Sanger FASTQ file format for sequences with quality scores, and the Solexa/Illumina FASTQ variants. Nucleic Acids Research, 38(6):1767-1771, <a class="reference external" href="https://doi.org/10.1093%2Fnar%2Fgkp1137">https://doi.org/10.1093%2Fnar%2Fgkp1137</a></p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="err">#</span><span class="w"> </span><span class="nt">Global</span><span class="w"> </span><span class="nt">Table</span><span class="w"> </span><span class="nt">parameters</span>
+<span class="err">#</span><span class="w"> </span><span class="nt">table</span><span class="w"> </span><span class="p">{</span><span class="k">float</span><span class="p">:</span><span class="kc">center</span><span class="p">;</span><span class="w"> </span><span class="k">width</span><span class="p">:</span><span class="mi">70</span><span class="kt">%</span><span class="p">}</span>
+<span class="err">#</span><span class="w"> </span><span class="nt">tr</span><span class="w"> </span><span class="p">{</span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="kc">black</span><span class="p">}</span>
+<span class="err">#</span><span class="w"> </span><span class="nt">th</span><span class="w"> </span><span class="p">{</span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="kc">grey</span><span class="p">}</span>
+
+<span class="p">.</span><span class="nc">term_table</span><span class="w"> </span><span class="nt">table</span><span class="p">{</span>
+<span class="w">    </span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">term_table</span><span class="w"> </span><span class="nt">table</span><span class="w"> </span><span class="nt">tbody</span><span class="w"> </span><span class="nt">td</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">1</span><span class="o">)</span><span class="p">{</span>
+<span class="w">    </span><span class="k">font-weight</span><span class="p">:</span><span class="w"> </span><span class="kc">bold</span><span class="p">;</span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">float</span><span class="p">:</span><span class="kc">center</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">term_table</span><span class="w"> </span><span class="nt">table</span><span class="w"> </span><span class="nt">tbody</span><span class="w"> </span><span class="nt">td</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">2</span><span class="o">)</span><span class="p">{</span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">float</span><span class="p">:</span><span class="kc">center</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">term_table</span><span class="w"> </span><span class="nt">table</span><span class="w"> </span><span class="nt">tbody</span><span class="w"> </span><span class="nt">td</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">3</span><span class="o">)</span><span class="p">{</span>
+<span class="w">    </span><span class="k">text-align</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">    </span><span class="k">float</span><span class="p">:</span><span class="kc">center</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">term_table</span><span class="w"> </span><span class="nt">table</span><span class="w"> </span><span class="nt">thead</span><span class="w"> </span><span class="nt">tr</span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#b3b3b3</span><span class="p">;</span>
+<span class="w">    </span><span class="k">border</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">px</span><span class="w"> </span><span class="kc">solid</span><span class="w"> </span><span class="kc">black</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">term_table</span><span class="w"> </span><span class="nt">table</span><span class="w"> </span><span class="nt">tbody</span><span class="w"> </span><span class="nt">tr</span><span class="p">:</span><span class="nd">nth-child</span><span class="o">(</span><span class="nt">even</span><span class="o">)</span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="mh">#e5e5e</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">image</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">image2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">image3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">margin-left</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">margin-right</span><span class="p">:</span><span class="w"> </span><span class="kc">auto</span><span class="p">;</span>
+<span class="w">    </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+# Global Table parameters
+# table {float:center; width:70%}
+# tr {float: center; color:black}
+# th {float: center; color:grey}
+
+.term_table table{
+    float: center;
+}
+
+.term_table table tbody td:nth-child(1){
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+    float:center
+}
+
+.term_table table tbody td:nth-child(2){
+    text-align: center;
+    width: 300px;
+    float:center
+}
+
+.term_table table tbody td:nth-child(3){
+    text-align: center;
+    width: 300px;
+    float:center
+}
+
+.term_table table thead tr{
+    background-color: #b3b3b3;
+    border: 1px solid black
+}
+
+.term_table table tbody tr:nth-child(even){
+    background-color:#e5e5e
+}
+
+.image {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.image2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.image3 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+</style>
+    
+</div></div>
+</details>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bioinformatics 101 Training: Lesson 1</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Bioinformatics Training: Lesson 2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-operations">Basic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#auto-completion">Auto-completion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-question-mark">The Question Mark</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#redirectors">Redirectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-and">The ‘&gt;’ and ‘&lt;’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pipe">The pipe ‘|’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#error-redirectors">Error redirectors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bioinformatic-file-types-and-formats">Bioinformatic File types and formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-file-formats">Sequence File Formats</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fastq-format">The  FASTQ format</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#phred-score">Phred Score</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fasta-format">The  FASTA format</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alignment-format">Alignment Format</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sam-or-sequence-alignment-map-format">The SAM or Sequence Alignment Map format</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-file-formats">Other File formats</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-operations-in-terminal">Common operations in Terminal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgement">Acknowledgement</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#citation">Citation</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gamaliel Cabria
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
