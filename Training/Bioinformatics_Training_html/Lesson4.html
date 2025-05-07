@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Intro to ARC and SLURM JOB submissions &#8212; Bioinformatics 101</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lesson4';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Bioinformatics Training: Lesson 3" href="Lesson3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Bioinformatics101.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Bioinformatics 101 - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Bioinformatics 101 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Bioinformatics101.html">
+                    Bioinformatics 101
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lesson1.html">Bioinformatics Training: Lesson 1</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson2.html">Bioinformatics Training: Lesson 2</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Lesson3.html">Bioinformatics Training: Lesson 3</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Intro to ARC and SLURM JOB submissions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLesson4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lesson4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Intro to ARC and SLURM JOB submissions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-arc-advanced-research-computing-at-the-university-of-calgary">Getting Started with ARC (Advanced Research Computing) at the University of Calgary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-access">1. Getting Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-arc">2. Connecting to ARC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-files">3. Transferring Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-a-file-to-arc">Upload a file to ARC:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-file-from-arc">Download a file from ARC:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-software">4. Modules and Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softwares-through-package-managers-and-environment-management-systems">5. Softwares through Package Managers and environment management systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-storage">6. File Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-slurm-for-bioinformatics-workflows">Introduction to SLURM for Bioinformatics Workflows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-slurm">1. What is SLURM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">2. Key Concepts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-slurm-commands">3. Basic SLURM Commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-slurm-script">4. Sample SLURM Script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-your-job">5. Monitoring Your Job</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support">9. Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-arc-and-slurm-job-submissions">
+<h1>Intro to ARC and SLURM JOB submissions<a class="headerlink" href="#intro-to-arc-and-slurm-job-submissions" title="Link to this heading">#</a></h1>
+<section id="getting-started-with-arc-advanced-research-computing-at-the-university-of-calgary">
+<h2>Getting Started with ARC (Advanced Research Computing) at the University of Calgary<a class="headerlink" href="#getting-started-with-arc-advanced-research-computing-at-the-university-of-calgary" title="Link to this heading">#</a></h2>
+<p>This tutorial provides a quick-start guide for accessing and using ARC systems at the University of Calgary for high-performance computing tasks such as bioinformatics analysis, data processing, and simulations.</p>
+<hr class="docutils" />
+<section id="getting-access">
+<h3>1. Getting Access<a class="headerlink" href="#getting-access" title="Link to this heading">#</a></h3>
+<p>To access ARC:</p>
+<ol class="arabic simple">
+<li><p>Register for an ARC account at: <a class="reference external" href="https://rcs.ucalgary.ca/How_to_get_an_account">https://rcs.ucalgary.ca/How_to_get_an_account</a></p></li>
+<li><p>You will receive login credentials and instructions after approval.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="connecting-to-arc">
+<h3>2. Connecting to ARC<a class="headerlink" href="#connecting-to-arc" title="Link to this heading">#</a></h3>
+<p>Use SSH (Secure Shell) to log in from your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>&lt;your<span class="w"> </span>user<span class="w"> </span>name&gt;@arc.ucalgary.ca
+</pre></div>
+</div>
+<p>Username is the same name you use for your University email (<strong>john.doe</strong> for an email with <strong><a class="reference external" href="mailto:john&#46;doe&#37;&#52;&#48;ucalgary&#46;ca">john<span>&#46;</span>doe<span>&#64;</span>ucalgary<span>&#46;</span>ca</a></strong>).</p>
+<p>If using Windows, install a terminal like Git Bash or use <a class="reference external" href="https://mobaxterm.mobatek.net/">MobaXterm</a> or <a class="reference external" href="https://www.putty.org/">Putty</a>. Alternatively, you can connect to the <strong>SHELL TERMINAL</strong> of ARC through your local browser. Just use the <a class="reference external" href="https://ood-arc.rcs.ucalgary.ca/pun/sys/shell/ssh/arc.ucalgary.ca">Open On-Demand ARC Shell Access</a></p>
+<p>Link for UCalgary ARC Open On-Demand Website: <a class="reference external" href="https://ood-arc.rcs.ucalgary.ca/pun/sys/dashboard">OOD Dashboard</a><br />
+<br></p>
+<div>
+    <img src="https://rcs.ucalgary.ca/images/d/d9/Open_OnDemand_Dashboard.jpg">
+</div>
+</section>
+<hr class="docutils" />
+<section id="transferring-files">
+<h3>3. Transferring Files<a class="headerlink" href="#transferring-files" title="Link to this heading">#</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">scp</span></code> or <code class="docutils literal notranslate"><span class="pre">rsync</span></code> to move data between your local machine and ARC.</p>
+<section id="upload-a-file-to-arc">
+<h4>Upload a file to ARC:<a class="headerlink" href="#upload-a-file-to-arc" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>myfile.txt<span class="w"> </span>yourusername@arc.ucalgary.ca:/home/yourusername/
+</pre></div>
+</div>
+</section>
+<section id="download-a-file-from-arc">
+<h4>Download a file from ARC:<a class="headerlink" href="#download-a-file-from-arc" title="Link to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>scp<span class="w"> </span>yourusername@arc.ucalgary.ca:/home/yourusername/results.csv<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="modules-and-software">
+<h3>4. Modules and Software<a class="headerlink" href="#modules-and-software" title="Link to this heading">#</a></h3>
+<p>ARC uses <strong>Environment Modules</strong> to manage software. Load what you need:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>avail<span class="w">        </span><span class="c1"># List all available modules</span>
+module<span class="w"> </span>load<span class="w"> </span>fastqc<span class="w">  </span><span class="c1"># Load a specific tool</span>
+</pre></div>
+</div>
+</section>
+<section id="softwares-through-package-managers-and-environment-management-systems">
+<h3>5. Softwares through Package Managers and environment management systems<a class="headerlink" href="#softwares-through-package-managers-and-environment-management-systems" title="Link to this heading">#</a></h3>
+<p>ARC allows the usage of software installed in environment management systems.</p>
+<p>What are environments?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Package Manager (i.e. PIP and Conda) allows you to install softwares. Meanwhile, environment management system (Python Env and Conda)  allows you to manage software in isolated environments. For example, one workflow requires PERL 5.41 but another needs PERL 6.1. An environment management system allows you to install different versions of software concurrently onto two different environments.</p>
+</div>
+<p>The most common you will encounter are Python Virtual Environment (Python VENV) and CONDA. For detail installation please follow the following links:
+<a class="reference external" href="https://rcs.ucalgary.ca/Conda_on_ARC">CONDA in ARC</a>
+<a class="reference external" href="https://rcs.ucalgary.ca/Python#Virtual_environments">Python Virtual Environment in ARC</a></p>
+</section>
+<hr class="docutils" />
+<section id="file-storage">
+<h3>6. File Storage<a class="headerlink" href="#file-storage" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>To check your space in ARC use <code class="docutils literal notranslate"><span class="pre">arc.quota</span></code></p></li>
+<li><p>Your home directory has limited quota (typically 500GB).</p></li>
+<li><p>For large files, use <code class="docutils literal notranslate"><span class="pre">/scratch</span></code> or <code class="docutils literal notranslate"><span class="pre">/project</span></code> space.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">du</span> <span class="pre">-sh</span> <span class="pre">*</span></code> to check folder sizes.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="introduction-to-slurm-for-bioinformatics-workflows">
+<h2>Introduction to SLURM for Bioinformatics Workflows<a class="headerlink" href="#introduction-to-slurm-for-bioinformatics-workflows" title="Link to this heading">#</a></h2>
+<section id="what-is-slurm">
+<h3>1. What is SLURM?<a class="headerlink" href="#what-is-slurm" title="Link to this heading">#</a></h3>
+<p>SLURM (Simple Linux Utility for Resource Management) is an open-source job scheduler used by many high-performance computing (HPC) clusters. It manages and allocates resources like CPUs, memory, and GPUs for your computational jobs.</p>
+<div class=image>
+<img src="https://carinadocs.stanford.edu/sites/g/files/sbiybj23026/files/styles/responsive_large/public/media/image/slurm-chart_0.png?itok=f6XRiBsr">
+</div>div>
+</section>
+<section id="key-concepts">
+<h3>2. Key Concepts<a class="headerlink" href="#key-concepts" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Job</strong>: A script or command submitted to the queue.</p></li>
+<li><p><strong>Node</strong>: A physical machine in the cluster.</p></li>
+<li><p><strong>Partition</strong>: A queue of nodes, usually grouped by capabilities (e.g., <code class="docutils literal notranslate"><span class="pre">short</span></code>, <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">gpu</span></code>).</p></li>
+<li><p><strong>Scheduler</strong>: The system that decides when and where jobs run.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="basic-slurm-commands">
+<h3>3. Basic SLURM Commands<a class="headerlink" href="#basic-slurm-commands" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue<span class="w">             </span><span class="c1"># View all running and queued jobs</span>
+sbatch<span class="w"> </span>job.slurm<span class="w">   </span><span class="c1"># Submit a batch job</span>
+scancel<span class="w"> </span><span class="m">12345</span><span class="w">      </span><span class="c1"># Cancel a job by its ID</span>
+sinfo<span class="w">              </span><span class="c1"># Show partition and node status</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sample-slurm-script">
+<h3>4. Sample SLURM Script<a class="headerlink" href="#sample-slurm-script" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=fastqc_job       # Job name</span>
+<span class="c1">#SBATCH --output=logs/fastqc_%j.out # Output file</span>
+<span class="c1">#SBATCH --error=logs/fastqc_%j.err  # Error file</span>
+<span class="c1">#SBATCH --ntasks=1                  # Number of tasks (processes)</span>
+<span class="c1">#SBATCH --cpus-per-task=4           # CPUs per task</span>
+<span class="c1">#SBATCH --mem=8G                    # Total memory</span>
+<span class="c1">#SBATCH --time=01:00:00             # Time limit (hh:mm:ss)</span>
+<span class="c1">#SBATCH --partition=short           # Partition name</span>
+
+<span class="c1"># Load necessary modules</span>
+module<span class="w"> </span>load<span class="w"> </span>fastqc
+
+<span class="c1"># Run your command</span>
+fastqc<span class="w"> </span>-t<span class="w"> </span><span class="nv">$SLURM_JOB_CPUS_PER_TASK</span><span class="w"> </span>raw_reads/sample1.fastq<span class="w"> </span>-o<span class="w"> </span>results/
+</pre></div>
+</div>
+<blockquote>
+<div><p>💡 <code class="docutils literal notranslate"><span class="pre">%j</span></code> is replaced by the job ID automatically.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="monitoring-your-job">
+<h3>5. Monitoring Your Job<a class="headerlink" href="#monitoring-your-job" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>squeue<span class="w"> </span>-u<span class="w"> </span>your_username<span class="w">       </span><span class="c1"># Check your jobs</span>
+sacct<span class="w"> </span>-j<span class="w"> </span>JOBID<span class="w">                </span><span class="c1"># Get job accounting details</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Always test scripts with small data first.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">--mail-type=END,FAIL</span></code> and <code class="docutils literal notranslate"><span class="pre">--mail-user=email&#64;example.com</span></code> to get job status emails.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> to see available tools on your cluster.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">screen</span></code> or <code class="docutils literal notranslate"><span class="pre">tmux</span></code> if running interactive sessions.</p></li>
+<li><p>Clean up old files to avoid storage overuse.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="support">
+<h2>9. Support<a class="headerlink" href="#support" title="Link to this heading">#</a></h2>
+<p>For help or custom software installs, contact ARC support:
+📧 <a class="reference external" href="mailto:arc&#46;support&#37;&#52;&#48;ucalgary&#46;ca">arc<span>&#46;</span>support<span>&#64;</span>ucalgary<span>&#46;</span>ca</a><br />
+🔗 <a class="reference external" href="https://rcs.ucalgary.ca/arc">ARC Website</a></p>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM Documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.osc.edu/sites/osc.edu/files/images/SLURM-Cheat-Sheet.pdf">Cheat Sheet (by Ohio Supercomputer Center)</a></p></li>
+<li><p><a class="reference external" href="https://rcs.ucalgary.ca/arc/getting-started">ARC Getting Started</a></p></li>
+<li><p><a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM Documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lesson3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bioinformatics Training: Lesson 3</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-arc-advanced-research-computing-at-the-university-of-calgary">Getting Started with ARC (Advanced Research Computing) at the University of Calgary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-access">1. Getting Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-arc">2. Connecting to ARC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-files">3. Transferring Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-a-file-to-arc">Upload a file to ARC:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-file-from-arc">Download a file from ARC:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-software">4. Modules and Software</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softwares-through-package-managers-and-environment-management-systems">5. Softwares through Package Managers and environment management systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-storage">6. File Storage</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-slurm-for-bioinformatics-workflows">Introduction to SLURM for Bioinformatics Workflows</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-slurm">1. What is SLURM?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts">2. Key Concepts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-slurm-commands">3. Basic SLURM Commands</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-slurm-script">4. Sample SLURM Script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitoring-your-job">5. Monitoring Your Job</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">Tips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support">9. Support</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gamaliel Cabria
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
