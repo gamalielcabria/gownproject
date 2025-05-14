@@ -1,0 +1,77 @@
+---
+title: "Project 0 - Identification of Microbial Effect in GW Denitrification Project"
+output: html_notebook
+---
+
+## Intro
+This is a notebook for the bioinformatic analysis/workflow for identifying the effect of microbes in the groundwater (GW) wells **in situ**. The sections will be based on the analysis that has been done and will be added as I go. First, is selecting wells for sampling
+
+## Field sampling 2025
+Importing the files for analysis
+```{r}
+library(tidyverse)
+library(readxl)
+library(janitor)
+
+clean_name <- function(names) {
+  names <- gsub("\\s+", "_", names)  # Replace multiple whitespaces with a single underscore
+  make.unique(names, sep = "_")      # Ensure names are still unique
+}
+
+input_collectionteam20255<-'/home/glbcabria/Workbench/GOWNData/EPA 2025 GW_Quality_Well List 2025 U of C.xlsx'
+input_darkoxygenpsupp<-'/home/glbcabria/Workbench/GOWNData/EmilsSupp_41467_2023_38523_MOESM4_ESM.xlsx'
+input_2023GOWNMetadata <-'/home/glbcabria/Workbench/GOWNData/2023 Dec GOWN Metadata Stn Public.xls'
+input_denitrificationpotential <-'/home/glbcabria/Workbench/GOWNData/denitrification potential.xlsx'
+
+collectionteam2025<-read_excel(input_collectionteam20255, sheet = 'GW_Quality_well list 2025-26', 
+                               col_names = TRUE, .name_repair = clean_name )
+darko2supp<-read_excel(input_darkoxygenpsupp, sheet = 'Chem_Phys_Gas_Isotope_Microbiol', skip=1, 
+                       col_names = TRUE, .name_repair = clean_name)
+GOWNMetadata<-read_excel(input_2023GOWNMetadata, sheet = 'Detail', col_names = TRUE, 
+                         .name_repair = clean_name)
+deNO3potential<-read_excel(input_denitrificationpotential, sheet = 'denitrifiers by sample', col_names = TRUE,
+                           .name_repair = clean_name, n_max = 26)
+```
+
+Let us filter only the needed rows and columns per input so we can have clean merge of dataframes later on.
+```{r}
+clean_dnp <- deNO3potential %>%
+  clean_names() %>%
+  separate(x14, into=c("GOWN_ID","GOWN_NAME_DNP"), sep = ' ', extra='merge') %>%
+  select(!starts_with("x")) %>%
+  select(c('GOWN_ID','GOWN_NAME_DNP','denitrifier_relative_abundance_percent','nitrate','index_percent_d_percent_o',)) %>%
+  mutate(index_percent_d_percent_o=gsub('\\?',NA, index_percent_d_percent_o))
+
+clean_metadata <- GOWNMetadata %>%
+  select(Station_Code_Gown,STATION_NAME,AWWID_ID,Latitude,Longitude,Completion,Formation,Lithology,Aquifer,Depth_Class) %>%
+  mutate(Station_Code_Gown=as.character(Station_Code_Gown))
+
+clean_darkoxsupp <- darko2supp %>%
+  select(GOWN_Well_Number, GOWN_Well_Name,
+         Chem_METHANE_ugL,Chem_ETHANE_ugL,Chem_PROPANE_ugL,
+         Chem_CO2_mgL,Chem_O2_mgL,Chem_O2_FIELD_METER_mgL,
+         Chem_Cl_dis_mgL,Chem_SO4_dis_mgL,Chem_Bicarbonate_HCO3_calc_mgL,
+         Chem_Fe_dis_mgL,Chem_Mn_dis_mgL,
+         Chem_NH3_mgL,Chem_N_NO3_mgL,Chem_N_NO2_mgL
+         )
+
+clean_samplingtarget <- collectionteam2025 %>%
+  clean_names() %>%
+  filter(gown_no != "SUBTOTAL" & !is.na(gown_no) ) %>%
+  mutate(COLLECTIONWELL_NAME = name) %>%
+  select(gown_no, COLLECTIONWELL_NAME, wds_station_no, office) %>%
+  separate_rows(gown_no, sep = ',')
+  
+join_df <- clean_samplingtarget %>%
+  left_join(clean_metadata, by = c("gown_no"="Station_Code_Gown") ) %>%
+  left_join(clean_dnp, by = c("gown_no" = "GOWN_ID") ) %>%
+  left_join(clean_darkoxsupp, by = c("gown_no" = "GOWN_Well_Number") )
+
+join_dnp_metadata <- clean_dnp %>%
+  left_join(clean_metadata, by = c("GOWN_ID" = "Station_Code_Gown" )) %>%
+  left_join(clean_darkoxsupp, by = c("GOWN_ID" = "GOWN_Well_Number") ) %>%
+  left_join(clean_samplingtarget %>% select(gown_no,office), by=c("GOWN_ID"="gown_no"))
+  
+```
+
+
