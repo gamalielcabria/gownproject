@@ -31,6 +31,34 @@ GOWNMetadata<-read_excel(input_2023GOWNMetadata, sheet = 'Detail', col_names = T
                          .name_repair = clean_name)
 deNO3potential<-read_excel(input_denitrificationpotential, sheet = 'denitrifiers by sample', col_names = TRUE,
                            .name_repair = clean_name, n_max = 26)
+
+### Custom Functions ###
+process_ranges <- function(text) {
+  # Find all "number - number" patterns using regex
+  matches <- str_match_all(text, "(\\d+\\.?\\d*)\\s*-\\s*(\\d+\\.?\\d*)")[[1]]
+  
+  if (nrow(matches) == 0) {
+    return(list(n_ranges = 0, diffs = list()))
+  }
+  
+  # Convert to numeric
+  start_vals <- suppressWarnings(as.numeric(matches[,2]))
+  end_vals <- suppressWarnings(as.numeric(matches[,3]))
+
+  # Keep only valid pairs (i.e., neither is NA)
+  valid_idx <- which(!is.na(start_vals) & !is.na(end_vals))
+  
+  if (length(valid_idx) == 0) {
+    return(list(n_ranges = 0, diffs = numeric(0)))
+  }
+  
+  # Calculate diffs only for valid indices
+  diffs <- end_vals[valid_idx] - start_vals[valid_idx]
+  
+  list(n_ranges = length(diffs), diffs = diffs)
+}
+
+
 ```
 
 Let us filter only the needed rows and columns per input so we can have clean merge of dataframes later on.
@@ -43,7 +71,7 @@ clean_dnp <- deNO3potential %>%
   mutate(index_percent_d_percent_o=gsub('\\?',NA, index_percent_d_percent_o))
 
 clean_metadata <- GOWNMetadata %>%
-  select(Station_Code_Gown,STATION_NAME,AWWID_ID,Latitude,Longitude,Completion,Formation,Lithology,Aquifer,Depth_Class) %>%
+  select(Station_Code_Gown,STATION_NAME,AWWID_ID,Latitude,Longitude,Completion,Formation,Lithology,Aquifer,Depth_Class,Production_m) %>%
   mutate(Station_Code_Gown=as.character(Station_Code_Gown))
 
 clean_darkoxsupp <- darko2supp %>%
@@ -65,13 +93,24 @@ clean_samplingtarget <- collectionteam2025 %>%
 join_df <- clean_samplingtarget %>%
   left_join(clean_metadata, by = c("gown_no"="Station_Code_Gown") ) %>%
   left_join(clean_dnp, by = c("gown_no" = "GOWN_ID") ) %>%
-  left_join(clean_darkoxsupp, by = c("gown_no" = "GOWN_Well_Number") )
+  left_join(clean_darkoxsupp, by = c("gown_no" = "GOWN_Well_Number") ) %>%
+  rowwise() %>%
+  mutate(
+    result = list(process_ranges(Production_m)),
+    Num_WaterInlets = result$n_ranges,
+    WaterInletSize = if (length(result$diffs) == 1) as.numeric(result$diffs) else NA
+  ) %>%
+  ungroup() %>%
+  select(-result)
 
 join_dnp_metadata <- clean_dnp %>%
   left_join(clean_metadata, by = c("GOWN_ID" = "Station_Code_Gown" )) %>%
   left_join(clean_darkoxsupp, by = c("GOWN_ID" = "GOWN_Well_Number") ) %>%
   left_join(clean_samplingtarget %>% select(gown_no,office), by=c("GOWN_ID"="gown_no"))
-  
+
+write_csv(join_df, '/home/glbcabria/Workbench/P0/Summary_sampling_target_2025_updated.csv')
+#write_csv(join_dnp_metadata, '/home/glbcabria/Workbench/P0/Summary_DNP_sampling_target_2025.csv')
+
 ```
 
 
