@@ -113,4 +113,312 @@ write_csv(join_df, '/home/glbcabria/Workbench/P0/Summary_sampling_target_2025_up
 
 ```
 
+## Analyzing the Lack of Correaltion between nitrate concentrations and bacteria
+I have always been hearing that there is no correlation between the nitrate concentration and bacteria. I want to generate figures for that for future presentations.
+
+I downloaded Emil Ruff's Supplementary Datasets 1 (Geochem), 3 (Arch OTU Table), and 4(Bact OTU Table)
+
+```{r}
+library(tidyverse)
+library(ggtree)
+library(microeco)
+library(readxl)
+library(janitor)
+
+#import OTU Tables
+Arch2016<-read_excel("/home/glbcabria/Workbench/GOWNData/ERU_Dark_Ox_Supplementary/41467_2023_38523_MOESM6_ESM_Arch_OTUTable.xlsx", sheet = "Ruff_et_al_Supplementary_Data_3")
+Bact2016<-read_excel("/home/glbcabria/Workbench/GOWNData/ERU_Dark_Ox_Supplementary/41467_2023_38523_MOESM7_ESM_Bact_OTUTable.xlsx", sheet = "Ruff_et_al_Data_S4")
+Geochem<-read_excel("/home/glbcabria/Workbench/GOWNData/EmilsSupp_41467_2023_38523_MOESM4_ESM_Geochem.xlsx", sheet = "Chem_Phys_Gas_Isotope_Microbiol",
+                    skip = 1, col_names = TRUE)
+
+#Setup the otu and taxa tables of Arch and Bact dataset
+arch_otu <- Arch2016 %>%
+  select(-c(1,67:73)) %>%
+  mutate(ASV=paste0("ASV_",ASV)) %>%
+  column_to_rownames(var = "ASV")
+
+arch_taxa <- Arch2016 %>%
+  select(ASV, Kingdom, Phylum, Class, Order, Family, Genus, Species ) %>%
+  mutate(ASV=paste0("ASV_",ASV)) %>%
+  column_to_rownames(var = "ASV") %>%
+    mutate(
+      Species = str_remove(Species, fixed(Genus)),
+      Genus = str_remove(Genus, fixed(Family)),
+      Family = str_remove(Family, fixed(Order)),
+      Order = str_remove(Order, fixed(Class)),
+      Class = str_remove(Class, fixed(Phylum)),
+      Phylum = str_remove(Phylum, fixed(Kingdom))
+      ) %>%
+  mutate(
+    across(everything(), ~ .x %>%
+             str_replace_all("_unc", "unclassified") %>%
+             str_remove_all("_")
+             )
+  ) %>%
+  tidy_taxonomy()
+
+bact_otu <- Bact2016 %>%
+  select(-c(1,113:119)) %>%
+  mutate(ASV=paste0("ASV_",ASV)) %>%
+  column_to_rownames(var = "ASV")
+
+bact_taxa <- Bact2016 %>%
+  select(ASV, Kingdom, Phylum, Class, Order, Family, Genus, Species ) %>%
+  mutate(ASV=paste0("ASV_",ASV)) %>%
+  column_to_rownames(var = "ASV") %>%
+    mutate(
+      Species = str_remove(Species, fixed(Genus)),
+      Genus = str_remove(Genus, fixed(Family)),
+      Family = str_remove(Family, fixed(Order)),
+      Order = str_remove(Order, fixed(Class)),
+      Class = str_remove(Class, fixed(Phylum)),
+      Phylum = str_remove(Phylum, fixed(Kingdom))
+      ) %>%
+  mutate(
+    across(everything(), ~ .x %>%
+             str_replace_all("_unc", "unclassified") %>%
+             str_remove_all("_")
+             )
+  ) %>%
+  tidy_taxonomy()
+
+#Get Wells per otu table
+arch_wells <- colnames(arch_otu)
+bact_wells <- colnames(bact_otu)
+
+# Sample Data Names
+env_numeric <- c("Chem_METHANE_ugL",
+"Chem_ETHANE_ugL",
+"Chem_PROPANE_ugL",
+"Chem_CO2_mgL",
+"Chem_O2_mgL",
+"Chem_O2_FIELD_METER_mgL",
+"Chem_N2_mgL",
+"Chem_Alkalinity_CACO3_mgL",
+"Chem_Bicarbonate_HCO3_calc_mgL",
+"Chem_Ca_dis_mgL",
+"Chem_Cl_dis_mgL",
+"Chem_F_dis_mgL",
+"Chem_Hardness_CACO3_mgL",
+"Chem_Fe_dis_mgL",
+"Chem_Mg_dis_mgL",
+"Chem_Mn_dis_mgL",
+"Chem_NH3_mgL",
+"Chem_N_NO3_mgL",
+"Chem_N_NO2_mgL",
+"Chem_N_calc_mgL",
+"Chem_PH_LAB",
+"Chem_P_mgL",
+"Chem_K_dis_mgL",
+"Chem_Silica_soluble_reactive_mgL",
+"Chem_Na_dis_mgL",
+"Chem_spec_condunctance_FIELD_uScm",
+"Chem_spec_condunctance_LAB_uScm",
+"Chem_SO4_dis_mgL",
+"Chem_tot_dis_solids_calc_mgL"
+)
+
+env_nitrogen <- c(
+"Chem_Alkalinity_CACO3_mgL",
+"Chem_Bicarbonate_HCO3_calc_mgL",
+"Chem_Ca_dis_mgL",
+"Chem_Hardness_CACO3_mgL",
+"Chem_Mg_dis_mgL",
+"Chem_Mn_dis_mgL",
+"Chem_N_NO3_mgL",
+"Chem_N_calc_mgL",
+"Chem_PH_LAB",
+"Chem_K_dis_mgL"
+)
+
+env_col <- c("Chem_Facies", 
+             "Chem_Facies_Category",
+             "Phys_LITHOLOGY",
+             "Phys_AQUIFER_TYPE",
+             "Phys_FORMATION",
+             "Phys_DEPTH_CLASS_CAT",
+             "Phys_AQUIFER",
+             "Phys_IN_USE_SINCE",
+             "Phys_Drainage_Basin",
+             #"Phys_Top_of_Screen_from_TOC_m",
+             #"Phys_Bottom_of_Screen_m"
+             env_numeric
+             )
+
+
+
+# Fix the Metadata per site
+arch_meta <- Geochem %>%
+  filter(Sequencing_Name_Arc_v6v9 %in% arch_wells) %>%
+  mutate(GOWN_SequencingID = Sequencing_Name_Arc_v6v9) %>%
+  select(matches("^(Chem|Phys|Age|GOWN)")) %>%
+  column_to_rownames("GOWN_SequencingID") %>%
+  mutate(across(all_of(env_numeric),
+                ~ as.numeric(as.character(.))
+                )
+         )
+
+bact_meta <- Geochem %>%
+  filter(Sequencing_Name_Bac_v3v4 %in% bact_wells) %>%
+  mutate(GOWN_SequencingID = Sequencing_Name_Bac_v3v4) %>%
+  select(matches("^(Chem|Phys|Age|GOWN)")) %>%
+  column_to_rownames("GOWN_SequencingID") %>%
+  mutate(across(all_of(env_numeric),
+                ~ as.numeric(as.character(.))
+                )
+         )
+
+```
+
+I will use microeco to quickly visualize the distribution of the samples.
+
+### Let us focus on the Bacteria first
+```{r}
+library(microeco)
+bact_meco <- microtable$new(
+  otu_table = bact_otu,
+  tax_table = bact_taxa,
+  sample_table = bact_meta
+)
+
+bact_meco$cal_abund()
+bact_meco$cal_alphadiv()
+bact_meco$cal_betadiv()
+
+bact_beta <- trans_beta$new(dataset = bact_meco, measure = "bray")
+bact_beta$cal_ordination(method = "NMDS", distance = "bray")
+plot_bact_lithology<- bact_beta$plot_ordination(plot_color = "Phys_LITHOLOGY") 
+plot_bact_age<- bact_beta$plot_ordination(plot_color = "Chem_Facies_Category",
+                          plot_shape = "Chem_Facies_Category" )
+bact_beta$cal_manova(group = "Phys_LITHOLOGY")
+bact_beta_lithology_manova <- bact_beta$res_manova
+bact_beta$cal_manova(group = "Chem_Facies_Category")
+bact_beta_age_manova <- bact_beta$res_manova
+
+# Subset 
+list_na <- bact_meco$sample_table %>%
+  filter(if_any(all_of(env_nitrogen), ~ is.na(.))) %>%
+  rownames()
+subset_list <- !(rownames(bact_meco$sample_table) %in% list_na)
+
+bact_meco_subset <- clone(bact_meco)
+bact_meco_subset$sample_table <- subset(bact_meco_subset$sample_table, subset = subset_list)
+bact_meco_subset$tidy_dataset()
+
+# Trans Env
+
+bact_env <- trans_env$new(dataset = bact_meco_subset, env_cols = env_nitrogen)
+bact_env$data_env <- bact_env$data_env %>%
+  rename_with(
+    ~ gsub("^Chem_|_mgL|_dis|_LAB|_CACO3|Bicarbonate_", '', .x)
+  )
+bact_env$cal_diff(group = "Chem_Facies_Category", method = "KW")
+bact_env_age_wilcox <- bact_env$res_diff
+
+bact_env$cal_ordination(method = "RDA", use_measure = "bray",taxa_level = "Family")
+bact_env$trans_ordination(show_taxa = 10, adjust_arrow_length = TRUE, max_perc_env = 1.5, max_perc_tax = 1.5, min_perc_env = 0.2, min_perc_tax = 0.2)
+plot_bact_env_age <- bact_env$plot_ordination(plot_color = "Chem_Facies_Category",   color_values = c('#0073C2','#868686','#EFC000','#A73030'),
+                                              taxa_text_color = '#4A6990FF', taxa_arrow_color = '#4A6990FF',
+                                              taxa_text_size = 3.7, env_text_size = 4
+)+labs(color = "Groundwater Age") +
+  theme(aspect.ratio = 1.5,
+        legend.position = c(0.8,0.1)
+        )
+
+bact_env$cal_mantel(use_measure = "bray")
+bact_env_mantel <- bact_env$res_mantel
+
+bact_diff <- trans_diff$new(bact_meco_subset, method = "rf", group = "Chem_Facies_Category", taxa_level = "Family")
+bact_env2 <- trans_env$new(dataset = bact_meco_subset, env_cols = env_nitrogen)
+bact_env2$cal_cor(use_data = "other", p_adjust_method = "fdr", other_taxa = bact_diff$res_diff$Taxa[1:32])
+plot_bact_env2_age_cor <- bact_env2$plot_cor(
+  keep_prefix = FALSE,
+  ytext_italic = TRUE, ytext_size = 12,
+  xtext_angle = 60, xtext_size = 12,
+  color_vector = c('#0073C2','white','#EFC000')
+) + scale_x_discrete(labels = function(x) gsub("^Chem_|_mgL|_dis|_LAB|_CACO3|Bicarbonate_", '', x)) +
+  theme(aspect.ratio = 1.5)
+
+#plot_levels <- levels(factor(plot_bact_env2_age_cor$data$Env)) %>%
+  
+plot_bact_env_age
+plot_bact_env2_age_cor 
+# ggsave("~/Workbench/P1/plot_bact_env_taxa_rda.png", plot_bact_env_age, width = 752, height = 789, units = "px", dpi = 100)
+# ggsave("~/Workbench/P1/plot_bact_env_taxa_cor_wilcoxon.png", plot_bact_env2_age_cor, width = 752, height = 789, units = "px", dpi = 100)
+```
+Let us do it for Archaea
+
+```{r}
+library(microeco)
+arch_meco <- microtable$new(
+  otu_table = arch_otu,
+  tax_table = arch_taxa,
+  sample_table = arch_meta
+)
+
+arch_meco$cal_abund()
+arch_meco$cal_alphadiv()
+arch_meco$cal_betadiv()
+
+arch_beta <- trans_beta$new(dataset = arch_meco, measure = "bray")
+arch_beta$cal_ordination(method = "NMDS", distance = "bray")
+plot_arch_lithology<- arch_beta$plot_ordination(plot_color = "Phys_LITHOLOGY") 
+plot_arch_age<- arch_beta$plot_ordination(plot_color = "Chem_Facies_Category",
+                          plot_shape = "Chem_Facies_Category" )
+arch_beta$cal_manova(group = "Phys_LITHOLOGY")
+arch_beta_lithology_manova <- arch_beta$res_manova
+arch_beta$cal_manova(group = "Chem_Facies_Category")
+arch_beta_age_manova <- arch_beta$res_manova
+
+# Subset 
+list_na <- arch_meco$sample_table %>%
+  filter(if_any(all_of(env_nitrogen), ~ is.na(.))) %>%
+  rownames()
+subset_list <- !(rownames(arch_meco$sample_table) %in% list_na)
+
+arch_meco_subset <- clone(arch_meco)
+arch_meco_subset$sample_table <- subset(arch_meco_subset$sample_table, subset = subset_list)
+arch_meco_subset$tidy_dataset()
+
+# Trans Env
+
+arch_env <- trans_env$new(dataset = arch_meco_subset, env_cols = env_nitrogen)
+arch_env$data_env <- arch_env$data_env %>%
+  rename_with(
+    ~ gsub("^Chem_|_mgL|_dis|_LAB|_CACO3|Bicarbonate_", '', .x)
+  )
+arch_env$cal_diff(group = "Chem_Facies_Category", method = "KW")
+arch_env_age_wilcox <- arch_env$res_diff
+
+arch_env$cal_ordination(method = "RDA", use_measure = "bray",taxa_level = "Family")
+arch_env$trans_ordination(show_taxa = 10, adjust_arrow_length = TRUE, max_perc_env = 1.5, max_perc_tax = 1.5, min_perc_env = 0.2, min_perc_tax = 0.2)
+plot_arch_env_age <- arch_env$plot_ordination(plot_color = "Chem_Facies_Category",   color_values = c('#0073C2','#868686','#EFC000','#A73030'),
+                                              taxa_text_color = '#4A6990FF', taxa_arrow_color = '#4A6990FF',
+                                              taxa_text_size = 3.7, env_text_size = 4
+)+labs(color = "Groundwater Age") +
+  theme(aspect.ratio = 1.5,
+        legend.position = c(0.8,0.1)
+        )
+
+arch_env$cal_mantel(use_measure = "bray")
+arch_env_mantel <- arch_env$res_mantel
+
+arch_diff <- trans_diff$new(arch_meco_subset, method = "rf", group = "Chem_Facies_Category", taxa_level = "Family")
+arch_env2 <- trans_env$new(dataset = arch_meco_subset, env_cols = env_nitrogen)
+arch_env2$cal_cor(use_data = "other", p_adjust_method = "fdr", other_taxa = arch_diff$res_diff$Taxa[1:32])
+plot_arch_env2_age_cor <- arch_env2$plot_cor(
+  keep_prefix = FALSE,
+  ytext_italic = TRUE, ytext_size = 12,
+  xtext_angle = 60, xtext_size = 12,
+  color_vector = c('#0073C2','white','#EFC000')
+) + scale_x_discrete(labels = function(x) gsub("^Chem_|_mgL|_dis|_LAB|_CACO3|Bicarbonate_", '', x)) +
+  theme(aspect.ratio = 1.5)
+
+#plot_levels <- levels(factor(plot_arch_env2_age_cor$data$Env)) %>%
+  
+plot_arch_env_age
+plot_arch_env2_age_cor 
+#ggsave("~/Workbench/P1/plot_arch_env_taxa_rda.png", plot_arch_env_age, width = 752, height = 789, units = "px", dpi = 100)
+#ggsave("~/Workbench/P1/plot_arch_env_taxa_cor_wilcoxon.png", plot_arch_env2_age_cor, width = 752, height = 789, units = "px", dpi = 100)
+```
 
