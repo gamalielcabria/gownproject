@@ -23,7 +23,7 @@ find_N2O_firstmatch <- function(text, lower = 1.8, upper = 1.9) {
 #############################################################################
 
 # Working Directory
-input <- '/home/glbcabria/Workbench/P3/Expt2/GC'
+input <- '/home/glbcabria/Workbench/P3/Expt2/GC/D36'
 input_day <- 'D36'
 setwd(input)
 
@@ -187,8 +187,11 @@ Table_GC <- GC_filled %>%
 # 1. Filter data (remove 'B' replicates and 'Blank' Setup)
 filtered_data <- Table_GC %>%
   filter(Replicate != "B", Setup != "Blank") %>%
-  filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) # Manaully Removed due to potentially logarithmic
-
+  # Manaully Removed due to potentially logarithmic
+  filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) %>%
+  filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 97) ) 
+  
+  
 # 2. Define fitting function (same as before)
 fit_models <- function(df) {
   start_linear <- list(a = min(df$Amount), b = 0)
@@ -223,9 +226,19 @@ fit_models <- function(df) {
   )
 }
 
+# 2.5 Setting up Corrected Data 
+useful_data <-  filtered_data %>%
+  filter(
+    Setup == 'Coal' | 
+      (Setup != "Coal" & 
+         Amount > 1 
+      )  
+  ) %>% # Manually set the linear fitting for those above this value
+  #filter( !(Total_Time > 100 & Setup %in% c('Shale','Sand','Coal')) ) %>% # For Day 29 
+  filter( !(Total_Time >= 97  & Setup %in% c('Shale','Sand')) ) # For Day 36
+
 # 3. Fit models by Setup and keep the best fit object
-fit_results <- filtered_data %>%
-  filter(Amount > 1) %>% # Manually set the linear fitting for those above this value
+fit_results <- useful_data %>%
   group_by(Setup) %>%
   nest() %>%
   mutate(fits = map(data, fit_models)) 
@@ -289,9 +302,8 @@ Plot_DNP
 #################################### PLot for Pub ############################################
 
 #6. Compute the Slopes and save into a table
-slopes_table <- filtered_data %>%
-  filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1) ) %>% # Manually set the linear fitting for those above this value
-  group_by(Setup, Replicate) %>%
+slopes_table <- useful_data %>%
+    group_by(Setup, Replicate) %>%
   summarise(
     # Fit a linear model Amount ~ Total_Time for each group
     slope = if(n() > 1) {
@@ -318,39 +330,48 @@ Table_Slopes <- slopes_table %>%
 # 7. Alternative output format for plot
 #tableGrob Themes
 minimal_theme <- ttheme_minimal(
+  padding = unit(c(6, 10), "pt"),
   core = list(
-    fg_params = list(fontsize = 12),
+    fg_params = list(fontsize = 15),
     bg_params = list(fill = NA, col = NA)
   ),
   colhead = list(
-    fg_params = list(fontface = "bold", fontsize = 13),
+    fg_params = list(fontface = "bold", fontsize = 15),
     bg_params = list(fill = NA, col = NA)
   ),
   rowhead = list(
-    fg_params = list(fontsize = 12),
+    fg_params = list(fontsize = 15),
     bg_params = list(fill = NA, col = NA)
-  )
+  ),
 )
 
 # Create the table grob with the minimal theme
-table_grob <- tableGrob(Table_Slopes, rows = NULL, theme = minimal_theme)
-
+inset_table <- Table_Slopes %>%
+  unite('Slope', Mean, Std_Dev, sep = '±') %>%
+  select(Setup, Slope)
+table_grob <- tableGrob(
+  inset_table, 
+  rows = NULL, theme = minimal_theme
+  )
 Plot_DNP_Table <- Plot_DNP + inset_element(
   table_grob,
-  left = 0.65, bottom = 0.6, right = 0.98, top = 0.95
+  left = 0.75, bottom = 0.10, right = .95, top = .35
 )
+Plot_DNP_Table
 
 
 
-
-
-################ SAVE the Tables and Plots for Publication#####################################
-ggsave(plot = Plot_DNP, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_",day,".png"),
+ ################ SAVE the Tables and Plots for Publication#####################################
+ggsave(plot = Plot_DNP, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_",input_day,".png"),
        units = c('px'),
-       width = 3000, height = 2400, dpi = 120)
+       width = 2000, height = 1200, dpi = 120)
 
-write_csv(Table_GC, file = paste0("~/Workbench/P3/Expt2/Table_GC_Summary_",day,".png") )
+ggsave(plot = Plot_DNP_Table, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_InsetTable",input_day,".png"),
+       units = c('px'),
+       width = 2000, height = 1200, dpi = 120)
 
-write_csv(Table_Slopes, file = paste0("~/Workbench/P3/Expt2/Table_GC_Slopes_",day,".png") )
+write_csv(Table_GC, file = paste0("~/Workbench/P3/Expt2/Table_GC_Summary_",input_day,".png") )
+
+write_csv(Table_Slopes, file = paste0("~/Workbench/P3/Expt2/Table_GC_Slopes_",input_day,".png") )
 ################ SAVE the Tables and Plots for Publication#####################################
 
