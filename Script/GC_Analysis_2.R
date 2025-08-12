@@ -23,8 +23,8 @@ find_N2O_firstmatch <- function(text, lower = 1.8, upper = 1.9) {
 #############################################################################
 
 # Working Directory
-input <- '/home/glbcabria/Workbench/P3/Expt2/GC/D36'
-input_day <- 'D36'
+input <- '/home/glbcabria/Workbench/P3/Expt2/GC/D29'
+input_day <- 'D29'
 setwd(input)
 
 # File Location
@@ -228,14 +228,11 @@ fit_models <- function(df) {
 
 # 2.5 Setting up Corrected Data 
 useful_data <-  filtered_data %>%
-  filter(
-    Setup == 'Coal' | 
-      (Setup != "Coal" & 
-         Amount > 1 
-      )  
-  ) %>% # Manually set the linear fitting for those above this value
-  #filter( !(Total_Time > 100 & Setup %in% c('Shale','Sand','Coal')) ) %>% # For Day 29 
-  filter( !(Total_Time >= 97  & Setup %in% c('Shale','Sand')) ) # For Day 36
+  # Manually set the linear fitting for those above this value
+  #filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1 ) ) %>%  For all Days with Coal as no growth
+  #filter( !(Total_Time >= 97  & Setup %in% c('Shale','Sand')) ) # For Day 36
+  filter( !(Total_Time > 100 & Setup %in% c('Shale','Sand','Coal')) ) %>% filter(Amount > 1) # For Day 29 
+  
 
 # 3. Fit models by Setup and keep the best fit object
 fit_results <- useful_data %>%
@@ -282,7 +279,7 @@ Plot_DNP <- ggplot() +
   geom_point(data = filtered_data, aes(x = Total_Time, y = Amount), color = "Black") +
   geom_line(data = predictions, aes(x = Total_Time, y = Amount), color = "red", size = 1) +
   facet_wrap(~Setup) +
-  labs(title = "Day 36",
+  labs(title = paste0("Day ",input_day),
        x = "Total Time",
        y = "Amount") +
   theme_minimal() +
@@ -361,7 +358,7 @@ Plot_DNP_Table
 
 
 
- ################ SAVE the Tables and Plots for Publication#####################################
+################ SAVE the Tables and Plots for Publication#####################################
 ggsave(plot = Plot_DNP, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_",input_day,".png"),
        units = c('px'),
        width = 2000, height = 1200, dpi = 120)
@@ -370,8 +367,8 @@ ggsave(plot = Plot_DNP_Table, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_I
        units = c('px'),
        width = 2000, height = 1200, dpi = 120)
 
-write_csv(Table_GC, file = paste0("~/Workbench/P3/Expt2/Table_GC_Summary_",input_day,".png") )
+write_csv(Table_GC, file = paste0("~/Workbench/P3/Expt2/Table_GC_Summary_",input_day,".csv") )
 
-write_csv(Table_Slopes, file = paste0("~/Workbench/P3/Expt2/Table_GC_Slopes_",input_day,".png") )
+write_csv(Table_Slopes, file = paste0("~/Workbench/P3/Expt2/Table_GC_Slopes_",input_day,".csv") )
 ################ SAVE the Tables and Plots for Publication#####################################
 
