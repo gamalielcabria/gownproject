@@ -1,4 +1,4 @@
-# SingleM Summarise to Plot
+# SingleM Summarise Visualization: Prep Input for Microeco
 # This is a script to analyse the results of SingleM summarise
 # with options '--output-taxonomic-profile-with-extras'
 
