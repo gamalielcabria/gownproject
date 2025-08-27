@@ -3,33 +3,50 @@
 library(pdftools)
 library(tidyverse)
 library(broom)
+library(gridExtra)
+library(patchwork)
 
 ##################### Functions #############################################
-find_N2O_firstmatch <- function(text, lower = 1.8, upper = 1.9) {
+
+find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
   # Split on literal "\n"
   txt_lines <- strsplit(text, "\\\n")[[1]]
   
+  # Extract numbers from each line
   all_numbers <- regmatches(txt_lines, gregexpr("\\d+\\.\\d+", txt_lines))
   
   for (i in seq_along(all_numbers)) {
-    nums <- as.numeric(all_numbers[[i]])
-    match_nums <- nums[nums >= lower & nums <= upper]
-    if (length(match_nums) > 0) {
-      return(line = txt_lines[i])  #number = match_nums[1])
+    # Only check lines containing "N2O" (case-insensitive)
+    if (grepl("N2O|?", txt_lines[i], ignore.case = TRUE)) {
+      nums <- as.numeric(all_numbers[[i]])
+      match_nums <- nums[nums >= lower & nums <= upper]
+      
+      if (length(match_nums) > 0) {
+        return(txt_lines[i])  # return the full line
+      }
     }
   }
+  
   return(NULL)
 }
+
 #############################################################################
 
 # Working Directory
-input <- '/home/glbcabria/Workbench/P3/Expt2/GC/D29'
-input_day <- 'D29'
+input <- '/home/glbcabria/Workbench/P3/Expt2/GC/Train'
+input_day <- 'D56'
+
+# Determine if Amount is in PPM or PCT MOLE
+amount_unit <- 'PCT'
+
+# Set the Retention Time for N2O
+lower_bound <- 1.19
+upper_bound <- 1.3
+
 setwd(input)
 
 # File Location
 files <- list.files(pattern="\\.pdf$", ignore.case = TRUE)
-
 
 # Create empty dataframe to store results
 GC_df <- data.frame(File = character(),
@@ -42,10 +59,10 @@ for (file in files) {
   txt <- pdf_text(file)
   #filename <- regmatches(txt[2], regexpr("\\d{8}[-_][A-Za-z0-9_-]+\\.D", txt[2]))
   filename <- gsub("\\.pdf",'',as.character(file))
-  N2O_line <- trimws(find_N2O_firstmatch(txt[2]))
+  N2O_line <- trimws(find_N2O_firstmatch(txt[2], lower = lower_bound, upper = upper_bound))
   
   results <- gsub("\\s+", "_", N2O_line)
-  
+  #cat(results)
   GC_df <- rbind( GC_df,
                   data.frame(File = filename,
                              Results = results,
@@ -70,14 +87,21 @@ GC_processed_df <- GC_df %>%
   select(-Results) %>%
   separate('Date-Time', into = c("Date","Time"), sep = '-' ) %>%
   #mutate(Amount = ifelse(Type != 'Calibration', NA, Amount) ) 
-  mutate(Amount = ifelse(grepl('Standards-0', Sample), 0, Amount ),
-         Area = ifelse(grepl('Standards-0', Sample), 0, Area ) ) %>%
-  mutate(Sample = gsub("-\\d+$|-\\d{1}[A-Za-z]{2}$", "", Sample) ) %>% # Remove the -8PM/-1/-2 from Sample Name
+  mutate(Amount = ifelse(grepl('Standards-0', Sample, ignore.case = TRUE), 0, Amount ),
+         Area = ifelse(grepl('Standards-0', Sample, ignore.case = TRUE), 0, Area ) 
+         ) %>%
+  mutate(Sample = gsub("-\\d+$|-\\d{1}[A-Za-z]{2}$|-FILTERED", "", Sample) ) %>% # Remove the -8PM/-1/-2 from Sample Name
   replace_na(list(Area = 0))
+
+# Checking the Amount whether in PPM or PCT MOLE
+if (amount_unit == "PCT") {
+  GC_processed_df <- GC_processed_df %>%
+    mutate(Amount = Amount * 10000)
+}
 
 # Calibration Model
 models <- GC_processed_df %>%
-  filter(Type == 'Calibration') %>%
+  filter(grepl("^Calibration$", Type, ignore.case = TRUE)) %>%
   group_by(Date) %>%
   summarise(
     model = list(lm(Amount ~ Area, data = cur_data()))
@@ -85,7 +109,7 @@ models <- GC_processed_df %>%
 
 # Join models back to main dataframe by Date
 GC_filled <- GC_processed_df %>%
-  filter(Type == 'Sample') %>%
+  filter(grepl("^Sample$", Type, ignore.case = TRUE)) %>%
   left_join(models, by = "Date") %>%
   mutate(
     Amount = map2_dbl(model, Area, ~ {
@@ -112,6 +136,7 @@ GC_filled <- GC_processed_df %>%
   mutate(
     Replicate = if_else(Setup == "Blank" & is.na(Replicate), "B", Replicate)
   ) %>%
+  filter(!is.na(EXPT) & str_detect(EXPT, regex(input_day, ignore_case = TRUE))) %>%
   mutate(
     EndDT   = parse_date_time(paste(Date, '-', Time), orders = "%Y%m%d - %I%M%p", tz = "UTC"),
     StartDT = parse_date_time(paste(Start_Date, '-', Start_Time), orders = "%Y%m%d - %I%M%p", tz = "UTC"),
@@ -186,7 +211,8 @@ Table_GC <- GC_filled %>%
 # Best fit model search for each setup
 # 1. Filter data (remove 'B' replicates and 'Blank' Setup)
 filtered_data <- Table_GC %>%
-  filter(Replicate != "B", Setup != "Blank") %>%
+  filter(!is.na(Replicate)) %>%
+  filter(Replicate != "B", Setup != "Blank") #%>%
   # Manaully Removed due to potentially logarithmic
   filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) %>%
   filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 97) ) 
@@ -227,7 +253,7 @@ fit_models <- function(df) {
 }
 
 # 2.5 Setting up Corrected Data 
-useful_data <-  filtered_data %>%
+useful_data <-  filtered_data #%>%
   # Manually set the linear fitting for those above this value
   #filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1 ) ) %>%  For all Days with Coal as no growth
   #filter( !(Total_Time >= 97  & Setup %in% c('Shale','Sand')) ) # For Day 36
