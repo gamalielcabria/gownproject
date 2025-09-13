@@ -11,24 +11,28 @@ output: html_notebook
 
 
 ### DADA2 Pipeline
-The input will be using raw 
+The input will be using raw reads that were not trimmed or undergone any quality control.
+
+Core numbers can be assigned so that parallelization for filtering and chimera removal can be done. The default is 12.
+
 ```{r}
 library(dada2)
 library(tidyverse)
 
 input<-"/home/glbcabria/Workbench/P0/qc" #Contains raw *fastq.gz 
 
-# # Taking in inputs for SLURM
-# args <- commandArgs(trailingOnly = TRUE)
-# if (length(args) < 1) {
-   n_cores <- 12
-#   cat("No number of cores provided. Defaulting to 12 cores.\n")
-# } else {
-#   n_cores <- as.numeric(args[1])
-#   if (is.na(n_cores) || n_cores < 1) {
-#     stop("Invalid number of cores.")
-#   }
-# }
+n_cores <- 12
+# Taking in inputs for SLURM
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) < 1) {
+  n_cores <- 12
+  cat("No number of cores provided. Defaulting to 12 cores.\n")
+} else {
+  n_cores <- as.numeric(args[1])
+  if (is.na(n_cores) || n_cores < 1) {
+    stop("Invalid number of cores.")
+  }
+}
 
 
 # Listing inputs
@@ -114,6 +118,8 @@ nochim_counts<- rowSums(seqtab.nochim)
 nochim_counts
 ```
 
+Tracking is made to check how much is the lost of each step
+
 ```{r}
 # Tracking
 getN <- function(x) sum(getUniques(x))
@@ -128,3 +134,247 @@ mutate(Percent_NoChimeras = nonchim / filtered )
 
 write.csv(final_track, file = 'track.csv')
 ```
+
+Output can be save as RData or csv files. Here I am saving it as CSV files that can be inputted in microeco or phyloseq object with minimal wrangling.
+
+```{r}
+### REMOVE THIS AFTER TESTRUN: THIS SECTION HAS NOT BEEN CHECKED ###
+
+taxa <- assignTaxonomy(seqtab.nochim,
+        "/work/ebg_lab/eb/AIWIP_GOWN_amplicons/DADA2/assignedTaxa/silva_nr99_v138.2_toGenus_trainset.fa.gz",
+        multithread = TRUE, tryRC=TRUE)
+
+taxa <- addSpecies(taxa,
+        "/work/ebg_lab/eb/AIWIP_GOWN_amplicons/DADA2/assignedTaxa/silva_v138.2_assignSpecies.fa.gz")
+
+taxa_df <- as.data.frame(taxa)
+
+write.csv(taxa_df, file = 'taxa.csv', row.names = TRUE)
+
+# Save OTU/ASV Table
+otu_table <- as.data.frame(seqtab.nochim)
+rownames(otu_table) <- sample_names
+write.csv(otu_table, file = "otu_table.csv", row.names = TRUE)
+```
+
+
+### Analysis of Cluny and Canmore from 2019 and 2022 sampling season.
+Per request of the Banfield Lab, we need to check the presence of ANME archaeon *Nitroperedens*
+
+This uses two or three inputs: Taxa Table, OTU Table, and a Metadata Table. Taxa Table and OTU Table is directly from the output of DADA2. The Metadata table should be made separately.
+
+```{r}
+library(microeco)
+library(data.table)
+library(tidyverse)
+library(janitor)
+
+# Declaring Inputs
+input_dir <- '/home/glbcabria/Workbench/gownproject/P0 - GOWN'
+setwd(input_dir)
+
+input_taxa <- fread(paste0(input_dir,'/taxa.csv'), sep = ',', header = TRUE, nThread = 16 ) 
+input_otu <- fread(paste0(input_dir,'/otu_table.csv'), header = TRUE, nThread = 16) 
+unique_ASV <- unique(c(input_taxa$V1, input_otu$V1))
+
+ASV_df <- data.frame(
+    ASV = unique_ASV) %>%
+    mutate(
+        ASV_ID = paste0("ASV_",row_number())
+    )
+
+tax_table <- input_taxa %>%
+    left_join(ASV_df, by = c('V1' = 'ASV')) %>%
+    column_to_rownames(var = "ASV_ID") %>%
+    select(-V1)
+
+otu_table <- input_otu %>%
+    t() %>%
+    as.data.frame() %>%
+    row_to_names(row_number = 1) %>%
+    rownames_to_column('ASV') %>%
+    left_join(ASV_df, by = c("ASV")) %>%
+    select(-ASV) %>%
+    column_to_rownames(var = "ASV_ID") %>%
+    mutate(across(where(is.character), as.numeric))
+
+metadata_files <- list.files(input_dir, pattern = ".*metadata.*\\.csv$", full.names = TRUE, ignore.case = TRUE)
+if (length(metadata_files) > 0) {
+# Read all matching files and bind them together
+    input_metadata <- map_dfr(metadata_files, read_csv)
+ } else {
+# Empty tibble with no columns
+    input_metadata <- tibble(
+        samples = colnames(otu_table)
+        )
+ }
+```
+
+Metadata should be prepared around here. All code above can be reutilised. For the specific samples from Cluny and Canmore Tourist Info, I will create a metadata from the input file names and other data provided by Muhe and Daemon.
+
+This section can be substituted or removed if metadata are known. 
+```{r}
+metadata_table <- input_metadata %>%
+    mutate(
+        SeqDate = str_split_i(samples, "-", -1),
+        SeqCode = str_split_i(samples, "-", -2),
+        Sequencer = str_split_i(samples, "-", 1)
+    ) %>%
+    column_to_rownames(var = "samples")
+```
+
+Setting up the microeco object based on the inputs above. 
+
+```{r}
+meco <- microtable$new(
+  otu_table   = otu_table,
+  tax_table   = tax_table,
+  sample_table = metadata_table
+)
+```
+
+The above code chunks can be combined as a single R code for quick analysis using the server.
+
+Let us just analyse the Cluny and Canmore using pairwise analysis of relative abundance.
+
+```{r}
+library(ggpubr)
+library(tidyverse)
+library(rstatix)
+
+cluny_canmore <- otu_table %>%
+    select(c(
+        'MDI-bact-GOWN-C21-20200316', # 19GWC19053 760 Canmore Info
+        'MDI-bact-GOWN-C9-20200316',  # 19GWC19026 218 Cluny 
+        'DMO-GOWN-bact-2023-G10-20230321', # 22GWC22053 760 Canmore
+        'DMO-GOWN-bact-2023-G15-20230321' # 22GWC22075 218 Cluny 85-2 Deep
+    ))
+
+metadata_cluny_canmore <- input_metadata %>%
+    filter(
+        samples %in% c(
+        'MDI-bact-GOWN-C21-20200316', # 19GWC19053 760 Canmore Info
+        'MDI-bact-GOWN-C9-20200316',  # 19GWC19026 218 Cluny 
+        'DMO-GOWN-bact-2023-G10-20230321', # 22GWC22053 760 Canmore
+        'DMO-GOWN-bact-2023-G15-20230321' # 22GWC22075 218 Cluny 85-2 Deep
+    )
+    ) %>%
+    mutate(
+        Season = ifelse(grepl("MDI", samples), 2022, 2019),
+        Site = ifelse(grepl("C21|G10", samples), '760 Canmore', '218 Cluny 85-2 Deep')
+    )
+
+cluny_canmore_long <- cluny_canmore %>%
+    rownames_to_column(var = 'ASV') %>%
+    pivot_longer(-ASV, names_to = "samples", values_to = "count") %>%
+    left_join(metadata_cluny_canmore, by = "samples")    
+
+# Compute Alpha Diversity
+alpha_metrics <- cluny_canmore_long %>%
+  group_by(samples, Site, Season) %>%
+  summarise(
+    Observed = sum(count > 0),
+    .groups = "drop_last"
+  ) %>%
+  left_join(
+    cluny_canmore_long %>%
+      group_by(samples, Site, Season) %>%
+      mutate(p = count / sum(count, na.rm = TRUE)) %>%
+      summarise(
+        Shannon = -sum(if_else(p > 0, p * log(p), 0), na.rm = TRUE),
+        Simpson = 1 - sum(p^2, na.rm = TRUE),
+        InvSimpson = 1 / sum(p^2, na.rm = TRUE),
+        .groups = "drop"
+      ),
+    by = c("samples","Site","Season")
+  ) %>%
+  mutate(Evenness = Shannon / log(Observed)) %>%
+  ungroup() %>%
+  pivot_longer(cols = c(Observed, Shannon, Simpson, InvSimpson, Evenness),
+               names_to = "Metric", values_to = "Value") %>%
+  mutate(Season = factor(Season))
+
+
+# Stats
+stats <- alpha_metrics %>%
+  group_by(Site, Metric) %>%
+  wilcox_test(Value ~ Season, paired = TRUE) %>%
+  adjust_pvalue(method = "BH") %>%
+  add_significance("p.adj") %>%
+  ungroup()
+
+# --- 6) Plot
+plot_alpha <- ggplot(alpha_metrics, aes(x = factor(Season), y = Value, color = Site, group = Site)) +
+  geom_point(size = 3) +
+  geom_line(aes(group = Site), linewidth = 0.8) +
+  facet_wrap(~ Metric, scales = "free_y") +
+  labs(x = "Season", y = "Alpha Diversity", color = "Site",
+       title = "Alpha diversity comparison between 2019 and 2023") +
+  theme_minimal(base_size = 14) +
+  theme(
+        panel.background = element_rect(fill = "white", colour = NA),
+    plot.background  = element_rect(fill = "white", colour = NA),
+    strip.background = element_rect(fill = "white", colour = NA)
+  )
+
+# Add significance labels
+plot_alpha + stat_pvalue_manual(
+  stats,
+  label = "p.adj.signif",
+  y.position = alpha_metrics %>% group_by(Metric) %>% summarise(max_val = max(Value)*1.1) %>% pull(max_val),
+  tip.length = 0.01
+)
+
+plot_alpha
+```
+
+Alpha diversity is not to show there is no significant change between the sites and time point. It lack enough replicates.
+
+Here, let us do a simpled paired-test per ASV
+```{r}
+# Make relative abundances (optional, but recommended)
+asv_rel <- cluny_canmore_long %>%
+  group_by(samples) %>%
+  mutate(rel_abund = count / sum(count, na.rm = TRUE)) %>%
+  ungroup()
+
+# Pairwise test for each ASV
+asv_stats <- asv_rel %>%
+  group_by(ASV, Site) %>%
+  wilcox_test(rel_abund ~ Season, paired = TRUE) %>%
+  adjust_pvalue(method = "BH") %>%
+  add_significance("p.adj") %>%
+  ungroup()
+
+# 2) Plot: connect each ASV across Seasons, per Site
+plot_asv_rel_change <- ggplot(
+  asv_rel,
+  aes(x = Season, y = rel_abund, group = ASV)
+) +
+  geom_line(alpha = 0.4) +
+  geom_point(size = 1.7) +
+  facet_wrap(~ Site, scales = "free_y") +
+  labs(
+    x = NULL, y = "Relative abundance",
+    title = "ASV changes between seasons (per Site)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    aspect.ratio = 1.2,
+    panel.background = element_rect(fill = "white", colour = NA),
+    plot.background  = element_rect(fill = "white", colour = NA),
+    strip.background = element_rect(fill = "white", colour = NA)
+  )
+
+plot_asv_rel_change
+
+# ggsave(filename = "/home/glbcabria/Desktop/plot_asv_rel_change.png", plot = plot_asv_rel_change, 
+#   units = c('px'), dpi = 150, height = 1500, width = 1500
+# )
+
+# ggsave(filename = "/home/glbcabria/Desktop/plot_cluny_canmore_alpha.png", plot = plot_alpha,
+#   units = c('px'), dpi = 150, height = 1500, width = 1500
+# )
+
+```
+

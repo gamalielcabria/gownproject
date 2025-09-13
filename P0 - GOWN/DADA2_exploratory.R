@@ -89,3 +89,22 @@ mutate(Percent_Merged = merged / filtered ) %>%
 mutate(Percent_NoChimeras = nonchim / filtered )
 
 write.csv(final_track, file = 'track.csv')
+
+
+### REMOVE THIS AFTER TESTRUN: THIS SECTION HAS NOT BEEN CHECKED ###
+
+taxa <- assignTaxonomy(seqtab.nochim,
+        "/work/ebg_lab/eb/AIWIP_GOWN_amplicons/DADA2/assignedTaxa/silva_nr99_v138.2_toGenus_trainset.fa.gz",
+        multithread = TRUE, tryRC=TRUE)
+
+taxa <- addSpecies(taxa,
+        "/work/ebg_lab/eb/AIWIP_GOWN_amplicons/DADA2/assignedTaxa/silva_v138.2_assignSpecies.fa.gz")
+
+taxa_df <- as.data.frame(taxa)
+
+write.csv(taxa_df, file = 'taxa.csv', row.names = TRUE)
+
+# Save OTU/ASV Table
+otu_table <- as.data.frame(seqtab.nochim)
+rownames(otu_table) <- sample_names
+write.csv(otu_table, file = "otu_table.csv", row.names = TRUE)

@@ -5,6 +5,7 @@ library(tidyverse)
 library(broom)
 library(gridExtra)
 library(patchwork)
+library(minpack.lm)
 
 ##################### Functions #############################################
 
@@ -34,7 +35,7 @@ find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
 
 # Working Directory
 input <- '/home/glbcabria/Workbench/P3/Expt2/GC/Train'
-input_day <- 'D56'
+input_day <- 'D56' # 'FECH4MNH2'
 
 # Determine if Amount is in PPM or PCT MOLE
 amount_unit <- 'PCT'
@@ -104,7 +105,8 @@ models <- GC_processed_df %>%
   filter(grepl("^Calibration$", Type, ignore.case = TRUE)) %>%
   group_by(Date) %>%
   summarise(
-    model = list(lm(Amount ~ Area, data = cur_data()))
+    model = list(lm(Amount ~ Area, data = cur_data())), 
+    .groups = "drop"
   )
 
 # Join models back to main dataframe by Date
@@ -113,12 +115,15 @@ GC_filled <- GC_processed_df %>%
   left_join(models, by = "Date") %>%
   mutate(
     Amount = map2_dbl(model, Area, ~ {
-      if (is.null(.x)) return(NA_real_) # no matching models for that Date
-      predict(.x, newdata = data.frame(Area = .y))
+      if (is.null(.x) || all(is.na(coef(.x)))) { 
+        NA_real_ # no matching models for that Date
+      } else {
+        as.numeric(predict(.x, newdata = data.frame(Area = .y)))
+      } 
     })
   ) %>%
   select(-model) %>%
-  separate(Sample, into = c('Start_Date', 'Start_Time', 'EXPT'), sep = '-',extra = 'merge') %>%
+  separate(Sample, into = c('Start_Date', 'Start_Time', 'EXPT'), sep = '-',extra = 'merge', fill = 'right') %>%
   mutate(
     # Setup: detect starting letters in EXPT
     Setup = case_when(
@@ -131,9 +136,7 @@ GC_filled <- GC_processed_df %>%
       TRUE                       ~ NA_character_
     ),
     # Replicate: last character of EXPT
-    Replicate = str_extract(EXPT, "[0-9B]$")
-  ) %>%
-  mutate(
+    Replicate = str_extract(EXPT, "[0-9B]$"),
     Replicate = if_else(Setup == "Blank" & is.na(Replicate), "B", Replicate)
   ) %>%
   filter(!is.na(EXPT) & str_detect(EXPT, regex(input_day, ignore_case = TRUE))) %>%
@@ -214,8 +217,8 @@ filtered_data <- Table_GC %>%
   filter(!is.na(Replicate)) %>%
   filter(Replicate != "B", Setup != "Blank") #%>%
   # Manaully Removed due to potentially logarithmic
-  filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) %>%
-  filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 97) ) 
+  #filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) %>%
+  #filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 97) ) 
   
   
 # 2. Define fitting function (same as before)
@@ -253,11 +256,15 @@ fit_models <- function(df) {
 }
 
 # 2.5 Setting up Corrected Data 
-useful_data <-  filtered_data #%>%
+useful_data <-  filtered_data %>%
   # Manually set the linear fitting for those above this value
-  #filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1 ) ) %>%  For all Days with Coal as no growth
-  #filter( !(Total_Time >= 97  & Setup %in% c('Shale','Sand')) ) # For Day 36
-  filter( !(Total_Time > 100 & Setup %in% c('Shale','Sand','Coal')) ) %>% filter(Amount > 1) # For Day 29 
+  # filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1 ) ) %>%  For all Days with Coal as no growth
+  #  filter( !( (Total_Time <= 60 | Total_Time > 90) & Setup %in% c('Sand')) ) %>%  
+  #  filter( !( (Total_Time < 80 | Total_Time > 110) & Setup %in% c('Control')) ) %>%  
+  #  filter( !( (Total_Time < 70 | Total_Time > 150) & Setup %in% c('Sandstone')) ) %>% 
+  #  filter( !( (Total_Time < 25 | Total_Time > 70) & Setup %in% c('Shale')) ) %>% 
+  #  filter( !( (Total_Time < 50 | Total_Time > 90) & Setup %in% c('Coal')) ) %>% 
+   filter(Amount > 10) # Can be adjusted 
   
 
 # 3. Fit models by Setup and keep the best fit object
@@ -305,9 +312,9 @@ Plot_DNP <- ggplot() +
   geom_point(data = filtered_data, aes(x = Total_Time, y = Amount), color = "Black") +
   geom_line(data = predictions, aes(x = Total_Time, y = Amount), color = "red", size = 1) +
   facet_wrap(~Setup) +
-  labs(title = paste0("Day ",input_day),
+  labs(title = paste0("EXPT ",input_day),
        x = "Total Time",
-       y = "Amount") +
+       y = "Amount (mg/L N2O)") +
   theme_minimal() +
   theme(
     plot.title = element_text(size = 20, hjust = 0.5),
