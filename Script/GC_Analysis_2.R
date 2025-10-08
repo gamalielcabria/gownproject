@@ -35,14 +35,14 @@ find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
 
 # Working Directory
 input <- '/home/glbcabria/Workbench/P3/Expt2/GC/Train'
-input_day <- 'D56' # 'FECH4MNH2'
+input_day <- 'D87LIQ' # 'FECH4MNH2'
 
 # Determine if Amount is in PPM or PCT MOLE
-amount_unit <- 'PCT'
+amount_unit <- 'PPM' #'PCT'
 
 # Set the Retention Time for N2O
-lower_bound <- 1.19
-upper_bound <- 1.3
+lower_bound <- 1.79
+upper_bound <- 1.9
 
 setwd(input)
 
@@ -215,7 +215,8 @@ Table_GC <- GC_filled %>%
 # 1. Filter data (remove 'B' replicates and 'Blank' Setup)
 filtered_data <- Table_GC %>%
   filter(!is.na(Replicate)) %>%
-  filter(Replicate != "B", Setup != "Blank") #%>%
+  filter(Replicate != "B", Setup != "Blank") %>%
+  filter(Replicate != 4)
   # Manaully Removed due to potentially logarithmic
   #filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) %>%
   #filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 97) ) 
@@ -224,39 +225,43 @@ filtered_data <- Table_GC %>%
 # 2. Define fitting function (same as before)
 fit_models <- function(df) {
   start_linear <- list(a = min(df$Amount), b = 0)
-  start_exp <- list(a = min(df$Amount)+1e-6, b = 0.01)
-  start_sigmoid <- list(a = max(df$Amount), b = 0.1, c = median(df$Total_Time), d = min(df$Amount))
+  #start_exp <- list(a = min(df$Amount)+1e-6, b = 0.01)
+  #start_sigmoid <- list(a = max(df$Amount), b = 0.1, c = median(df$Total_Time), d = min(df$Amount))
   
   fit_linear <- try(lm(Amount ~ Total_Time, data = df), silent = TRUE)
-  fit_exp <- try(nlsLM(Amount ~ a * exp(b * Total_Time),
-                       data = df,
-                       start = start_exp,
-                       control = nls.lm.control(maxiter=100)),
-                 silent = TRUE)
-  fit_sigmoid <- try(nlsLM(Amount ~ a / (1 + exp(-b*(Total_Time - c))) + d,
-                           data = df,
-                           start = start_sigmoid,
-                           control = nls.lm.control(maxiter=200)),
-                     silent = TRUE)
+  # fit_exp <- try(nlsLM(Amount ~ a * exp(b * Total_Time),
+  #                      data = df,
+  #                      start = start_exp,
+  #                      control = nls.lm.control(maxiter=100)),
+  #                silent = TRUE)
+  # fit_sigmoid <- try(nlsLM(Amount ~ a / (1 + exp(-b*(Total_Time - c))) + d,
+  #                          data = df,
+  #                          start = start_sigmoid,
+  #                          control = nls.lm.control(maxiter=200)),
+  #                    silent = TRUE)
   
   aic_linear <- if(inherits(fit_linear, "lm")) AIC(fit_linear) else NA
-  aic_exp <- if(inherits(fit_exp, "nls")) AIC(fit_exp) else NA
-  aic_sigmoid <- if(inherits(fit_sigmoid, "nls")) AIC(fit_sigmoid) else NA
+  #aic_exp <- if(inherits(fit_exp, "nls")) AIC(fit_exp) else NA
+  # aic_sigmoid <- if(inherits(fit_sigmoid, "nls")) AIC(fit_sigmoid) else NA
   
-  aic_vals <- c(linear = aic_linear, exponential = aic_exp, sigmoid = aic_sigmoid)
+  aic_vals <- c(
+                linear = aic_linear 
+                #exponential = aic_exp, 
+                # sigmoid = aic_sigmoid
+                )
   best_model <- names(which.min(aic_vals))
   
   list(
     fit_linear = fit_linear,
-    fit_exp = fit_exp,
-    fit_sigmoid = fit_sigmoid,
+    # fit_exp = fit_exp,
+    # fit_sigmoid = fit_sigmoid,
     best_model = best_model,
     aic = aic_vals
   )
 }
 
 # 2.5 Setting up Corrected Data 
-useful_data <-  filtered_data %>%
+useful_data <-  filtered_data #%>%
   # Manually set the linear fitting for those above this value
   # filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1 ) ) %>%  For all Days with Coal as no growth
   #  filter( !( (Total_Time <= 60 | Total_Time > 90) & Setup %in% c('Sand')) ) %>%  
@@ -264,7 +269,7 @@ useful_data <-  filtered_data %>%
   #  filter( !( (Total_Time < 70 | Total_Time > 150) & Setup %in% c('Sandstone')) ) %>% 
   #  filter( !( (Total_Time < 25 | Total_Time > 70) & Setup %in% c('Shale')) ) %>% 
   #  filter( !( (Total_Time < 50 | Total_Time > 90) & Setup %in% c('Coal')) ) %>% 
-   filter(Amount > 10) # Can be adjusted 
+  # filter(Amount > 10) # Can be adjusted 
   
 
 # 3. Fit models by Setup and keep the best fit object
@@ -283,19 +288,20 @@ predictions <- fit_results %>%
       # Predict based on best model
       pred_amount <- switch(fits$best_model,
                             linear = predict(fits$fit_linear, newdata = data.frame(Total_Time = new_time)),
-                            exponential = {
-                              a <- coef(fits$fit_exp)["a"]
-                              b <- coef(fits$fit_exp)["b"]
-                              a * exp(b * new_time)
-                            },
-                            sigmoid = {
-                              coefs <- coef(fits$fit_sigmoid)
-                              a <- coefs["a"]
-                              b <- coefs["b"]
-                              c <- coefs["c"]
-                              d <- coefs["d"]
-                              a / (1 + exp(-b * (new_time - c))) + d
-                            })
+                            # exponential = {
+                            #   a <- coef(fits$fit_exp)["a"]
+                            #   b <- coef(fits$fit_exp)["b"]
+                            #   a * exp(b * new_time)
+                            # },
+                            # sigmoid = {
+                            #   coefs <- coef(fits$fit_sigmoid)
+                            #   a <- coefs["a"]
+                            #   b <- coefs["b"]
+                            #   c <- coefs["c"]
+                            #   d <- coefs["d"]
+                            #   a / (1 + exp(-b * (new_time - c))) + d
+                            # }
+                            )
       
       tibble(
         Total_Time = new_time,
@@ -344,6 +350,23 @@ slopes_table <- useful_data %>%
     .groups = "drop"
   ) 
 
+slopes_table <- useful_data %>%
+  group_by(Setup, Replicate) %>%
+  summarise(
+    # Fit a linear model Amount ~ Total_Time for each group
+    slope = if (n() > 1) {
+      coef(lm(Amount ~ Total_Time))[2]  # slope coefficient
+    } else {
+      NA_real_
+    },
+    r2 = if (n() > 1) {
+      summary(lm(Amount ~ Total_Time))$r.squared  # R² value
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  )
+
 ################## Table for Pub ################
 Table_Slopes <- slopes_table %>%
   ungroup()%>%
@@ -385,7 +408,8 @@ table_grob <- tableGrob(
   )
 Plot_DNP_Table <- Plot_DNP + inset_element(
   table_grob,
-  left = 0.75, bottom = 0.10, right = .95, top = .35
+  left = 0.85, bottom = 0.05, right = .95, top = .35
+  #left = 0.75, bottom = 0.10, right = .95, top = .35
 )
 Plot_DNP_Table
 
