@@ -31,11 +31,11 @@ find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
   return(NULL)
 }
 
-#############################################################################
+############################# PROCESSING INPUTS #############################
 
 # Working Directory
 input <- '/home/gam/github/gownproject/P3/Results/DenitrificationRate/combined'
-input_day <- 'D87LIQ' # 'FECH4MNH2'
+#input_day <- 'D87LIQ' # 'FECH4MNH2'
 
 # Determine if Amount is in PPM or PCT MOLE
 amount_unit <- 'PPM' #'PCT'
@@ -95,18 +95,17 @@ GC_processed_df <- GC_df %>%
   replace_na(list(Area = 0))
 
 # Checking the Amount whether in PPM or PCT MOLE
+# Convert it to mmol/L N2O
 if (amount_unit == "PCT") {
   GC_processed_df <- GC_processed_df %>%
-    mutate(Amount = Amount * 10000)
+    mutate(Amount = Amount * 10000 * 0.0227206)
+} else if (amount_unit == "PPM") {
+    GC_processed_df <- GC_processed_df %>%
+        mutate(Amount = Amount * 0.02272066) # Convert PPM to mmol/L N2O
 }
+###################### Process Calibration Models ###########################
 
-
-################## Process Day 87 Sediment Comparison #######################
-GC_processed_sed_df <- GC_processed_df %>%
-  filter(grepl('D87SED', Sample, ignore.case = TRUE)) #%>%
-  mutate(Sample = gsub("D87SED-", "", Sample) )
-
-# Calibration Model
+# Creating Calibration Model
 models <- GC_processed_df %>%
   filter(grepl("^Calibration$", Type, ignore.case = TRUE)) %>%
   group_by(Date) %>%
@@ -138,148 +137,61 @@ GC_filled <- GC_processed_df %>%
       str_detect(EXPT, "SA")    ~ "Sand",
       str_detect(EXPT, "CO")    ~ "Coal",
       str_detect(EXPT, "CL")    ~ "Control",
-      str_detect(EXPT, "BLANK")  ~ "Blank",
+      str_detect(EXPT, "BLANK|MQ")  ~ "Blank",
       TRUE                       ~ NA_character_
+    ),
+    Setup2 = case_when(
+      str_detect(EXPT, "ORG")    ~ "Sandstone",
+      str_detect(EXPT, "INO")    ~ "Shale",
+      str_detect(EXPT, "CTL")    ~ "Control",
+      TRUE                       ~ "Blank"
     ),
     # Replicate: last character of EXPT
     Replicate = str_extract(EXPT, "[0-9B]$"),
     Replicate = if_else(Setup == "Blank" & is.na(Replicate), "B", Replicate)
-  ) %>%
-  filter(!is.na(EXPT) & str_detect(EXPT, regex(input_day, ignore_case = TRUE))) %>%
+   ) 
+
+######################## Processing ROCK COMPARISON #########################
+# Filter SED only data
+GC_sed_df <- GC_filled %>%
+  filter(!is.na(EXPT) & str_detect(EXPT, regex('D88SED', ignore_case = TRUE))) %>%
   mutate(
     EndDT   = parse_date_time(paste(Date, '-', Time), orders = "%Y%m%d - %I%M%p", tz = "UTC"),
     StartDT = parse_date_time(paste(Start_Date, '-', Start_Time), orders = "%Y%m%d - %I%M%p", tz = "UTC"),
     Total_Time = as.numeric(difftime(EndDT, StartDT, units = "hours"))
   )
 
+
 ########## Final Table for Publication ##############
-Table_GC <- GC_filled %>%
+Table_GC_Sediments <- GC_sed_df %>%
   select(Total_Time,Amount,Setup,Replicate) %>%
   as.data.frame()
-#####################################################
+  
 
+######################### Adding Best Fit Line ##############################
 
-# # Fiding the Best Model Fit per Setup and Replicate
-# fit_models_per_group <- Table_GC %>%
-#   group_by(Setup, Replicate) %>%
-#   group_modify(~ {
-#     df <- .x
-#     
-#     # Prepare safe fitting functions that return NA if they fail
-#     fit_linear <- tryCatch(
-#       lm(Amount ~ Total_Time, data = df),
-#       error = function(e) NA
-#     )
-#     
-#     fit_exp <- tryCatch({
-#       # Only fit if all Amount > 0 (log needed)
-#       if (all(df$Amount > 0)) {
-#         lm(log(Amount) ~ Total_Time, data = df)
-#       } else {
-#         NA
-#       }
-#     }, error = function(e) NA)
-#     
-#     fit_sigmoid <- tryCatch({
-#       nls(
-#         Amount ~ a / (1 + exp(-(Total_Time - x0) / b)),
-#         data = df,
-#         start = list(
-#           a = max(df$Amount, na.rm = TRUE),
-#           x0 = mean(df$Total_Time, na.rm = TRUE),
-#           b = 1
-#         ),
-#         control = nls.control(warnOnly = TRUE)
-#       )
-#     }, error = function(e) NA)
-#     
-#     # Return models as a list-column tibble
-#     tibble(
-#       model_linear = list(fit_linear),
-#       model_exp = list(fit_exp),
-#       model_sigmoid = list(fit_sigmoid)
-#     )
-#   }) %>%
-#   ungroup()
-# 
-# best_model_stats <- fit_models_per_group %>%
-#   mutate(
-#     # Get AIC or NA if model failed
-#     aic_linear = map_dbl(model_linear, ~ if(inherits(.x, "lm")) AIC(.x) else NA_real_) ,
-#     aic_exp    = map_dbl(model_exp,    ~ if(inherits(.x, "lm")) AIC(.x) else NA_real_) ,
-#     aic_sigmoid= map_dbl(model_sigmoid,~ if(inherits(.x, "nls")) AIC(.x) else NA_real_)
-#   ) %>%
-#   rowwise() %>%
-#   mutate(
-#     # Find model name with lowest AIC
-#     best_model = c("linear", "exp", "sigmoid")[which.min(c(aic_linear, aic_exp, aic_sigmoid))]
-#   ) %>%
-#   ungroup() %>%
-#   select(Setup, Replicate, aic_linear, aic_exp, aic_sigmoid, best_model)
-
-# Best fit model search for each setup
 # 1. Filter data (remove 'B' replicates and 'Blank' Setup)
-filtered_data <- Table_GC %>%
+filtered_data <- Table_GC_Sediments %>%
   filter(!is.na(Replicate)) %>%
   filter(Replicate != "B", Setup != "Blank") %>%
-  filter(Replicate != 4)
-  # Manaully Removed due to potentially logarithmic
-  #filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 73.5) ) %>%
-  #filter(!(Replicate == "3" & Setup == "Control" & Total_Time == 97) ) 
-  
+  filter(Replicate != 4)  
   
 # 2. Define fitting function (same as before)
 fit_models <- function(df) {
   start_linear <- list(a = min(df$Amount), b = 0)
-  #start_exp <- list(a = min(df$Amount)+1e-6, b = 0.01)
-  #start_sigmoid <- list(a = max(df$Amount), b = 0.1, c = median(df$Total_Time), d = min(df$Amount))
-  
-  fit_linear <- try(lm(Amount ~ Total_Time, data = df), silent = TRUE)
-  # fit_exp <- try(nlsLM(Amount ~ a * exp(b * Total_Time),
-  #                      data = df,
-  #                      start = start_exp,
-  #                      control = nls.lm.control(maxiter=100)),
-  #                silent = TRUE)
-  # fit_sigmoid <- try(nlsLM(Amount ~ a / (1 + exp(-b*(Total_Time - c))) + d,
-  #                          data = df,
-  #                          start = start_sigmoid,
-  #                          control = nls.lm.control(maxiter=200)),
-  #                    silent = TRUE)
-  
+  fit_linear <- try(lm(Amount ~ Total_Time, data = df), silent = TRUE)  
   aic_linear <- if(inherits(fit_linear, "lm")) AIC(fit_linear) else NA
-  #aic_exp <- if(inherits(fit_exp, "nls")) AIC(fit_exp) else NA
-  # aic_sigmoid <- if(inherits(fit_sigmoid, "nls")) AIC(fit_sigmoid) else NA
-  
-  aic_vals <- c(
-                linear = aic_linear 
-                #exponential = aic_exp, 
-                # sigmoid = aic_sigmoid
-                )
+  aic_vals <- c(linear = aic_linear)
   best_model <- names(which.min(aic_vals))
-  
   list(
     fit_linear = fit_linear,
-    # fit_exp = fit_exp,
-    # fit_sigmoid = fit_sigmoid,
     best_model = best_model,
     aic = aic_vals
   )
 }
 
-# 2.5 Setting up Corrected Data 
-useful_data <-  filtered_data #%>%
-  # Manually set the linear fitting for those above this value
-  # filter(Setup == 'Coal' | (Setup != "Coal" & Amount > 1 ) ) %>%  For all Days with Coal as no growth
-  #  filter( !( (Total_Time <= 60 | Total_Time > 90) & Setup %in% c('Sand')) ) %>%  
-  #  filter( !( (Total_Time < 80 | Total_Time > 110) & Setup %in% c('Control')) ) %>%  
-  #  filter( !( (Total_Time < 70 | Total_Time > 150) & Setup %in% c('Sandstone')) ) %>% 
-  #  filter( !( (Total_Time < 25 | Total_Time > 70) & Setup %in% c('Shale')) ) %>% 
-  #  filter( !( (Total_Time < 50 | Total_Time > 90) & Setup %in% c('Coal')) ) %>% 
-  # filter(Amount > 10) # Can be adjusted 
-  
-
 # 3. Fit models by Setup and keep the best fit object
-fit_results <- useful_data %>%
+fit_results <- filtered_data %>%
   group_by(Setup) %>%
   nest() %>%
   mutate(fits = map(data, fit_models)) 
@@ -293,20 +205,7 @@ predictions <- fit_results %>%
       
       # Predict based on best model
       pred_amount <- switch(fits$best_model,
-                            linear = predict(fits$fit_linear, newdata = data.frame(Total_Time = new_time)),
-                            # exponential = {
-                            #   a <- coef(fits$fit_exp)["a"]
-                            #   b <- coef(fits$fit_exp)["b"]
-                            #   a * exp(b * new_time)
-                            # },
-                            # sigmoid = {
-                            #   coefs <- coef(fits$fit_sigmoid)
-                            #   a <- coefs["a"]
-                            #   b <- coefs["b"]
-                            #   c <- coefs["c"]
-                            #   d <- coefs["d"]
-                            #   a / (1 + exp(-b * (new_time - c))) + d
-                            # }
+                            linear = predict(fits$fit_linear, newdata = data.frame(Total_Time = new_time))
                             )
       
       tibble(
@@ -318,45 +217,48 @@ predictions <- fit_results %>%
   select(Setup, pred_df) %>%
   unnest(pred_df)
 
-# 5. Plot with ggplot2 - data points + best fit lines, facet by Setup
 #################################### PLot for Pub ############################################
+
+#1. Set Colors to certain levels
+setup_cols <- c(
+  Coal      = "#0073C2",
+  Sand      = "#EFC000",
+  Sandstone = "#868686",
+  Shale     = "#CD534C"
+)
+
+## Matches the levels of colors to the levels of Setup
+lvls <- names(setup_cols)
+filtered_data$Setup  <- factor(filtered_data$Setup,  levels = lvls)
+predictions$Setup    <- factor(predictions$Setup,    levels = lvls)
+
+#2. Generate Main Plot
 Plot_DNP <- ggplot() +
-  geom_point(data = filtered_data, aes(x = Total_Time, y = Amount), color = "Black") +
-  geom_line(data = predictions, aes(x = Total_Time, y = Amount), color = "red", size = 1) +
+  geom_point(data = filtered_data, aes(x = Total_Time, y = Amount, color = Setup)) +
+  geom_line(data = predictions, aes(x = Total_Time, y = Amount, color = Setup), linewidth = 1) +
   facet_wrap(~Setup) +
-  labs(title = paste0("EXPT ",input_day),
+  scale_color_manual(values = setup_cols, limits = lvls) +  # enforce mapping & order
+    labs(#title = paste0("EXPT ",input_day),
        x = "Total Time",
-       y = "Amount (mg/L N2O)") +
+       y = "Amount (mmol/L N2O)") +
   theme_minimal() +
   theme(
-    plot.title = element_text(size = 20, hjust = 0.5),
+    aspect.ratio = 1,
+    #plot.title = element_text(size = 20, hjust = 0.5),
     axis.text = element_text(size = 18),
     axis.title.y = element_text(size = 18),
     axis.title.x = element_text(size = 18),
     strip.placement = "outside",
     strip.background = element_rect(fill="grey90"),
     strip.text = element_text(face = "bold", size = 18),
-    #strip.switch.pad.wrap = unit(0.2, "cm"),
+    #strip.switch.pad.wrap = unit(1, "cm"),
     legend.position = "none"
   )
 
 Plot_DNP
-#################################### PLot for Pub ############################################
 
-#6. Compute the Slopes and save into a table
-slopes_table <- useful_data %>%
-    group_by(Setup, Replicate) %>%
-  summarise(
-    # Fit a linear model Amount ~ Total_Time for each group
-    slope = if(n() > 1) {
-      coef(lm(Amount ~ Total_Time))[2]  # slope coefficient
-    } else {
-      NA_real_  # Not enough data points to fit
-    },
-    .groups = "drop"
-  ) 
-
-slopes_table <- useful_data %>%
+#3. Compute the Slopes and save into a table
+slopes_table <- filtered_data %>%
   group_by(Setup, Replicate) %>%
   summarise(
     # Fit a linear model Amount ~ Total_Time for each group
@@ -380,13 +282,14 @@ Table_Slopes <- slopes_table %>%
   summarise(
     Mean = round(mean(slope), 3),
     Std_Dev = round(sd(slope), 3),
+    r2 = round(mean(r2, na.rm = TRUE), 3),
     Replicates = n()
-            ) %>%
-  mutate(DAY = input_day) # MANUALLY SET THE DAY in line
+            ) #%>%
+  #mutate(DAY = 'D88SED') # MANUALLY SET THE DAY in line
 #################################################
 
 
-# 7. Alternative output format for plot
+# 4. Alternative output format for plot: ADD INSET TABLE
 #tableGrob Themes
 minimal_theme <- ttheme_minimal(
   padding = unit(c(6, 10), "pt"),
@@ -404,34 +307,201 @@ minimal_theme <- ttheme_minimal(
   ),
 )
 
-# Create the table grob with the minimal theme
+# 5. Create the table grob with the minimal theme
 inset_table <- Table_Slopes %>%
   unite('Slope', Mean, Std_Dev, sep = '±') %>%
-  select(Setup, Slope)
+  select(Setup, Slope, r2)
+
 table_grob <- tableGrob(
   inset_table, 
   rows = NULL, theme = minimal_theme
   )
-Plot_DNP_Table <- Plot_DNP + inset_element(
+
+Plot_DNP_Table_All <- Plot_DNP + inset_element(
   table_grob,
-  left = 0.85, bottom = 0.05, right = .95, top = .35
+  #on_top = FALSE,
+  align_to = 'panel',
+  left = 0.15, bottom = 0.7, right = 0.4, top = 0.7
   #left = 0.75, bottom = 0.10, right = .95, top = .35
 )
-Plot_DNP_Table
+Plot_DNP_Table_All
+
+########################### END OF ROCK COMPARISON #########################
 
 
+######################## Processing ELECTRON DONOR #########################
+# Filter SED only data
+GC_ED_df <- GC_filled %>%
+  filter(!is.na(EXPT) & str_detect(EXPT, regex('ELECDON', ignore_case = TRUE))) %>%
+  mutate(
+    EndDT   = parse_date_time(paste(Date, '-', Time), orders = "%Y%m%d - %I%M%p", tz = "UTC"),
+    StartDT = parse_date_time(paste(Start_Date, '-', Start_Time), orders = "%Y%m%d - %I%M%p", tz = "UTC"),
+    Total_Time = as.numeric(difftime(EndDT, StartDT, units = "hours"))
+  )
 
-################ SAVE the Tables and Plots for Publication#####################################
-ggsave(plot = Plot_DNP, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_",input_day,".png"),
-       units = c('px'),
-       width = 2000, height = 1200, dpi = 120)
 
-ggsave(plot = Plot_DNP_Table, filename = paste0("~/Workbench/P3/Expt2/Plot_DNP_InsetTable",input_day,".png"),
-       units = c('px'),
-       width = 2000, height = 1200, dpi = 120)
+########## Final Table for Publication ##############
+Table_GC_Sediments <- GC_sed_df %>%
+  select(Total_Time,Amount,Setup,Replicate) %>%
+  as.data.frame()
+  
 
-write_csv(Table_GC, file = paste0("~/Workbench/P3/Expt2/Table_GC_Summary_",input_day,".csv") )
+######################### Adding Best Fit Line ##############################
 
-write_csv(Table_Slopes, file = paste0("~/Workbench/P3/Expt2/Table_GC_Slopes_",input_day,".csv") )
-################ SAVE the Tables and Plots for Publication#####################################
+# 1. Filter data (remove 'B' replicates and 'Blank' Setup)
+filtered_data <- Table_GC_Sediments %>%
+  filter(!is.na(Replicate)) %>%
+  filter(Replicate != "B", Setup != "Blank") %>%
+  filter(Replicate != 4)  
+  
+# 2. Define fitting function (same as before)
+fit_models <- function(df) {
+  start_linear <- list(a = min(df$Amount), b = 0)
+  fit_linear <- try(lm(Amount ~ Total_Time, data = df), silent = TRUE)  
+  aic_linear <- if(inherits(fit_linear, "lm")) AIC(fit_linear) else NA
+  aic_vals <- c(linear = aic_linear)
+  best_model <- names(which.min(aic_vals))
+  list(
+    fit_linear = fit_linear,
+    best_model = best_model,
+    aic = aic_vals
+  )
+}
 
+# 3. Fit models by Setup and keep the best fit object
+fit_results <- filtered_data %>%
+  group_by(Setup) %>%
+  nest() %>%
+  mutate(fits = map(data, fit_models)) 
+
+# 4. Create prediction data frames with best fit per Setup
+predictions <- fit_results %>%
+  mutate(
+    pred_df = pmap(list(data, fits, Setup), function(data, fits, Setup) {
+      # Define a sequence for Total_Time over observed range for smooth curve
+      new_time <- seq(min(data$Total_Time), max(data$Total_Time), length.out = 100)
+      
+      # Predict based on best model
+      pred_amount <- switch(fits$best_model,
+                            linear = predict(fits$fit_linear, newdata = data.frame(Total_Time = new_time))
+                            )
+      
+      tibble(
+        Total_Time = new_time,
+        Amount = pred_amount
+      )
+    })
+  ) %>%
+  select(Setup, pred_df) %>%
+  unnest(pred_df)
+
+#################################### PLot for Pub ############################################
+
+#1. Set Colors to certain levels
+setup_cols <- c(
+  Coal      = "#0073C2",
+  Sand      = "#EFC000",
+  Sandstone = "#868686",
+  Shale     = "#CD534C"
+)
+
+## Matches the levels of colors to the levels of Setup
+lvls <- names(setup_cols)
+filtered_data$Setup  <- factor(filtered_data$Setup,  levels = lvls)
+predictions$Setup    <- factor(predictions$Setup,    levels = lvls)
+
+#2. Generate Main Plot
+Plot_DNP <- ggplot() +
+  geom_point(data = filtered_data, aes(x = Total_Time, y = Amount, color = Setup)) +
+  geom_line(data = predictions, aes(x = Total_Time, y = Amount, color = Setup), linewidth = 1) +
+  facet_wrap(~Setup) +
+  scale_color_manual(values = setup_cols, limits = lvls) +  # enforce mapping & order
+    labs(#title = paste0("EXPT ",input_day),
+       x = "Total Time",
+       y = "Amount (mmol/L N2O)") +
+  theme_minimal() +
+  theme(
+    aspect.ratio = 1,
+    #plot.title = element_text(size = 20, hjust = 0.5),
+    axis.text = element_text(size = 18),
+    axis.title.y = element_text(size = 18),
+    axis.title.x = element_text(size = 18),
+    strip.placement = "outside",
+    strip.background = element_rect(fill="grey90"),
+    strip.text = element_text(face = "bold", size = 18),
+    #strip.switch.pad.wrap = unit(1, "cm"),
+    legend.position = "none"
+  )
+
+Plot_DNP
+
+#3. Compute the Slopes and save into a table
+slopes_table <- filtered_data %>%
+  group_by(Setup, Replicate) %>%
+  summarise(
+    # Fit a linear model Amount ~ Total_Time for each group
+    slope = if (n() > 1) {
+      coef(lm(Amount ~ Total_Time))[2]  # slope coefficient
+    } else {
+      NA_real_
+    },
+    r2 = if (n() > 1) {
+      summary(lm(Amount ~ Total_Time))$r.squared  # R² value
+    } else {
+      NA_real_
+    },
+    .groups = "drop"
+  )
+
+################## Table for Pub ################
+Table_Slopes <- slopes_table %>%
+  ungroup()%>%
+  group_by(Setup) %>%
+  summarise(
+    Mean = round(mean(slope), 3),
+    Std_Dev = round(sd(slope), 3),
+    r2 = round(mean(r2, na.rm = TRUE), 3),
+    Replicates = n()
+            ) #%>%
+  #mutate(DAY = 'D88SED') # MANUALLY SET THE DAY in line
+#################################################
+
+
+# 4. Alternative output format for plot: ADD INSET TABLE
+#tableGrob Themes
+minimal_theme <- ttheme_minimal(
+  padding = unit(c(6, 10), "pt"),
+  core = list(
+    fg_params = list(fontsize = 15),
+    bg_params = list(fill = NA, col = NA)
+  ),
+  colhead = list(
+    fg_params = list(fontface = "bold", fontsize = 15),
+    bg_params = list(fill = NA, col = NA)
+  ),
+  rowhead = list(
+    fg_params = list(fontsize = 15),
+    bg_params = list(fill = NA, col = NA)
+  ),
+)
+
+# 5. Create the table grob with the minimal theme
+inset_table <- Table_Slopes %>%
+  unite('Slope', Mean, Std_Dev, sep = '±') %>%
+  select(Setup, Slope, r2)
+
+table_grob <- tableGrob(
+  inset_table, 
+  rows = NULL, theme = minimal_theme
+  )
+
+Plot_DNP_Table_ED <- Plot_DNP + inset_element(
+  table_grob,
+  #on_top = FALSE,
+  align_to = 'panel',
+  left = 0.15, bottom = 0.7, right = 0.4, top = 0.7
+  #left = 0.75, bottom = 0.10, right = .95, top = .35
+)
+Plot_DNP_Table_ED
+
+###########################
