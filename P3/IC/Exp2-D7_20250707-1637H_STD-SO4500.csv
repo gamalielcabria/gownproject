@@ -1,0 +1,50 @@
+﻿Summary,,,,,,,
+,,,,,,,
+Sequence Details,,,,,,,
+Name:,,Exp2-D7-Anions-20250707-reviewed,,,Created On:,23-Jun-21 12:28:18,
+Directory:,,Gama\Mesocosm,,,Created By:,Thermo Fisher Scient,
+Data Vault:,,ChromeleonLocal,,,Updated On:,22-Jul-25 10:14:00,
+No. of Injections:,,36,,,Updated By:,Thermo Fisher Scient,
+,,,,,,,
+By Component,,Sulfate,,,,,
+,,,,,,,
+No. ,Injection Name,Ret.Time,Area,Height,Amount,Rel.Area ,Peak Type 
+,,min,µS*min,µS,mM,%,
+,,CD_1,CD_1,CD_1,CD_1,CD_1,CD_1
+,,Sulfate,Sulfate,Sulfate,Sulfate,Sulfate,Sulfate
+1,Exp1-D7_20250707-1637H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+2,Exp1-D7_20250707-1637H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+3,Exp1-D7_20250707-1637H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+4,Exp1-D7_20250707-1637H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+5,Exp1-D7_20250707-1637H_STD-NO3200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+6,Exp1-D7_20250707-1637H_STD-NO3050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+7,Exp1-D7_20250707-1637H_STD-NO3020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+8,Exp1-D7_20250707-1637H_STD-NO3005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+9,Exp1-D7_20250707-1637H_STD-NO2500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+10,Exp1-D7_20250707-1637H_STD-NO2200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+11,Exp1-D7_20250707-1637H_STD-NO2050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+12,Exp1-D7_20250707-1637H_STD-NO2020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+13,Exp1-D7_20250707-1637H_STD-NO2005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+14,Exp1-D7_20250707-1637H_STD-OAc500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+15,Exp1-D7_20250707-1637H_STD-OAc200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+16,Exp1-D7_20250707-1637H_STD-OAc050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+17,Exp1-D7_20250707-1637H_STD-OAc020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+18,Exp1-D7_20250707-1637H_STD-OAc005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+19,Exp2-D7_20250707-1637H_SH1,9.833,63.507,206.840,443.745,47.84,BMB
+20,Exp2-D7_20250707-1637H_SH2,9.777,59.427,199.563,413.534,46.26,BMB
+21,Exp2-D7_20250707-1637H_SH3,9.797,59.012,198.814,410.468,46.67,BMB
+22,Exp2-D7_20250707-1637H_CO1,9.807,77.431,232.002,546.848,45.22,BMB
+23,Exp2-D7_20250707-1637H_CO2,9.803,70.259,216.128,493.742,43.97,BMB
+24,Exp2-D7_20250707-1637H_CO3,9.780,74.500,226.000,525.147,44.40,BMB
+25,Exp2-D7_20250707-1637H_SA1,9.680,18.617,69.188,111.368,21.28,BMB
+26,Exp2-D7_20250707-1637H_SA2,9.703,23.916,88.207,150.599,21.93,BMB
+27,Exp2-D7_20250707-1637H_SA3,9.667,17.839,66.442,105.606,21.25,BMB
+28,Exp2-D7_20250707-1637H_SS1,9.720,38.636,138.682,259.592,36.47,BMB
+29,Exp2-D7_20250707-1637H_SS2,9.970,44.120,140.480,300.197,39.79,BMB
+30,Exp2-D7_20250707-1637H_SS3,9.513,36.779,131.469,245.844,36.85,BMB
+31,Exp2-D7_20250707-1637H_CL1,9.663,14.845,55.257,83.439,19.03,BMB
+32,Exp2-D7_20250707-1637H_CL2,9.677,14.878,55.669,83.683,18.89,BMB
+33,Exp2-D7_20250707-1637H_CL3,9.667,14.234,53.328,78.912,18.87,BMB
+34,Exp2-D7_20250707-1637H_STD-SO4500,9.703,72.258,184.597,508.545,100.00, M 
+35,Exp2-D7_20250707-1637H_STD-SO4200,9.637,27.125,89.419,174.364,100.00, M 
+36,Exp2-D7_20250707-1637H_STC-SO4050,9.613,12.637,44.968,67.091,100.00, M 

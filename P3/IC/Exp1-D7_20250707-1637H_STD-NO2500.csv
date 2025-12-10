@@ -1,0 +1,50 @@
+﻿Summary,,,,,,,
+,,,,,,,
+Sequence Details,,,,,,,
+Name:,,Exp2-D7-Anions-20250707-reviewed,,,Created On:,23-Jun-21 12:28:18,
+Directory:,,Gama\Mesocosm,,,Created By:,Thermo Fisher Scient,
+Data Vault:,,ChromeleonLocal,,,Updated On:,22-Jul-25 10:14:00,
+No. of Injections:,,36,,,Updated By:,Thermo Fisher Scient,
+,,,,,,,
+By Component,,Nitrite,,,,,
+,,,,,,,
+No. ,Injection Name,Ret.Time,Area,Height,Amount,Rel.Area ,Peak Type 
+,,min,µS*min,µS,mM,%,
+,,CD_1,CD_1,CD_1,CD_1,CD_1,CD_1
+,,Nitrite,Nitrite,Nitrite,Nitrite,Nitrite,Nitrite
+1,Exp1-D7_20250707-1637H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+2,Exp1-D7_20250707-1637H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+3,Exp1-D7_20250707-1637H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+4,Exp1-D7_20250707-1637H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+5,Exp1-D7_20250707-1637H_STD-NO3200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+6,Exp1-D7_20250707-1637H_STD-NO3050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+7,Exp1-D7_20250707-1637H_STD-NO3020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+8,Exp1-D7_20250707-1637H_STD-NO3005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+9,Exp1-D7_20250707-1637H_STD-NO2500,5.100,45.156,164.026,498.099,100.00, M 
+10,Exp1-D7_20250707-1637H_STD-NO2200,5.037,18.520,90.514,204.821,100.00, M 
+11,Exp1-D7_20250707-1637H_STD-NO2050,4.970,4.481,27.336,50.250,100.00,BMB
+12,Exp1-D7_20250707-1637H_STD-NO2020,4.957,1.670,10.535,19.301,100.00,BMB
+13,Exp1-D7_20250707-1637H_STD-NO2005,4.947,0.147,0.943,2.528,100.00,BMB*
+14,Exp1-D7_20250707-1637H_STD-OAc500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+15,Exp1-D7_20250707-1637H_STD-OAc200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+16,Exp1-D7_20250707-1637H_STD-OAc050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+17,Exp1-D7_20250707-1637H_STD-OAc020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+18,Exp1-D7_20250707-1637H_STD-OAc005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+19,Exp2-D7_20250707-1637H_SH1,4.967,2.023,12.251,23.184,1.52, MB
+20,Exp2-D7_20250707-1637H_SH2,4.937,1.009,5.810,12.026,0.79, MB
+21,Exp2-D7_20250707-1637H_SH3,4.947,0.933,5.400,11.188,0.74, MB
+22,Exp2-D7_20250707-1637H_CO1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+23,Exp2-D7_20250707-1637H_CO2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+24,Exp2-D7_20250707-1637H_CO3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+25,Exp2-D7_20250707-1637H_SA1,4.940,0.157,1.314,2.641,0.18,bMB*
+26,Exp2-D7_20250707-1637H_SA2,4.950,0.164,1.422,2.716,0.15,BMB*
+27,Exp2-D7_20250707-1637H_SA3,4.933,0.117,1.016,2.204,0.14,BMB*
+28,Exp2-D7_20250707-1637H_SS1,4.937,1.164,6.843,13.731,1.10, MB
+29,Exp2-D7_20250707-1637H_SS2,4.950,0.719,4.050,8.830,0.65, MB
+30,Exp2-D7_20250707-1637H_SS3,4.923,1.211,7.312,14.243,1.21, MB
+31,Exp2-D7_20250707-1637H_CL1,4.933,0.058,0.531,1.550,0.07,BMB*
+32,Exp2-D7_20250707-1637H_CL2,4.940,0.058,0.532,1.552,0.07,BMB*
+33,Exp2-D7_20250707-1637H_CL3,4.937,0.054,0.497,1.511,0.07,BMB*
+34,Exp2-D7_20250707-1637H_STD-SO4500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+35,Exp2-D7_20250707-1637H_STD-SO4200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+36,Exp2-D7_20250707-1637H_STC-SO4050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.

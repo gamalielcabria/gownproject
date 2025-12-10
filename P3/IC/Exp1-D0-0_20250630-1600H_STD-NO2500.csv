@@ -1,0 +1,49 @@
+﻿Summary,,,,,,,
+,,,,,,,
+Sequence Details,,,,,,,
+Name:,,Exp2-D0-Anions-20250701-reviewed,,,Created On:,23-Jun-21 12:28:18,
+Directory:,,Gama\Mesocosm,,,Created By:,Thermo Fisher Scient,
+Data Vault:,,ChromeleonLocal,,,Updated On:,22-Jul-25 11:16:58,
+No. of Injections:,,35,,,Updated By:,Thermo Fisher Scient,
+,,,,,,,
+By Component,,Nitrite,,,,,
+,,,,,,,
+No. ,Injection Name,Ret.Time,Area,Height,Amount,Rel.Area ,Peak Type 
+,,min,µS*min,µS,mM,%,
+,,CD_1,CD_1,CD_1,CD_1,CD_1,CD_1
+,,Nitrite,Nitrite,Nitrite,Nitrite,Nitrite,Nitrite
+1,Exp1-D0-0_20250630-1600H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+2,Exp1-D0-0_20250630-1600H_STD-NO3200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+3,Exp1-D0-0_20250630-1600H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+4,Exp1-D0-0_20250630-1600H_STD-NO3050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+5,Exp1-D0-0_20250630-1600H_STD-NO3020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+6,Exp1-D0-0_20250630-1600H_STD-NO3005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+7,Exp1-D0-0_20250630-1600H_STD-OAC500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+8,Exp1-D0-0_20250630-1600H_STD-OAC200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+9,Exp1-D0-0_20250630-1600H_STD-OAC050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+10,Exp1-D0-0_20250630-1600H_STD-OAC020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+11,Exp1-D0-0_20250630-1600H_STD-OAC005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+12,Exp1-D0-0_20250630-1600H_STD-NO2500,5.133,44.099,162.196,497.642,100.00, M 
+13,Exp1-D0-0_20250630-1600H_STD-NO2200,5.037,18.421,89.509,206.499,100.00, M 
+14,Exp1-D0-0_20250630-1600H_STD-NO2050,4.993,4.506,27.085,48.735,100.00,BMB
+15,Exp1-D0-0_20250630-1600H_STD-NO2020,4.963,1.718,10.585,17.124,100.00,BMB
+16,Exp1-D0-0_20250630-1600H_STD-NO2005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+17,Exp1-D0-0_20250630-1600H_BLANK-H2O,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+18,Exp2-D0-0_20250630-1600H_GW1,4.957,0.121,1.004,n.a.,0.15,BMB*
+19,Exp2-D0-0_20250630-1600H_GW2,4.950,0.101,0.928,n.a.,0.13,BMB*
+20,Exp2-D0-0_20250630-1600H_GW3,4.957,0.115,0.973,n.a.,0.15,BMB*
+21,Exp2-D0-0_20250630-1600H_SA1,4.963,0.066,0.619,n.a.,0.07,BMB*
+22,Exp2-D0-0_20250630-1600H_SA2,4.950,0.057,0.542,n.a.,0.07,BMB*
+23,Exp2-D0-0_20250630-1600H_SA3,4.953,0.060,0.558,n.a.,0.06,BMB*
+24,Exp2-D0-0_20250630-1600H_CO1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+25,Exp2-D0-0_20250630-1600H_CO2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+26,Exp2-D0-0_20250630-1600H_CO3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+27,Exp2-D0-0_20250630-1600H_SS1,4.950,0.017,0.289,n.a.,0.01,BMB*
+28,Exp2-D0-0_20250630-1600H_SS2,4.953,0.056,0.565,n.a.,0.04,BMB*
+29,Exp2-D0-0_20250630-1600H_SS3,4.953,0.023,0.351,n.a.,0.02,BMB*
+30,Exp2-D0-0_20250630-1600H_SH1,4.930,0.059,0.543,n.a.,0.05,BMB*
+31,Exp2-D0-0_20250630-1600H_SH2,4.963,0.052,0.511,n.a.,0.05,bMB*
+32,Exp2-D0-0_20250630-1600H_SH3,4.953,0.048,0.580,n.a.,0.04,BMB*
+33,Exp2-D0-0_20250630-1600H_CL1,4.957,0.023,0.342,n.a.,0.03,BMB*
+34,Exp2-D0-0_20250630-1600H_CL2,4.960,0.018,0.291,n.a.,0.02,BMB*
+35,Exp2-D0-0_20250630-1600H_CL3,4.967,0.024,0.352,n.a.,0.03,BMB*

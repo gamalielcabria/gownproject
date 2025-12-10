@@ -1,0 +1,65 @@
+﻿Summary,,,,,,,
+,,,,,,,
+Sequence Details,,,,,,,
+Name:,,Exp2-D15-Leaching-D6-Anions-20250715-reviewed,,,Created On:,23-Jun-21 12:28:18,
+Directory:,,Gama\Mesocosm,,,Created By:,Thermo Fisher Scient,
+Data Vault:,,ChromeleonLocal,,,Updated On:,22-Jul-25 11:20:43,
+No. of Injections:,,51,,,Updated By:,Thermo Fisher Scient,
+,,,,,,,
+By Component,,Acetate,,,,,
+,,,,,,,
+No. ,Injection Name,Ret.Time,Area,Height,Amount,Rel.Area ,Peak Type 
+,,min,µS*min,µS,mM,%,
+,,CD_1,CD_1,CD_1,CD_1,CD_1,CD_1
+,,Acetate,Acetate,Acetate,Acetate,Acetate,Acetate
+1,Exp2-D15_2025015-1500H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+2,Exp2-D15_2025015-1500H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+3,Exp2-D15_2025015-1500H_STD-NO3200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+4,Exp2-D15_2025015-1500H_STD-NO3050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+5,Exp2-D15_2025015-1500H_STD-NO3020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+6,Exp2-D15_2025015-1500H_STD-NO3005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+7,Exp2-D15_2025015-1500H_STD-NO2500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+8,Exp2-D15_2025015-1500H_STD-NO2200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+9,Exp2-D15_2025015-1500H_STD-NO2050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+10,Exp2-D15_2025015-1500H_STD-NO2020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+11,Exp2-D15_2025015-1500H_STD-NO2005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+12,Exp2-D15_2025015-1500H_STD-OAc500,3.410,5.662,18.806,498.617,100.00,BMB*
+13,Exp2-D15_2025015-1500H_STD-OAc200,3.367,2.341,9.666,203.664,100.00,BMB*
+14,Exp2-D15_2025015-1500H_STD-OAc050,3.333,0.612,2.737,50.145,100.00,BMB*
+15,Exp2-D15_2025015-1500H_STD-OAc020,3.343,0.246,1.210,17.574,100.00,BMB*
+16,Exp2-D15_2025015-1500H_STD-OAc005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+17,Exp2-D15_2025015-1500H_STD-SO4500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+18,Exp2-D15_2025015-1500H_STD-SO4200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+19,Exp2-D15_2025015-1500H_STD-SO4050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+20,Exp2-D15_2025015-1500H_SA1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+21,Exp2-D15_2025015-1500H_SA2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+22,Exp2-D15_2025015-1500H_SA3_DNU,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+23,Exp2-D15_2025015-1500H_SH1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+24,Exp2-D15_2025015-1500H_SH2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+25,Exp2-D15_2025015-1500H_SH3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+26,Exp2-D15_2025015-1500H_SS1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+27,Exp2-D15_2025015-1500H_SS2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+28,Exp2-D15_2025015-1500H_SS3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+29,Exp2-D15_2025015-1500H_CO1,3.523,0.864,5.814,72.520,0.51,BMB
+30,Exp2-D15_2025015-1500H_CO2,3.527,0.928,6.231,78.128,0.56,BMB
+31,Exp2-D15_2025015-1500H_CO3,3.540,0.798,5.465,66.665,0.54,BMB
+32,Exp2-D15_2025015-1500H_CL1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+33,Exp2-D15_2025015-1500H_CL2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+34,Exp2-D15_2025015-1500H_CL3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+35,Exp2-D15_2025015-1500H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+36,LEACHINGEXP-D6-SB1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+37,LEACHINGEXP-D6-SN1,3.510,0.851,3.088,71.366,1.88, M 
+38,LEACHINGEXP-D6-CB1,3.563,0.968,7.119,81.717,1.16, M 
+39,LEACHINGEXP-D6-CN1,3.520,0.942,6.909,79.417,1.19, M 
+40,LEACHINGEXP-D6-BLANK_MILLIQ,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+41,LEACHINGEXP-D6-BLANK_ULTRA,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+42,LEACHINGEXP-D6-SB2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+43,LEACHINGEXP-D6-SB3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+44,LEACHINGEXP-D6-SN2,3.520,0.858,3.074,71.957,1.89, M 
+45,LEACHINGEXP-D6-SN3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+46,LEACHINGEXP-D6-CB2,3.517,0.954,6.993,80.467,1.15, M 
+47,LEACHINGEXP-D6-CB3,3.520,0.957,7.008,80.714,1.15, M 
+48,LEACHINGEXP-D6-CN2,3.520,0.932,6.814,78.526,1.17, M 
+49,LEACHINGEXP-D6-CN3,3.553,0.943,6.829,79.507,1.18, M 
+50,Exp2-D15_2025015-1500H_SA3-2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+51,Exp2-D15_2025015-1500H_SA3-3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.

@@ -1,0 +1,57 @@
+﻿Summary,,,,,,,
+,,,,,,,
+Sequence Details,,,,,,,
+Name:,,Exp2-D21-Anions-20250721,,,Created On:,23-Jun-21 12:28:18,
+Directory:,,Gama\Mesocosm,,,Created By:,Thermo Fisher Scient,
+Data Vault:,,ChromeleonLocal,,,Updated On:,30-Jul-25 17:59:59,
+No. of Injections:,,43,,,Updated By:,Thermo Fisher Scient,
+,,,,,,,
+By Component,,Acetate,,,,,
+,,,,,,,
+No. ,Injection Name,Ret.Time,Area,Height,Amount,Rel.Area ,Peak Type 
+,,min,µS*min,µS,mM,%,
+,,CD_1,CD_1,CD_1,CD_1,CD_1,CD_1
+,,Acetate,Acetate,Acetate,Acetate,Acetate,Acetate
+1,Exp2-D21_20250721-1730H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+2,Exp2-D21_20250721-1730H_STD-NO3005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+3,Exp2-D21_20250721-1730H_STD-NO3020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+4,Exp2-D21_20250721-1730H_STD-NO3050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+5,Exp2-D21_20250721-1730H_STD-NO3200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+6,Exp2-D21_20250721-1730H_STD-NO3500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+7,Exp2-D21_20250721-1730H_STD-NO2005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+8,Exp2-D21_20250721-1730H_STD-NO2020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+9,Exp2-D21_20250721-1730H_STD-NO2050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+10,Exp2-D21_20250721-1730H_STD-NO2200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+11,Exp2-D21_20250721-1730H_STD-NO2500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+12,Exp2-D21_20250721-1730H_STD-OAc005,3.333,0.066,0.293,3.057,100.00,BMB*
+13,Exp2-D21_20250721-1730H_STD-OAc020,3.340,0.316,1.276,23.489,100.00,BMB*
+14,Exp2-D21_20250721-1730H_STD-OAc050,3.360,0.656,2.849,51.228,100.00,BMB*
+15,Exp2-D21_20250721-1730H_STD-OAc200,3.373,2.426,9.905,195.781,100.00,BMB*
+16,Exp2-D21_20250721-1730H_STD-OAc500,3.433,6.170,19.495,501.445,100.00, M 
+17,Exp2-D21_20250721-1730H_STD-SO4050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+18,Exp2-D21_20250721-1730H_STD-SO4200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+19,Exp2-D21_20250721-1730H_STD-SO4500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+20,Exp2-D21_20250721-1730H_SA1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+21,Exp2-D21_20250721-1730H_SH1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+22,Exp2-D21_20250721-1730H_SS1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+23,Exp2-D21_20250721-1730H_CO1,3.537,0.975,5.475,77.260,0.64,BM 
+24,Exp2-D21_20250721-1730H_CL1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+25,Exp2-D21_20250721-1730H_SA2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+26,Exp2-D21_20250721-1730H_SH2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+27,Exp2-D21_20250721-1730H_SS2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+28,Exp2-D21_20250721-1730H_CO2,3.540,1.061,5.945,84.318,0.70,BM 
+29,Exp2-D21_20250721-1730H_CL2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+30,Exp2-D21_20250721-1730H_SA3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+31,Exp2-D21_20250721-1730H_SH3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+32,Exp2-D21_20250721-1730H_SS3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+33,Exp2-D21_20250721-1730H_CO3,3.530,0.772,5.249,60.737,0.52,BMB
+34,Exp2-D21_20250721-1730H_CL3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+35,Exp2-D21_20250721-1730H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+36,Exp2-D22_20250722-1330H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+37,Exp2-D22_20250722-1330H_SH1_PT,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+38,Exp2-D22_20250722-1330H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+39,Exp2-D21_20250722-1330H_SH1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+40,Exp2-D21_20250722-1330H_SH2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+41,Exp2-D21_20250722-1330H_SH3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+42,Exp2-D22_20250722-1330H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+43,Exp2-D22_20250722-1330H_SH1_PT,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.

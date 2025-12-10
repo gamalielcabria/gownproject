@@ -1,0 +1,50 @@
+﻿Summary,,,,,,,
+,,,,,,,
+Sequence Details,,,,,,,
+Name:,,Exp2-D44-Anions-20250813-reviewed,,,Created On:,23-Jun-21 12:28:18,
+Directory:,,Gama\Mesocosm,,,Created By:,Thermo Fisher Scient,
+Data Vault:,,ChromeleonLocal,,,Updated On:,14-Aug-25 10:40:59,
+No. of Injections:,,36,,,Updated By:,Thermo Fisher Scient,
+,,,,,,,
+By Component,,Nitrate,,,,,
+,,,,,,,
+No. ,Injection Name,Ret.Time,Area,Height,Amount,Rel.Area ,Peak Type 
+,,min,µS*min,µS,mM,%,
+,,CD_1,CD_1,CD_1,CD_1,CD_1,CD_1
+,,Nitrate,Nitrate,Nitrate,Nitrate,Nitrate,Nitrate
+1,Exp2-D44_20250813-1630H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+2,Exp2-D44_20250813-1630H_STD-NO3005,6.927,0.440,0.875,12.905,100.00, M 
+3,Exp2-D44_20250813-1630H_STD-NO3020,7.193,1.200,3.647,16.900,100.00,BMB*^
+4,Exp2-D44_20250813-1630H_STD-NO3050,6.963,6.347,10.875,43.961,100.00, M 
+5,Exp2-D44_20250813-1630H_STD-NO3200,6.870,36.210,62.767,200.975,100.00, M 
+6,Exp2-D44_20250813-1630H_STD-NO3500,6.847,93.132,157.676,500.259,100.00, M 
+7,Exp2-D44_20250813-1630H_STD-NO2005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+8,Exp2-D44_20250813-1630H_STD-NO2020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+9,Exp2-D44_20250813-1630H_STD-NO2050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+10,Exp2-D44_20250813-1630H_STD-NO2200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+11,Exp2-D44_20250813-1630H_STD-NO2500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+12,Exp2-D44_20250813-1630H_STD-OAC005,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+13,Exp2-D44_20250813-1630H_STD-OAC020,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+14,Exp2-D44_20250813-1630H_STD-OAC050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+15,Exp2-D44_20250813-1630H_STD-OAC200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+16,Exp2-D44_20250813-1630H_STD-OAC500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+17,Exp2-D44_20250813-1630H_STD-SO4050,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+18,Exp2-D44_20250813-1630H_STD-SO4200,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+19,Exp2-D44_20250813-1630H_STD-SO4500,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+20,Exp2-D44_20250813-1630H_STD-BLANK,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+21,Exp2-D44_20250813-1630H_SA1,6.760,1.815,2.936,20.133,1.43, M 
+22,Exp2-D44_20250813-1630H_SH1,6.837,1.618,5.563,19.100,1.07, M *
+23,Exp2-D44_20250813-1630H_SS1,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+24,Exp2-D44_20250813-1630H_CO1,6.750,7.914,18.307,52.203,5.24, M 
+25,Exp2-D44_20250813-1630H_CL1,6.770,1.475,2.534,18.345,1.22, M 
+26,Exp2-D44_20250813-1630H_SA2,6.787,1.649,2.806,19.264,1.31, M 
+27,Exp2-D44_20250813-1630H_SH2,6.787,0.103,0.561,11.131,0.07,BMB*
+28,Exp2-D44_20250813-1630H_SS2,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+29,Exp2-D44_20250813-1630H_CO2,6.743,7.439,17.447,49.705,5.28, M 
+30,Exp2-D44_20250813-1630H_CL2,6.787,1.478,2.548,18.361,1.22, M 
+31,Exp2-D44_20250813-1630H_SA3,6.810,1.672,2.853,19.382,1.33, M 
+32,Exp2-D44_20250813-1630H_SH3,6.777,0.362,0.950,12.493,0.26,BMB*
+33,Exp2-D44_20250813-1630H_SS3,n.a.,n.a.,n.a.,n.a.,n.a.,n.a.
+34,Exp2-D44_20250813-1630H_CO3,6.733,7.552,17.519,50.299,5.31, M 
+35,Exp2-D44_20250813-1630H_CL3,6.800,1.553,2.628,18.759,1.27, M 
+36,Exp2-D37_20250806-1630H_SH1_PT,6.773,2.504,10.272,23.757,1.29, M 

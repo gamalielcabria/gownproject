@@ -34,7 +34,7 @@ find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
 ############################# PROCESSING INPUTS #############################
 
 # Working Directory
-input <- '/home/gam/github/gownproject/P3/Results/DenitrificationRate/combined'
+input <- '~/combined'
 #input_day <- 'D87LIQ' # 'FECH4MNH2'
 
 # Determine if Amount is in PPM or PCT MOLE
@@ -141,8 +141,8 @@ GC_filled <- GC_processed_df %>%
       TRUE                       ~ NA_character_
     ),
     Setup2 = case_when(
-      str_detect(EXPT, "ORG")    ~ "Sandstone",
-      str_detect(EXPT, "INO")    ~ "Shale",
+      str_detect(EXPT, "ORG")    ~ "Organic",
+      str_detect(EXPT, "INO")    ~ "Inorganic",
       str_detect(EXPT, "CTL")    ~ "Control",
       TRUE                       ~ "Blank"
     ),
@@ -321,7 +321,7 @@ Plot_DNP_Table_All <- Plot_DNP + inset_element(
   table_grob,
   #on_top = FALSE,
   align_to = 'panel',
-  left = 0.15, bottom = 0.7, right = 0.4, top = 0.7
+  left = 0.25, bottom = 0.775, right = 0.4, top = 0.775
   #left = 0.75, bottom = 0.10, right = .95, top = .35
 )
 Plot_DNP_Table_All
@@ -341,17 +341,17 @@ GC_ED_df <- GC_filled %>%
 
 
 ########## Final Table for Publication ##############
-Table_GC_Sediments <- GC_sed_df %>%
-  select(Total_Time,Amount,Setup,Replicate) %>%
+Table_GC_ED <- GC_ED_df %>%
+  select(Total_Time,Amount,Setup,Setup2,Replicate) %>%
   as.data.frame()
   
 
 ######################### Adding Best Fit Line ##############################
 
 # 1. Filter data (remove 'B' replicates and 'Blank' Setup)
-filtered_data <- Table_GC_Sediments %>%
+filtered_data_ED <- Table_GC_ED %>%
   filter(!is.na(Replicate)) %>%
-  filter(Replicate != "B", Setup != "Blank") %>%
+  filter(Replicate != "B", Setup2 != "Blank") %>%
   filter(Replicate != 4)  
   
 # 2. Define fitting function (same as before)
@@ -369,15 +369,15 @@ fit_models <- function(df) {
 }
 
 # 3. Fit models by Setup and keep the best fit object
-fit_results <- filtered_data %>%
-  group_by(Setup) %>%
+fit_results_ED <- filtered_data_ED %>%
+  group_by(Setup, Setup2) %>%
   nest() %>%
   mutate(fits = map(data, fit_models)) 
 
 # 4. Create prediction data frames with best fit per Setup
-predictions <- fit_results %>%
+predictions_ED <- fit_results_ED %>%
   mutate(
-    pred_df = pmap(list(data, fits, Setup), function(data, fits, Setup) {
+    pred_df = pmap(list(data, fits, Setup, Setup2), function(data, fits, Setup, Setup2) {
       # Define a sequence for Total_Time over observed range for smooth curve
       new_time <- seq(min(data$Total_Time), max(data$Total_Time), length.out = 100)
       
@@ -392,30 +392,38 @@ predictions <- fit_results %>%
       )
     })
   ) %>%
-  select(Setup, pred_df) %>%
+  select(Setup2, Setup, pred_df) %>%
   unnest(pred_df)
 
 #################################### PLot for Pub ############################################
 
 #1. Set Colors to certain levels
 setup_cols <- c(
-  Coal      = "#0073C2",
+  #Coal      = "#0073C2",
   Sand      = "#EFC000",
   Sandstone = "#868686",
   Shale     = "#CD534C"
 )
 
+setup2_linetype <- c(
+  Control = "dotted",
+  Inorganic = "solid",
+  Organic   = "dashed"
+)
+
 ## Matches the levels of colors to the levels of Setup
-lvls <- names(setup_cols)
-filtered_data$Setup  <- factor(filtered_data$Setup,  levels = lvls)
-predictions$Setup    <- factor(predictions$Setup,    levels = lvls)
+#lvls <- names(setup2_linetype)
+#filtered_data_ED$Setup2  <- factor(filtered_data_ED$Setup2,  levels = lvls)
+#predictions_ED$Setup2    <- factor(predictions_ED$Setup2,    levels = lvls)
 
 #2. Generate Main Plot
-Plot_DNP <- ggplot() +
-  geom_point(data = filtered_data, aes(x = Total_Time, y = Amount, color = Setup)) +
-  geom_line(data = predictions, aes(x = Total_Time, y = Amount, color = Setup), linewidth = 1) +
-  facet_wrap(~Setup) +
-  scale_color_manual(values = setup_cols, limits = lvls) +  # enforce mapping & order
+Plot_DNP_ED <- ggplot() +
+  geom_point(data = filtered_data_ED, aes(x = Total_Time, y = Amount, color = Setup)) +
+  geom_line(data = predictions_ED, aes(x = Total_Time, y = Amount, 
+      color = Setup, 
+      linetype = Setup2), linewidth = 1) +
+  facet_wrap(~Setup, nrow = 2, ncol = 2, drop = FALSE) +
+  scale_color_manual(values = setup_cols)+#, limits = lvls) +  # enforce mapping & order
     labs(#title = paste0("EXPT ",input_day),
        x = "Total Time",
        y = "Amount (mmol/L N2O)") +
@@ -430,14 +438,21 @@ Plot_DNP <- ggplot() +
     strip.background = element_rect(fill="grey90"),
     strip.text = element_text(face = "bold", size = 18),
     #strip.switch.pad.wrap = unit(1, "cm"),
-    legend.position = "none"
+    legend.position = "inside",
+    legend.position.inside = c(0.97, 0.45),          # bottom-right
+    legend.justification   = c("right", "top"),
+    legend.direction = 'horizontal',
+    legend.background      = element_rect(fill = "white", colour = "grey80"),
+    legend.margin          = margin(2, 4, 2, 4),
+    legend.text = element_text(size = 15),
+    legend.title = element_blank()
   )
 
-Plot_DNP
+Plot_DNP_ED
 
 #3. Compute the Slopes and save into a table
-slopes_table <- filtered_data %>%
-  group_by(Setup, Replicate) %>%
+slopes_table_ED <- filtered_data_ED %>%
+  group_by(Setup, Setup2, Replicate) %>%
   summarise(
     # Fit a linear model Amount ~ Total_Time for each group
     slope = if (n() > 1) {
@@ -454,9 +469,9 @@ slopes_table <- filtered_data %>%
   )
 
 ################## Table for Pub ################
-Table_Slopes <- slopes_table %>%
+Table_Slopes_ED <- slopes_table_ED %>%
   ungroup()%>%
-  group_by(Setup) %>%
+  group_by(Setup, Setup2) %>%
   summarise(
     Mean = round(mean(slope), 3),
     Std_Dev = round(sd(slope), 3),
@@ -472,36 +487,45 @@ Table_Slopes <- slopes_table %>%
 minimal_theme <- ttheme_minimal(
   padding = unit(c(6, 10), "pt"),
   core = list(
-    fg_params = list(fontsize = 15),
+    fg_params = list(fontsize = 11),
     bg_params = list(fill = NA, col = NA)
   ),
   colhead = list(
-    fg_params = list(fontface = "bold", fontsize = 15),
+    fg_params = list(fontface = "bold", fontsize = 11),
     bg_params = list(fill = NA, col = NA)
   ),
   rowhead = list(
-    fg_params = list(fontsize = 15),
+    fg_params = list(fontsize = 11),
     bg_params = list(fill = NA, col = NA)
   ),
 )
 
 # 5. Create the table grob with the minimal theme
-inset_table <- Table_Slopes %>%
+inset_table_ED <- Table_Slopes_ED %>%
   unite('Slope', Mean, Std_Dev, sep = '±') %>%
-  select(Setup, Slope, r2)
+  select(Setup, Setup2, Slope, r2)
 
-table_grob <- tableGrob(
-  inset_table, 
+table_grob_ED <- tableGrob(
+  inset_table_ED, 
   rows = NULL, theme = minimal_theme
   )
 
-Plot_DNP_Table_ED <- Plot_DNP + inset_element(
-  table_grob,
+Plot_DNP_Table_ED <- Plot_DNP_ED + inset_element(
+  table_grob_ED,
   #on_top = FALSE,
-  align_to = 'panel',
-  left = 0.15, bottom = 0.7, right = 0.4, top = 0.7
-  #left = 0.75, bottom = 0.10, right = .95, top = .35
-)
+  align_to = 'plot',
+ # left = 0.4, bottom = 0.3, right = 0.15, top = 1
+  left = 0.675, bottom = 0.12, right = .675, top = .35
+) 
+
 Plot_DNP_Table_ED
 
 ###########################
+
+setwd('~/github/gownproject/P3/Results/DenitrificationRate')
+ggsave(Plot_DNP_Table_ED, filename = paste0('DenitrificationRate_ElectronDonors','.png'),
+       width = 14, height = 10, units = 'in', dpi = 300)
+ggsave(Plot_DNP_Table_All, filename = paste0('DenitrificationRate_SED','.png'),
+       width = 14, height = 10, units = 'in', dpi = 300)
+
+
