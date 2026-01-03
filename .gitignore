@@ -1,0 +1,4 @@
+# QIIME2 / generated outputs
+*.qza
+*.qzv
+*.biom
