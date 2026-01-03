@@ -1,0 +1,13 @@
+QIIME2 version:
+q2cli version 2024.5.0
+Run `qiime info` for more version details.
+Imported manifest.tsv as PairedEndFastqManifestPhred33V2 to 10_qiime2_otu_silva/demux.qza
+Saved Visualization to: 10_qiime2_otu_silva/demux.qzv
+
+DONE.
+Key outputs:
+  OTU table (QIIME artifact):   10_qiime2_otu_silva/otu-table.qza
+  OTU table (TSV):              10_qiime2_otu_silva/otu-table.tsv
+  Taxonomy (QIIME artifact):    10_qiime2_otu_silva/taxonomy.qza
+  Taxonomy (TSV):               10_qiime2_otu_silva/taxonomy.tsv
+  Visualizations:               10_qiime2_otu_silva/*.qzv

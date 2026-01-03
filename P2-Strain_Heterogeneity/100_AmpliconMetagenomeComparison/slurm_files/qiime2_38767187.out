@@ -1,0 +1,5 @@
+QIIME2 version:
+q2cli version 2024.5.0
+Run `qiime info` for more version details.
+Imported manifest.tsv as PairedEndFastqManifestPhred33V2 to 10_qiime2_otu_silva/demux.qza
+Saved Visualization to: 10_qiime2_otu_silva/demux.qzv

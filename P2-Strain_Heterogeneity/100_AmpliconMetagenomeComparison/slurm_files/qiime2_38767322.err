@@ -1,0 +1,284 @@
+Usage: qiime vsearch dereplicate-sequences [OPTIONS]
+
+  Dereplicate sequence data and create a feature table and feature
+  representative sequences. Feature identifiers in the resulting artifacts
+  will be the sha1 hash of the sequence defining each feature. If clustering
+  of features into OTUs is desired, the resulting artifacts can be passed to
+  the cluster_features_* methods in this plugin.
+
+Inputs:
+  --i-sequences ARTIFACT SampleData[Sequences] |
+    SampleData[SequencesWithQuality] | SampleData[JoinedSequencesWithQuality]
+                          The sequences to be dereplicated.         [required]
+Parameters:
+  --p-derep-prefix / --p-no-derep-prefix
+                          Merge sequences with identical prefixes. If a
+                          sequence is identical to the prefix of two or more
+                          longer sequences, it is clustered with the shortest
+                          of them. If they are equally long, it is clustered
+                          with the most abundant.             [default: False]
+  --p-min-seq-length INTEGER
+    Range(1, None)        Discard sequences shorter than this integer.
+                                                                  [default: 1]
+  --p-min-unique-size INTEGER
+    Range(1, None)        Discard sequences with a post-dereplication
+                          abundance value smaller than integer.   [default: 1]
+Outputs:
+  --o-dereplicated-table ARTIFACT FeatureTable[Frequency]
+                          The table of dereplicated sequences.      [required]
+  --o-dereplicated-sequences ARTIFACT FeatureData[Sequence]
+                          The dereplicated sequences.               [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-sequences': Expected an artifact of at least
+  type SampleData[Sequences] | SampleData[SequencesWithQuality] |
+  SampleData[JoinedSequencesWithQuality]. An artifact of type
+  SampleData[PairedEndSequencesWithQuality] was provided.
+Usage: qiime vsearch cluster-features-de-novo [OPTIONS]
+
+  Given a feature table and the associated feature sequences, cluster the
+  features based on user-specified percent identity threshold of their
+  sequences. This is not a general-purpose de novo clustering method, but
+  rather is intended to be used for clustering the results of quality-
+  filtering/dereplication methods, such as DADA2, or for re-clustering a
+  FeatureTable at a lower percent identity than it was originally clustered
+  at. When a group of features in the input table are clustered into a single
+  feature, the frequency of that single feature in a given sample is the sum
+  of the frequencies of the features that were clustered in that sample.
+  Feature identifiers and sequences will be inherited from the centroid
+  feature of each cluster. See the vsearch documentation for details on how
+  sequence clustering is performed.
+
+Inputs:
+  --i-sequences ARTIFACT FeatureData[Sequence]
+                          The sequences corresponding to the features in
+                          table.                                    [required]
+  --i-table ARTIFACT FeatureTable[Frequency]
+                          The feature table to be clustered.        [required]
+Parameters:
+  --p-perc-identity PROPORTION Range(0, 1, inclusive_start=False,
+    inclusive_end=True)   The percent identity at which clustering should be
+                          performed. This parameter maps to vsearch's --id
+                          parameter.                                [required]
+  --p-strand TEXT Choices('plus', 'both')
+                          Search plus (i.e., forward) or both (i.e., forward
+                          and reverse complement) strands.   [default: 'plus']
+  --p-threads NTHREADS    The number of threads to use for computation.
+                          Passing 0 will launch one thread per CPU core.
+                                                                  [default: 1]
+Outputs:
+  --o-clustered-table ARTIFACT FeatureTable[Frequency]
+                          The table following clustering of features.
+                                                                    [required]
+  --o-clustered-sequences ARTIFACT FeatureData[Sequence]
+                          Sequences representing clustered features.
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                  There were some problems with the command:                  
+ (1/2) Invalid value for '--i-table': 10_qiime2_otu_silva/table-derep.qza does
+  not exist.
+ (2/2) Invalid value for '--i-sequences': 10_qiime2_otu_silva/derep-seqs.qza
+  does not exist.
+Usage: qiime feature-table summarize [OPTIONS]
+
+  Generate visual and tabular summaries of a feature table.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency | PresenceAbsence]
+                       The feature table to be summarized.          [required]
+Parameters:
+  --m-sample-metadata-file METADATA...
+    (multiple          The sample metadata.
+     arguments will    
+     be merged)                                                     [optional]
+Outputs:
+  --o-visualization VISUALIZATION
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH    Output unspecified results to a directory
+  --verbose / --quiet  Display verbose output to stdout and/or stderr during
+                       execution of this action. Or silence output if
+                       execution is successful (silence is golden).
+  --example-data PATH  Write example data and exit.
+  --citations          Show citations and exit.
+  --help               Show this message and exit.
+
+Examples:
+  # ### example: feature table summarize
+  qiime feature-table summarize \
+    --i-table feature-table.qza \
+    --o-visualization table.qzv
+  
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-table': 10_qiime2_otu_silva/otu-table.qza does
+  not exist.
+Usage: qiime feature-classifier classify-sklearn [OPTIONS]
+
+  Classify reads by taxon using a fitted classifier.
+
+Inputs:
+  --i-reads ARTIFACT FeatureData[Sequence]
+                         The feature data to be classified.         [required]
+  --i-classifier ARTIFACT
+    TaxonomicClassifier  The taxonomic classifier for classifying the reads.
+                                                                    [required]
+Parameters:
+  --p-reads-per-batch VALUE Int % Range(1, None) | Str % Choices('auto')
+                         Number of reads to process in each batch. If "auto",
+                         this parameter is autoscaled to min( number of query
+                         sequences / n-jobs, 20000).         [default: 'auto']
+  --p-n-jobs NTHREADS    The maximum number of concurrent worker processes.
+                         If 0 all CPUs are used. If 1 is given, no parallel
+                         computing code is used at all, which is useful for
+                         debugging.                               [default: 1]
+  --p-pre-dispatch TEXT  "all" or expression, as in "3*n_jobs". The number of
+                         batches (of tasks) to be pre-dispatched.
+                                                         [default: '2*n_jobs']
+  --p-confidence VALUE Float % Range(0, 1, inclusive_end=True) | Str %
+    Choices('disable')   Confidence threshold for limiting taxonomic depth.
+                         Set to "disable" to disable confidence calculation,
+                         or 0 to calculate confidence but not apply it to
+                         limit the taxonomic depth of the assignments.
+                                                                [default: 0.7]
+  --p-read-orientation TEXT Choices('same', 'reverse-complement', 'auto')
+                         Direction of reads with respect to reference
+                         sequences. same will cause reads to be classified
+                         unchanged; reverse-complement will cause reads to be
+                         reversed and complemented prior to classification.
+                         "auto" will autodetect orientation based on the
+                         confidence estimates for the first 100 reads.
+                                                             [default: 'auto']
+Outputs:
+  --o-classification ARTIFACT FeatureData[Taxonomy]
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH      Output unspecified results to a directory
+  --verbose / --quiet    Display verbose output to stdout and/or stderr
+                         during execution of this action. Or silence output if
+                         execution is successful (silence is golden).
+  --example-data PATH    Write example data and exit.
+  --citations            Show citations and exit.
+  --help                 Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-reads': 10_qiime2_otu_silva/otu-rep-seqs.qza
+  does not exist.
+There was an issue with loading the file 10_qiime2_otu_silva/taxonomy.qza as metadata:
+
+  Metadata file path doesn't exist, or the path points to something other than a file. Please check that the path exists, has read permissions, and points to a regular file (not a directory): 10_qiime2_otu_silva/taxonomy.qza
+
+  There may be more errors present in the metadata file. To get a full report, sample/feature metadata files can be validated with Keemei: https://keemei.qiime2.org
+
+  Find details on QIIME 2 metadata requirements here: https://docs.qiime2.org/2024.5/tutorials/metadata/
+
+Usage: qiime taxa barplot [OPTIONS]
+
+  This visualizer produces an interactive barplot visualization of taxonomies.
+  Interactive features include multi-level sorting, plot recoloring, sample
+  relabeling, and SVG figure export.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency | PresenceAbsence]
+                         Feature table to visualize at various taxonomic
+                         levels.                                    [required]
+  --i-taxonomy ARTIFACT FeatureData[Taxonomy]
+                         Taxonomic annotations for features in the provided
+                         feature table. All features in the feature table must
+                         have a corresponding taxonomic annotation. Taxonomic
+                         annotations that are not present in the feature table
+                         will be ignored. If no taxonomy is provided, the
+                         feature IDs will be used as labels.        [optional]
+Parameters:
+  --m-metadata-file METADATA...
+    (multiple            The sample metadata.
+     arguments will be   
+     merged)                                                        [optional]
+  --p-level-delimiter TEXT
+                         Attempt to parse hierarchical taxonomic information
+                         from feature IDs by separating levels with this
+                         character. This parameter is ignored if a taxonomy is
+                         provided as input.                         [optional]
+Outputs:
+  --o-visualization VISUALIZATION
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH      Output unspecified results to a directory
+  --verbose / --quiet    Display verbose output to stdout and/or stderr
+                         during execution of this action. Or silence output if
+                         execution is successful (silence is golden).
+  --example-data PATH    Write example data and exit.
+  --citations            Show citations and exit.
+  --help                 Show this message and exit.
+
+Examples:
+  # ### example: barplot
+  qiime taxa barplot \
+    --i-table table.qza \
+    --i-taxonomy taxonomy.qza \
+    --m-metadata-file sample-metadata.tsv \
+    --o-visualization taxa-bar-plots.qzv
+  
+
+                  There were some problems with the command:                  
+ (1/2) Invalid value for '--i-table': 10_qiime2_otu_silva/otu-table.qza does
+  not exist.
+ (2/2) Invalid value for '--i-taxonomy': 10_qiime2_otu_silva/taxonomy.qza does
+  not exist.
+Usage: qiime tools export [OPTIONS]
+
+  Exporting extracts (and optionally transforms) data stored inside an
+  Artifact or Visualization. Note that Visualizations cannot be transformed
+  with --output-format
+
+Options:
+  --input-path ARTIFACT/VISUALIZATION
+                        Path to file that should be exported        [required]
+  --output-path PATH    Path to file or directory where data should be
+                        exported to                                 [required]
+  --output-format TEXT  Format which the data should be exported as. This
+                        option cannot be used with Visualizations
+  --help                Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--input-path': File '10_qiime2_otu_silva/otu-
+  table.qza' does not exist.
+Usage: biom convert [OPTIONS]
+Try 'biom convert -h' for help.
+
+Error: Invalid value for '-i' / '--input-fp': File '10_qiime2_otu_silva/exported-otu-table/feature-table.biom' does not exist.
+Usage: qiime tools export [OPTIONS]
+
+  Exporting extracts (and optionally transforms) data stored inside an
+  Artifact or Visualization. Note that Visualizations cannot be transformed
+  with --output-format
+
+Options:
+  --input-path ARTIFACT/VISUALIZATION
+                        Path to file that should be exported        [required]
+  --output-path PATH    Path to file or directory where data should be
+                        exported to                                 [required]
+  --output-format TEXT  Format which the data should be exported as. This
+                        option cannot be used with Visualizations
+  --help                Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--input-path': File
+  '10_qiime2_otu_silva/taxonomy.qza' does not exist.
+sed: can't read 10_qiime2_otu_silva/exported-taxonomy/taxonomy.tsv: No such file or directory

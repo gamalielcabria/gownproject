@@ -1,0 +1,133 @@
+/var/spool/slurmd/job38767187/slurm_script: line 71: EOF: No such file or directory
+Usage: qiime vsearch dereplicate-sequences [OPTIONS]
+
+  Dereplicate sequence data and create a feature table and feature
+  representative sequences. Feature identifiers in the resulting artifacts
+  will be the sha1 hash of the sequence defining each feature. If clustering
+  of features into OTUs is desired, the resulting artifacts can be passed to
+  the cluster_features_* methods in this plugin.
+
+Inputs:
+  --i-sequences ARTIFACT SampleData[Sequences] |
+    SampleData[SequencesWithQuality] | SampleData[JoinedSequencesWithQuality]
+                          The sequences to be dereplicated.         [required]
+Parameters:
+  --p-derep-prefix / --p-no-derep-prefix
+                          Merge sequences with identical prefixes. If a
+                          sequence is identical to the prefix of two or more
+                          longer sequences, it is clustered with the shortest
+                          of them. If they are equally long, it is clustered
+                          with the most abundant.             [default: False]
+  --p-min-seq-length INTEGER
+    Range(1, None)        Discard sequences shorter than this integer.
+                                                                  [default: 1]
+  --p-min-unique-size INTEGER
+    Range(1, None)        Discard sequences with a post-dereplication
+                          abundance value smaller than integer.   [default: 1]
+Outputs:
+  --o-dereplicated-table ARTIFACT FeatureTable[Frequency]
+                          The table of dereplicated sequences.      [required]
+  --o-dereplicated-sequences ARTIFACT FeatureData[Sequence]
+                          The dereplicated sequences.               [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-sequences': Expected an artifact of at least
+  type SampleData[Sequences] | SampleData[SequencesWithQuality] |
+  SampleData[JoinedSequencesWithQuality]. An artifact of type
+  SampleData[PairedEndSequencesWithQuality] was provided.
+Usage: qiime vsearch cluster-features-de-novo [OPTIONS]
+
+  Given a feature table and the associated feature sequences, cluster the
+  features based on user-specified percent identity threshold of their
+  sequences. This is not a general-purpose de novo clustering method, but
+  rather is intended to be used for clustering the results of quality-
+  filtering/dereplication methods, such as DADA2, or for re-clustering a
+  FeatureTable at a lower percent identity than it was originally clustered
+  at. When a group of features in the input table are clustered into a single
+  feature, the frequency of that single feature in a given sample is the sum
+  of the frequencies of the features that were clustered in that sample.
+  Feature identifiers and sequences will be inherited from the centroid
+  feature of each cluster. See the vsearch documentation for details on how
+  sequence clustering is performed.
+
+Inputs:
+  --i-sequences ARTIFACT FeatureData[Sequence]
+                          The sequences corresponding to the features in
+                          table.                                    [required]
+  --i-table ARTIFACT FeatureTable[Frequency]
+                          The feature table to be clustered.        [required]
+Parameters:
+  --p-perc-identity PROPORTION Range(0, 1, inclusive_start=False,
+    inclusive_end=True)   The percent identity at which clustering should be
+                          performed. This parameter maps to vsearch's --id
+                          parameter.                                [required]
+  --p-strand TEXT Choices('plus', 'both')
+                          Search plus (i.e., forward) or both (i.e., forward
+                          and reverse complement) strands.   [default: 'plus']
+  --p-threads NTHREADS    The number of threads to use for computation.
+                          Passing 0 will launch one thread per CPU core.
+                                                                  [default: 1]
+Outputs:
+  --o-clustered-table ARTIFACT FeatureTable[Frequency]
+                          The table following clustering of features.
+                                                                    [required]
+  --o-clustered-sequences ARTIFACT FeatureData[Sequence]
+                          Sequences representing clustered features.
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH       Output unspecified results to a directory
+  --verbose / --quiet     Display verbose output to stdout and/or stderr
+                          during execution of this action. Or silence output
+                          if execution is successful (silence is golden).
+  --example-data PATH     Write example data and exit.
+  --citations             Show citations and exit.
+  --help                  Show this message and exit.
+
+                  There were some problems with the command:                  
+ (1/2) Invalid value for '--i-table': 10_qiime2_otu_silva/table-derep.qza does
+  not exist.
+ (2/2) Invalid value for '--i-sequences': 10_qiime2_otu_silva/derep-seqs.qza
+  does not exist.
+Usage: qiime feature-table summarize [OPTIONS]
+
+  Generate visual and tabular summaries of a feature table.
+
+Inputs:
+  --i-table ARTIFACT FeatureTable[Frequency | PresenceAbsence]
+                       The feature table to be summarized.          [required]
+Parameters:
+  --m-sample-metadata-file METADATA...
+    (multiple          The sample metadata.
+     arguments will    
+     be merged)                                                     [optional]
+Outputs:
+  --o-visualization VISUALIZATION
+                                                                    [required]
+Miscellaneous:
+  --output-dir PATH    Output unspecified results to a directory
+  --verbose / --quiet  Display verbose output to stdout and/or stderr during
+                       execution of this action. Or silence output if
+                       execution is successful (silence is golden).
+  --example-data PATH  Write example data and exit.
+  --citations          Show citations and exit.
+  --help               Show this message and exit.
+
+Examples:
+  # ### example: feature table summarize
+  qiime feature-table summarize \
+    --i-table feature-table.qza \
+    --o-visualization table.qzv
+  
+
+                    There was a problem with the command:                     
+ (1/1) Invalid value for '--i-table': 10_qiime2_otu_silva/otu-table.qza does
+  not exist.
+slurmstepd: error: *** JOB 38767187 ON mc67 CANCELLED AT 2025-12-18T01:22:57 ***
