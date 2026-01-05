@@ -2,6 +2,9 @@
 library(tidyverse)
 library(microeco)
 
+# Set Working Directory
+#setwd("/home/glbcabria/Workbench")
+
 # Import OTU Counts, taxa, and metadata
 ## File Path of inputs
 qiime_otu_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/02_qiime2_otu_gtdb/otu-table.tsv.gz"
@@ -15,7 +18,7 @@ outpath <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison
 otu_gtdb_qdf <- read_tsv(qiime_otu_gtdb, skip = 1) %>%
     rename(otu_id = `#OTU ID`)
 
-tax_gtdb_qdf <- read_tsv(qiime_tax_gtdb, col_names = c("otu_id","taxa","fraction")) %>%
+tax_gtdb_qdf <- read_tsv(qiime_tax_gtdb, col_names = c("otu_id","taxa","fraction")) #%>%
     select(-fraction)
 
 combined_otu_tax_gtdb <- otu_gtdb_qdf %>%
