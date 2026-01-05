@@ -9,8 +9,8 @@ library(microeco)
 ## File Path of inputs
 qiime_otu_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/02_qiime2_otu_gtdb/otu-table.tsv.gz"
 qiime_otu_silva <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/01_qiime2_otu_silva/otu-table.tsv.gz"
-qiime_tax_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/02_qiime2_otu_gtdb/taxonomy.tsv"
-qiime_tax_silva <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/01_qiime2_otu_silva/taxonomy.tsv"
+qiime_tax_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/02_qiime2_otu_gtdb/taxonomy.tsv.gz"
+qiime_tax_silva <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu/01_qiime2_otu_silva/taxonomy.tsv.gz"
 
 outpath <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/20_qiime2_otu"
 
