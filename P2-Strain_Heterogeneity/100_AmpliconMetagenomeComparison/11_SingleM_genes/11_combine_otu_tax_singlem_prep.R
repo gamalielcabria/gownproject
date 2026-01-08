@@ -1,7 +1,7 @@
 library(tidyverse)
 
 # inputs
-df <- read_tsv("gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/11_SingleM_genes/combined_singlem_otu_table.tsv")
+df <- read_tsv("gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/11_SingleM_genes/combined_singlem_otu_table.tsv.gz")
 
 outpath <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/11_SingleM_genes/"
 
