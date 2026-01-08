@@ -1,0 +1,42 @@
+Starting run at: Tue Jan  6 20:45:48 MST 2026
+
+EnvironmentNameNotFound: Could not find conda environment: metaphlan
+You can list all discoverable environments with `conda info --envs`.
+
+
+Running 19GWC19006-C1-GOWN986
+Tue Jan  6 20:47:18 2026: [Error] OSError: "[Errno 2] No such file or directory: '/scatch/39035719/tmp/19GWC19006-C1-GOWN986.bowtie2.bz2'"
+Fatal error running BowTie2.
+Tue Jan  6 20:47:18 2026: Stop execution.
+/var/spool/slurmd/job39035719/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Running 19GWC19014-C3-GOWN972
+Tue Jan  6 20:48:31 2026: [Error] OSError: "[Errno 2] No such file or directory: '/scatch/39035719/tmp/19GWC19014-C3-GOWN972.bowtie2.bz2'"
+Fatal error running BowTie2.
+Tue Jan  6 20:48:31 2026: Stop execution.
+/var/spool/slurmd/job39035719/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Running 19GWC19018-C4-GOWN3026
+Tue Jan  6 20:49:46 2026: [Error] OSError: "[Errno 2] No such file or directory: '/scatch/39035719/tmp/19GWC19018-C4-GOWN3026.bowtie2.bz2'"
+Fatal error running BowTie2.
+Tue Jan  6 20:49:46 2026: Stop execution.
+/var/spool/slurmd/job39035719/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Running 19GWC19019-C5-GOWN983
+(ERR): bowtie2-align died with signal 9 (KILL) 
+Tue Jan  6 20:51:04 2026: [Error] OSError: "[Errno 2] No such file or directory: '/scatch/39035719/tmp/19GWC19019-C5-GOWN983.bowtie2.bz2'"
+Fatal error running BowTie2.
+Tue Jan  6 20:51:04 2026: Stop execution.
+/var/spool/slurmd/job39035719/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Running 19GWC19024-C8-GOWN980
+(ERR): bowtie2-align died with signal 9 (KILL) 
+Tue Jan  6 20:52:17 2026: [Error] OSError: "[Errno 2] No such file or directory: '/scatch/39035719/tmp/19GWC19024-C8-GOWN980.bowtie2.bz2'"
+Fatal error running BowTie2.
+Tue Jan  6 20:52:17 2026: Stop execution.
+/var/spool/slurmd/job39035719/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Running 19GWC19026-C9-GOWN218
+Tue Jan  6 20:53:34 2026: [Error] OSError: "[Errno 2] No such file or directory: '/scatch/39035719/tmp/19GWC19026-C9-GOWN218.bowtie2.bz2'"
+Fatal error running BowTie2.
+Tue Jan  6 20:53:34 2026: Stop execution.
+/var/spool/slurmd/job39035719/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Running 19GWC19028-C10-GOWN114
+(ERR): bowtie2-align died with signal 9 (KILL) 
+slurmstepd: error: *** JOB 39035719 ON mc144 CANCELLED AT 2026-01-06T20:54:33 ***
+slurmstepd: error: Detected 3 oom_kill events in StepId=39035719.batch. Some of the step tasks have been OOM Killed.

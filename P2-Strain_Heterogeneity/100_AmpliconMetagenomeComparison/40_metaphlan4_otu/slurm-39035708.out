@@ -1,0 +1,141 @@
+Starting run at: Tue Jan  6 20:40:45 MST 2026
+
+EnvironmentNameNotFound: Could not find conda environment: metaphlan
+You can list all discoverable environments with `conda info --envs`.
+
+
+/scatch/39035708/19GWC19006-C1-GOWN986.concat.fastq.gz
+Tue Jan  6 20:40:59 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:40:59 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19014-C3-GOWN972.concat.fastq.gz
+Tue Jan  6 20:41:01 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:01 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19018-C4-GOWN3026.concat.fastq.gz
+Tue Jan  6 20:41:03 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:03 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19019-C5-GOWN983.concat.fastq.gz
+Tue Jan  6 20:41:04 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:04 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19024-C8-GOWN980.concat.fastq.gz
+Tue Jan  6 20:41:05 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:05 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19026-C9-GOWN218.concat.fastq.gz
+Tue Jan  6 20:41:07 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:07 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19028-C10-GOWN114.concat.fastq.gz
+Tue Jan  6 20:41:09 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:09 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19036-C12-GOWN137.concat.fastq.gz
+Tue Jan  6 20:41:10 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:10 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19038-C13-GOWN144.concat.fastq.gz
+Tue Jan  6 20:41:12 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:12 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19041-C15-GOWN150.concat.fastq.gz
+Tue Jan  6 20:41:13 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:13 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19045-C17-GOWN265.concat.fastq.gz
+Tue Jan  6 20:41:14 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:14 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19047-C18-GOWN139.concat.fastq.gz
+Tue Jan  6 20:41:16 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:16 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19048-C19-GOWN142.concat.fastq.gz
+Tue Jan  6 20:41:17 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:17 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19049-C20-GOWN123.concat.fastq.gz
+Tue Jan  6 20:41:19 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:19 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWC19053-C21-GOWN760.concat.fastq.gz
+Tue Jan  6 20:41:21 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:21 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWE00021-E1-GOWN449.concat.fastq.gz
+Tue Jan  6 20:41:22 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:22 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWE00050-E2-GOWN991.concat.fastq.gz
+Tue Jan  6 20:41:23 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:23 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWE00506-E6-GOWN200.concat.fastq.gz
+Tue Jan  6 20:41:25 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:25 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWE00515-E9-GOWN33.concat.fastq.gz
+Tue Jan  6 20:41:26 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:26 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+/scatch/39035708/19GWE00520-E10-GOWN1124.concat.fastq.gz
+Tue Jan  6 20:41:28 2026: [Error] You specified forward and reverse reads, but did not specify --subsampling_paired. Provide the input as standard input or with -inp if you don't want to subsample the reads with --subsampling_paired
+Tue Jan  6 20:41:28 2026: Stop execution.
+/var/spool/slurmd/job39035708/slurm_script: line 48: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//sgb_to_gtdb_profile.py: Permission denied
+Merging profiles using /home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py
+/var/spool/slurmd/job39035708/slurm_script: line 58: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//merge_metaphlan_tables.py: Permission denied
+Traceback (most recent call last):
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 76, in <module>
+    main()
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 72, in main
+    merge(args.aistms, open(args.o, 'w') if args.o else sys.stdout, args.gtdb_profiles)
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 25, in merge
+    headers = [x.strip() for x in takewhile(lambda x: x.startswith('#'), open(f))]
+FileNotFoundError: [Errno 2] No such file or directory: '*.mp4.txt'
+/var/spool/slurmd/job39035708/slurm_script: line 62: /home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/metaphlan/utils//merge_metaphlan_tables.py: Permission denied
+Traceback (most recent call last):
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 76, in <module>
+    main()
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 72, in main
+    merge(args.aistms, open(args.o, 'w') if args.o else sys.stdout, args.gtdb_profiles)
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 25, in merge
+    headers = [x.strip() for x in takewhile(lambda x: x.startswith('#'), open(f))]
+FileNotFoundError: [Errno 2] No such file or directory: '*.mp4_gtdb.txt'
+Calculating Diversity
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted

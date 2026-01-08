@@ -1,0 +1,126 @@
+Starting run at: Tue Jan  6 21:01:54 MST 2026
+
+EnvironmentNameNotFound: Could not find conda environment: metaphlan
+You can list all discoverable environments with `conda info --envs`.
+
+
+ls: cannot access '/scratch/39035758/tmp': No such file or directory
+Running 19GWC19006-C1-GOWN986
+Tue Jan  6 22:24:50 2026: Start execution
+Tue Jan  6 22:24:50 2026: Finish execution (0.22 seconds)
+Running 19GWC19014-C3-GOWN972
+Tue Jan  6 23:28:39 2026: Start execution
+Tue Jan  6 23:28:39 2026: Finish execution (0.16 seconds)
+Running 19GWC19018-C4-GOWN3026
+Wed Jan  7 01:04:10 2026: Start execution
+Wed Jan  7 01:04:10 2026: Finish execution (0.13 seconds)
+Running 19GWC19019-C5-GOWN983
+Wed Jan  7 02:05:54 2026: Start execution
+Wed Jan  7 02:05:54 2026: Finish execution (0.11 seconds)
+Running 19GWC19024-C8-GOWN980
+Wed Jan  7 02:52:31 2026: Start execution
+Wed Jan  7 02:52:32 2026: Finish execution (0.09 seconds)
+Running 19GWC19026-C9-GOWN218
+Wed Jan  7 03:30:43 2026: Start execution
+Wed Jan  7 03:30:43 2026: Finish execution (0.1 seconds)
+Running 19GWC19028-C10-GOWN114
+Wed Jan  7 04:39:50 2026: Start execution
+Wed Jan  7 04:39:50 2026: Finish execution (0.15 seconds)
+Running 19GWC19036-C12-GOWN137
+Wed Jan  7 06:00:15 2026: Start execution
+Wed Jan  7 06:00:15 2026: Finish execution (0.16 seconds)
+Running 19GWC19038-C13-GOWN144
+Wed Jan  7 07:02:27 2026: Start execution
+Wed Jan  7 07:02:27 2026: Finish execution (0.1 seconds)
+Running 19GWC19041-C15-GOWN150
+Wed Jan  7 08:29:16 2026: Start execution
+Wed Jan  7 08:29:16 2026: Finish execution (0.15 seconds)
+Running 19GWC19045-C17-GOWN265
+Wed Jan  7 09:19:26 2026: Start execution
+Wed Jan  7 09:19:26 2026: Finish execution (0.1 seconds)
+Running 19GWC19047-C18-GOWN139
+Wed Jan  7 11:01:03 2026: Start execution
+Wed Jan  7 11:01:03 2026: Finish execution (0.17 seconds)
+Running 19GWC19048-C19-GOWN142
+Wed Jan  7 12:12:31 2026: Start execution
+Wed Jan  7 12:12:31 2026: Finish execution (0.16 seconds)
+Running 19GWC19049-C20-GOWN123
+Wed Jan  7 12:51:16 2026: Start execution
+Wed Jan  7 12:51:16 2026: Finish execution (0.19 seconds)
+Running 19GWC19053-C21-GOWN760
+Wed Jan  7 13:43:03 2026: Start execution
+Wed Jan  7 13:43:03 2026: Finish execution (0.19 seconds)
+Running 19GWE00021-E1-GOWN449
+Wed Jan  7 14:54:46 2026: Start execution
+Wed Jan  7 14:54:47 2026: Finish execution (0.16 seconds)
+Running 19GWE00050-E2-GOWN991
+Wed Jan  7 15:34:51 2026: Start execution
+Wed Jan  7 15:34:51 2026: Finish execution (0.13 seconds)
+Running 19GWE00506-E6-GOWN200
+Wed Jan  7 16:34:59 2026: Start execution
+Wed Jan  7 16:34:59 2026: Finish execution (0.11 seconds)
+Running 19GWE00515-E9-GOWN33
+Wed Jan  7 17:10:49 2026: Start execution
+Wed Jan  7 17:10:49 2026: Finish execution (0.12 seconds)
+Running 19GWE00520-E10-GOWN1124
+Wed Jan  7 18:22:46 2026: Start execution
+Wed Jan  7 18:22:46 2026: Finish execution (0.08 seconds)
+Merging profiles using /home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py
+Traceback (most recent call last):
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 76, in <module>
+    main()
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 72, in main
+    merge(args.aistms, open(args.o, 'w') if args.o else sys.stdout, args.gtdb_profiles)
+  File "/home/gamaliellysandergl.c/database/metaphlan/merge_metaphlan_tables_abs.py", line 34, in merge
+    iIn = pd.read_csv(f, sep='\t', skiprows=len(headers), names=names, usecols=[0,4] if not gtdb else range(4), index_col=0)
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 152, in __init__
+    self.names,  # type: ignore[has-type]
+  File "/home/gamaliellysandergl.c/software/miniforge3/envs/metaphlan4/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 867, in _validate_usecols_names
+    f"Usecols do not match columns, columns expected but not found: "
+ValueError: Usecols do not match columns, columns expected but not found: [0, 1, 2, 3]
+Calculating Diversity
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
+Warning message:
+package ‘optparse’ was built under R version 4.2.3 
+Error in read.table(opt$file, comment.char = "#", sep = "\t", header = TRUE,  : 
+  no lines available in input
+Execution halted
