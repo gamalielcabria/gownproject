@@ -24,7 +24,16 @@ tax_silva_qdf <- read_tsv(qiime_tax_silva, col_names = c("otu_id","taxa","fracti
 tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
 tax_silva_qdf_filled <- tax_silva_qdf %>%
     mutate(Kingdom = ifelse(Kingdom == "Unassigned", "d__Unassigned", Kingdom)) %>%
-    mutate(across(-otu_id, ~ replace_na(.x,"unclassified")))
+    mutate(
+        across(
+        Kingdom:Species,
+        ~ {
+            x <- replace_na(.x, "")
+            core <- str_remove(x, "^[a-z]__")
+            if_else(core %in% c("", "unclassified"), "unclassified", x)
+        }
+        )
+    )
 
 fill_from_parent <- function(row) {
   #core <- strip_prefix(row)
@@ -105,28 +114,28 @@ silva_bact_arch_combined_OTU <- bind_rows(bact_combined_qOTU, arch_combined_qOTU
 
 ## Write the combined OTU and Taxa tables to CSV files
 write.csv(silva_bact_arch_combined_OTU, file = paste0(outpath, "/silva_bact_arch_combined_qiimeOTU.csv")) 
-silva_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/silva_bact_arch_combined_qiimeOTU.csv")) %>% select(-X)
-bact_combined_qOTU2 <- silva_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
-arch_combined_qOTU2 <- silva_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
+# silva_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/silva_bact_arch_combined_qiimeOTU.csv")) %>% select(-X)
+# bact_combined_qOTU2 <- silva_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
+# arch_combined_qOTU2 <- silva_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
 
-## Separate OTU and Taxa tables
-otu_table_silva_all <- silva_bact_arch_combined_OTU2 %>%
-    select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
-    column_to_rownames(var = "OTUs")
-tax_table_silva_all <- silva_bact_arch_combined_OTU %>%
-    select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
-    column_to_rownames(var = "OTUs")
+# ## Separate OTU and Taxa tables
+# otu_table_silva_all <- silva_bact_arch_combined_OTU2 %>%
+#     select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
+#     column_to_rownames(var = "OTUs")
+# tax_table_silva_all <- silva_bact_arch_combined_OTU %>%
+#     select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
+#     column_to_rownames(var = "OTUs")
 
-otu_table_silva_bac <- bact_combined_qOTU2 %>%
-    select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
-    column_to_rownames(var = "OTUs")
-tax_table_silva_bac <- bact_combined_qOTU2 %>%
-    select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
-    column_to_rownames(var = "OTUs")
+# otu_table_silva_bac <- bact_combined_qOTU2 %>%
+#     select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
+#     column_to_rownames(var = "OTUs")
+# tax_table_silva_bac <- bact_combined_qOTU2 %>%
+#     select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
+#     column_to_rownames(var = "OTUs")
 
-otu_table_silva_arch <- arch_combined_qOTU2 %>%
-    select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
-    column_to_rownames(var = "OTUs")
-tax_table_silva_arch <- arch_combined_qOTU2 %>%
-    select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
-    column_to_rownames(var = "OTUs")
+# otu_table_silva_arch <- arch_combined_qOTU2 %>%
+#     select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
+#     column_to_rownames(var = "OTUs")
+# tax_table_silva_arch <- arch_combined_qOTU2 %>%
+#     select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
+#     column_to_rownames(var = "OTUs")

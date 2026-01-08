@@ -24,7 +24,16 @@ tax_silva_qdf <- read_tsv(qiime_tax_silva, col_names = c("otu_id","taxa","fracti
 tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
 tax_silva_qdf_filled <- tax_silva_qdf %>%
     mutate(Kingdom = ifelse(Kingdom == "Unassigned", "d__Unassigned", Kingdom)) %>%
-    mutate(across(-otu_id, ~ replace_na(.x,"unclassified")))
+    mutate(
+        across(
+        Kingdom:Species,
+        ~ {
+            x <- replace_na(.x, "")
+            core <- str_remove(x, "^[a-z]__")
+            if_else(core %in% c("", "unclassified"), "unclassified", x)
+        }
+        )
+    )
 
 fill_from_parent <- function(row) {
   #core <- strip_prefix(row)
