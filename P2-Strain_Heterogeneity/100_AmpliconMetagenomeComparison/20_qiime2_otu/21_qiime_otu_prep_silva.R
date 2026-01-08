@@ -104,8 +104,8 @@ arch_combined_qOTU <- combined_otu_tax_silva %>%
 silva_bact_arch_combined_OTU <- bind_rows(bact_combined_qOTU, arch_combined_qOTU)
 
 ## Write the combined OTU and Taxa tables to CSV files
-write.csv(silva_bact_arch_combined_OTU, file = paste0(outpath, "/silva_bact_arch_combined_OTU.csv")) 
-silva_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/silva_bact_arch_combined_OTU.csv")) %>% select(-X)
+write.csv(silva_bact_arch_combined_OTU, file = paste0(outpath, "/silva_bact_arch_combined_qiimeOTU.csv")) 
+silva_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/silva_bact_arch_combined_qiimeOTU.csv")) %>% select(-X)
 bact_combined_qOTU2 <- silva_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
 arch_combined_qOTU2 <- silva_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
 
