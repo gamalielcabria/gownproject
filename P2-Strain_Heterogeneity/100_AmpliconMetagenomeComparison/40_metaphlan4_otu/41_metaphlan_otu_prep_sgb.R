@@ -27,17 +27,29 @@ assigned_otu_tax_sgb <- otu_tax_sgb_mdf %>%
 
 
 ## Filter at different taxa levels
-tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
+tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species","Strain")
 
 ### Selecting Species Level
+# sgb_strain_otu_tax <- assigned_otu_tax_sgb %>%
+#     filter(grepl("t__", otu_id)) %>%
+#     separate(otu_id, into = tax_cols, sep = "\\|", fill = "right", extra = "drop") %>%
+#     rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
+#         .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species,Strain)
+#     ) %>%
+#     select(
+#         all_of(tax_cols),
+#         sort(setdiff(colnames(.),tax_cols))
+#     ) %>%
+#     mutate(OTUs = ifelse(grepl("k__Bacteria", Kingdom), paste0("bOTU_", row_number()), paste0("aOTU_", row_number())))
+
 sgb_species_otu_tax <- assigned_otu_tax_sgb %>%
     filter(grepl("s__", otu_id)) %>%
-    separate(otu_id, into = tax_cols, sep = "\\|", fill = "right", extra = "drop") %>%
+    separate(otu_id, into = tax_cols[1:7], sep = "\\|", fill = "right", extra = "drop") %>%
     rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
         .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species)
     ) %>%
     select(
-        all_of(tax_cols),
+        all_of(tax_cols[1:7]),
         sort(setdiff(colnames(.),tax_cols))
     ) %>%
     mutate(OTUs = ifelse(grepl("k__Bacteria", Kingdom), paste0("bOTU_", row_number()), paste0("aOTU_", row_number())))
