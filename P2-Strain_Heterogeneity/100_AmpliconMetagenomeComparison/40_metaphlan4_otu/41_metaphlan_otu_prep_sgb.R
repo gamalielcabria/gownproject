@@ -7,7 +7,7 @@ library(tidyr)
 library(purrr)
 
 # Set Working Directory~
-#setwd("/home/glbcabria/Workbench")
+setwd("/home/glbcabria/Workbench")
 
 # Import OTU Counts, taxa, and metadata
 ## File Path of inputs
@@ -177,7 +177,7 @@ filled_sgb_species_otu_tax2[tax_cols] <- t(apply(filled_sgb_species_otu_tax2[tax
 
 
 ## Save as csv files
-# write.csv(sgb_species_otu_tax, file = paste0(outpath, "/mp4-species_bact_arch_combined_otu.csv"))
+write.csv(filled_sgb_species_otu_tax2, file = paste0(outpath, "/mp4-species_bact_arch_combined_otu.csv"))
 # write.csv(sgb_genus_otu_tax, file = paste0(outpath, "/mp4-genus_bact_arch_combined_otu.csv"))
 # write.csv(sgb_family_otu_tax, file = paste0(outpath, "/mp4-family_bact_arch_combined_otu.csv"))
 # write.csv(sgb_phylum_otu_tax, file = paste0(outpath, "/mp4-phylum_bact_arch_combined_otu.csv"))
@@ -333,18 +333,7 @@ fill_from_parent <- function(row) {
 filled_gtdb_species_otu_tax2 <- filled_gtdb_species_otu_tax
 filled_gtdb_species_otu_tax2[tax_cols] <- t(apply(filled_gtdb_species_otu_tax2[tax_cols],1, fill_from_parent))
 
-
-
-
-
-
-
-
-
-
-
-
-# write.csv(gtdb_species_otu_tax, file = paste0(outpath, "/mp4-species_bact_arch_combined_relabgtdb.csv"))
+write.csv(filled_gtdb_species_otu_tax2, file = paste0(outpath, "/mp4-species_bact_arch_combined_relabgtdb.csv"))
 # write.csv(gtdb_genus_otu_tax, file = paste0(outpath, "/mp4-genus_bact_arch_combined_relabgtdb.csv"))
 # write.csv(gtdb_family_otu_tax, file = paste0(outpath, "/mp4-family_bact_arch_combined_relabgtdb.csv"))
 # write.csv(gtdb_phylum_otu_tax, file = paste0(outpath, "/mp4-phylum_bact_arch_combined_relabgtdb.csv"))
