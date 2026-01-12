@@ -9,6 +9,7 @@ vsearch_OTU_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeC
 dada2_ASV_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/gtdb_bact_arch_combined_qiimeASV.csv"
 dada2_ASV_silva <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/silva_bact_arch_combined_qiimeASV.csv"
 mp4_OTU_sgb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/40_metaphlan4_otu/mp4-species_bact_arch_combined_otu.csv"
+mp4_OTU_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/40_metaphlan4_otu/mp4-species_bact_arch_combined_relabgtdb.csv"
 singlem_OTU_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/11_SingleM_genes/gtdb_bact_arch_combined_singlem-sum-OTU.csv"
 
 metadata_path <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/10_GenusAggregate_Sum/sample_table_Meta.csv"
@@ -154,4 +155,39 @@ mp4_OTU_sgb_TAX <- mp4_OTU_sgb_filtered %>%
 
 mp4_OTU_sgb_meco <- microtable$new( otu_table = mp4_OTU_sgb_OTU, tax_table = mp4_OTU_sgb_TAX, sample_table = metadata_df)
 
+### MP4 OTU GTDB
+mp4_OTU_gtdb_df <- read.csv(mp4_OTU_gtdb, stringsAsFactors = FALSE) %>%
+    select(-X) %>%
+    column_to_rownames("OTUs") %>%
+    select(any_of(union(meta_samples,tax_cols)))
+
+sample_cols <- setdiff(colnames(mp4_OTU_gtdb_df), tax_cols)
+
+mp4_OTU_gtdb_filtered <- mp4_OTU_gtdb_df #%>%
+#   rowwise() %>%
+#   mutate(total_count = sum(c_across(all_of(sample_cols)))) %>%
+#   ungroup() %>%
+#   filter(total_count > 1) %>%     # removes 0, 1, and 2
+#   select(-total_count)
+
+mp4_OTU_gtdb_OTU <- mp4_OTU_gtdb_filtered %>%
+    select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
+    as.data.frame()
+
+mp4_OTU_gtdb_TAX <- mp4_OTU_gtdb_filtered %>%
+    select(Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
+    as.data.frame()
+
+mp4_OTU_gtdb_meco <- microtable$new( otu_table = mp4_OTU_gtdb_OTU, tax_table = mp4_OTU_gtdb_TAX, sample_table = metadata_df)
+
 ### SingleM OTU gtdb
+
+
+
+# Comparison
+vsearch_silva_meco
+dada2_ASV_silva_meco
+vsearch_gtdb_meco
+dada2_ASV_gtdb_meco
+mp4_OTU_sgb_meco
+mp4_OTU_gtdb_meco

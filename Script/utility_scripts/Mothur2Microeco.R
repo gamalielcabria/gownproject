@@ -71,6 +71,9 @@ ggsave(
     dpi = 300
 )
 
+bray_curtis <- beta_diversity$use_matrix
+write.csv(bray_curtis, file = "gownproject/Script/utility_scripts/bray_curtis.csv")
+
 # Environmental Fitting
 env_fit <- trans_env$new(dataset = meco, env_cols = 3:5)
 env_fit$cal_ordination(method = "CCA", use_measure = "bray")
