@@ -1,6 +1,9 @@
 # Create diversity
 library(tidyverse)
 library(microeco)
+library(ComplexUpset)
+library(RColorBrewer)
+
 
 # Paths of combined otu tax files
 
@@ -299,9 +302,15 @@ plot_summary <- ggplot(otu_long, aes(Method, Observed_OTUs, fill = Database)) +
     title = "Per-sample richness across methods"
   )
 
-ggsave(plot = plot_summary, filename = "otu_richness_per_sample.png", width = 8, height = 6, dpi = 300)
+# ggsave(plot = plot_summary, filename = "otu_richness_per_sample.png", width = 8, height = 6, dpi = 300)
+
+
+######################################
+# UPSET PLOTS FOR SPECIES PER SAMPLE #
+######################################
 
 ### Get species per sample per method
+
 #### Visualize using upset plot how many taxas are shared per method
 method_list_gtdb <- method_df %>%
   filter(Database == "GTDB") %>%
@@ -310,7 +319,7 @@ method_list_gtdb <- method_df %>%
 meco_list_gtdb <- setNames(mget(method_list_gtdb, envir = .GlobalEnv), method_list_gtdb)
 
 #### Extract set of lineages per method
-make_lineage <- function(tx, ranks = c("Kingdom","Phylum","Class","Order","Family","Genus", "Species"),
+make_lineage <- function(tx, ranks = c("Kingdom","Phylum","Class","Order","Family","Genus"), #"Species"),
                          sep = "; ") {
   ranks <- ranks[ranks %in% names(tx)]
   if (length(ranks) == 0) stop("No requested ranks found in tax_table.")
@@ -332,6 +341,7 @@ taxa_sets <- imap(meco_list_gtdb, ~ {
     unique()
 })
 
+#!!!! MANUALLY EDIT THIS !!!#
 names(taxa_sets) <- c(
   "VSEARCH(GTDB)",
   "DADA2(GTDB)",
@@ -340,15 +350,83 @@ names(taxa_sets) <- c(
 )
 
 #### Visualize using UpSet Plot
-library(ComplexUpset)
-#library(ggbreak)
-
 all_taxa <- sort(unique(unlist(taxa_sets)))
-upset_df <- tibble(taxon = all_taxa)
+upset_df <- tibble(taxon = all_taxa) %>%
+  mutate(
+    Phylum = str_split_fixed(taxon, ";\\s*", n = 7)[, 2],
+    Phylum = na_if(Phylum, "")
+  )
 
 for (nm in names(taxa_sets)) {
   upset_df[[nm]] <- upset_df$taxon %in% taxa_sets[[nm]]
 }
+
+#### Main Upset Plot: Species or Depends on Grouping in make_lineage()
+
+p_upset_taxa <- upset(
+  upset_df,
+  intersect = names(taxa_sets),
+  name = "GTDB methods",
+  base_annotations = list(
+    "Species" = intersection_size(
+      counts = TRUE,
+      bar_number_threshold = 1,
+      text = list(vjust = -0.4, size = 3)
+    ) +
+      scale_y_continuous(expand = expansion(mult = c(0, 0.15)), name = "Shared Species") +
+      theme(
+        axis.text.y = element_text(size = 10),
+        axis.title  = element_text(size = 11)
+      )
+  ),
+#   annotations = list(
+#     "Phyla" = (
+#       ggplot(mapping = aes(#fill = fct_lump_n(Phylum, n = TOP_N, other_level = "Other",
+#       fill = phy_lumped)) +
+#         geom_bar(position = "fill") +
+#         scale_y_continuous(name = "Top 15 Phyla\ndistribution") +
+#         scale_fill_manual(values = c(pal_top, Other = "grey80"))
+#     )
+#   ),
+#   set_sizes = FALSE,
+   set_sizes = upset_set_size() +
+     theme(axis.text.x = element_text(size = 10, angle = 45)),
+  guides = "collect"
+)
+
+p_upset_taxa
+
+
+
+#######################
+# COMBINED UPSET PLOT #
+#######################
+
+#### Prep Color
+# ---- parameters ----
+TOP_N <- 15
+
+# build stable palette (Set3 extended to 15)
+# phy_lumped <- fct_lump_n(upset_df$Phylum, n = TOP_N, other_level = "Other")
+
+phy_ordered <- upset_df %>%
+  count(Phylum, name = "n") %>%
+  arrange(desc(n)) %>%
+  pull(Phylum)
+
+phy_lumped <- upset_df$Phylum %>%
+  factor(levels = phy_ordered) %>%        # enforce abundance order
+  fct_lump_n(n = TOP_N, other_level = "Other") %>%
+  fct_relevel("Other", after = Inf)        # put Other last
+
+phy_levels <- setdiff(levels(phy_lumped), "Other")
+
+pal_top <- setNames(
+  colorRampPalette(brewer.pal(12, "Paired"))(length(phy_levels)),
+  phy_levels
+)
+
+#### Main Upset Plot: Phyla 
 
 p_upset <- upset(
   upset_df,
@@ -358,22 +436,48 @@ p_upset <- upset(
     "Species" = intersection_size(
       counts = TRUE,
       bar_number_threshold = 1,
-      text = list(
-        vjust = -0.4,
-        size = 3
-        ) 
+      text = list(vjust = -0.4, size = 3)
     ) +
-    theme(
-        axis.text.y = element_text(size = 15),
-        axis.title = element_text(size = 15)
-        )
+      scale_y_continuous(expand = expansion(mult = c(0, 0.15)), name = "Shared Genus") +
+      theme(
+        axis.text.y = element_text(size = 10),
+        axis.title  = element_text(size = 11)
+      )
   ),
-  set_sizes = upset_set_size() + 
-    theme(axis.text.x = element_text(size = 12, angle = 45))
-)+
-theme(
-    plot.margin = margin(t = 20, r = 5, b = 5, l = 5)
+  annotations = list(
+    "Phyla" = (
+      ggplot(mapping = aes(#fill = fct_lump_n(Phylum, n = TOP_N, other_level = "Other",
+      fill = phy_lumped)) +
+        geom_bar(position = "fill") +
+        scale_y_continuous(name = "Top 15 Phyla\ndistribution") +
+        scale_fill_manual(values = c(pal_top, Other = "grey80"))
+    )
+  ),
+  set_sizes = FALSE,
+#   set_sizes = upset_set_size() +
+#     theme(axis.text.x = element_text(size = 10, angle = 45)),
+  guides = "collect"
 )
 
-p_upset
-ggsave(plot = p_upset, filename = "upset_plot_species.png", width = 8, height = 6, dpi = 300)
+p_upset_phyla <-
+  p_upset +
+  patchwork::plot_layout(guides = "collect") &
+  theme(
+    legend.position = "bottom",
+    legend.box = "horizontal",
+    plot.margin = margin(t = 5, r = 15, b = 5, l = 5),
+    legend.text  = element_text(size = 8),
+    legend.title = element_text(size = 10),
+    legend.key.height = grid::unit(3.5, "mm"),
+    legend.key.width  = grid::unit(6, "mm")
+  ) &
+  guides(
+    fill = guide_legend(title = "Phylum", nrow = 4, byrow = TRUE)
+  ) 
+
+p_upset_phyla
+
+# SAVE PLOTS
+### upset_plot_phyla3.png --> brewer.pal(12,"Paired") #Color change from 2
+ggsave(plot = p_upset_phyla, filename = "upset_plot_phyla3.png", width = 8, height = 6, dpi = 300)
+#ggsave(plot = p_upset_taxa, filename = "upset_plot_order.png", width = 8, height = 6, dpi = 300)
