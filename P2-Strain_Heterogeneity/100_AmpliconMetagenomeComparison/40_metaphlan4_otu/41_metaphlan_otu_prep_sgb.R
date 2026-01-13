@@ -45,7 +45,7 @@ tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species","Str
 
 sgb_species_otu_tax <- assigned_otu_tax_sgb %>%
     filter(grepl("s__", otu_id)) %>%
-    separate(otu_id, into = tax_cols[1:7], sep = ";", fill = "right", extra = "drop") %>%
+    separate(otu_id, into = tax_cols[1:7], sep = "\\|", fill = "right", extra = "drop") %>%
     rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
         .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species)
     ) %>%
@@ -56,7 +56,7 @@ sgb_species_otu_tax <- assigned_otu_tax_sgb %>%
     mutate(OTUs = ifelse(grepl("k__Bacteria", Kingdom), paste0("bOTU_", row_number()), paste0("aOTU_", row_number()))) %>%
     bind_rows(
         unassigned_otu_tax_sgb %>%
-        separate(otu_id, into = tax_cols[1:7], sep = ";", fill = "right", extra = "drop") %>%
+        separate(otu_id, into = tax_cols[1:7], sep = "\\|", fill = "right", extra = "drop") %>%
         rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
             .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species)
         ) %>%
@@ -69,7 +69,7 @@ sgb_species_otu_tax <- assigned_otu_tax_sgb %>%
 
 sgb_genus_otu_tax <- assigned_otu_tax_sgb %>%
     filter(grepl("g__", otu_id) & !grepl("s__", otu_id)) %>%
-    separate(otu_id, into = tax_cols[1:6], sep = ";", fill = "right", extra = "drop") %>%
+    separate(otu_id, into = tax_cols[1:6], sep = "\\|", fill = "right", extra = "drop") %>%
     rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
         .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus)
     ) %>%
@@ -80,7 +80,7 @@ sgb_genus_otu_tax <- assigned_otu_tax_sgb %>%
     mutate(OTUs = ifelse(grepl("k__Bacteria", Kingdom), paste0("bOTU_", row_number()), paste0("aOTU_", row_number()))) %>%
     bind_rows(
         unassigned_otu_tax_sgb %>%
-        separate(otu_id, into = tax_cols[1:6], sep = ";", fill = "right", extra = "drop") %>%
+        separate(otu_id, into = tax_cols[1:6], sep = "\\|", fill = "right", extra = "drop") %>%
         rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
             .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species)
         ) %>%
@@ -93,7 +93,7 @@ sgb_genus_otu_tax <- assigned_otu_tax_sgb %>%
 
 sgb_family_otu_tax <- assigned_otu_tax_sgb %>%
     filter(grepl("f__", otu_id) & !grepl("g__", otu_id) & !grepl("s__", otu_id)) %>%
-    separate(otu_id, into = tax_cols[1:5], sep = ";", fill = "right", extra = "drop") %>%
+    separate(otu_id, into = tax_cols[1:5], sep = "\\|", fill = "right", extra = "drop") %>%
     rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
         .cols = -c(Kingdom,Phylum,Class,Order,Family)
     ) %>%
@@ -104,7 +104,7 @@ sgb_family_otu_tax <- assigned_otu_tax_sgb %>%
     mutate(OTUs = ifelse(grepl("k__Bacteria", Kingdom), paste0("bOTU_", row_number()), paste0("aOTU_", row_number()))) %>%
     bind_rows(
         unassigned_otu_tax_sgb %>%
-        separate(otu_id, into = tax_cols[1:5], sep = ";", fill = "right", extra = "drop") %>%
+        separate(otu_id, into = tax_cols[1:5], sep = "\\|", fill = "right", extra = "drop") %>%
         rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
             .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species)
         ) %>%
@@ -117,7 +117,7 @@ sgb_family_otu_tax <- assigned_otu_tax_sgb %>%
 
 sgb_phylum_otu_tax <- assigned_otu_tax_sgb %>%
     filter(grepl("p__", otu_id) & !grepl("c__", otu_id)) %>%
-    separate(otu_id, into = tax_cols[1:2], sep = ";", fill = "right", extra = "drop") %>%
+    separate(otu_id, into = tax_cols[1:2], sep = "\\|", fill = "right", extra = "drop") %>%
     rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
         .cols = -c(Kingdom,Phylum)
     ) %>%
@@ -128,7 +128,7 @@ sgb_phylum_otu_tax <- assigned_otu_tax_sgb %>%
     mutate(OTUs = ifelse(grepl("k__Bacteria", Kingdom), paste0("bOTU_", row_number()), paste0("aOTU_", row_number()))) %>%
     bind_rows(
         unassigned_otu_tax_sgb %>%
-        separate(otu_id, into = tax_cols[1:2], sep = ";", fill = "right", extra = "drop") %>%
+        separate(otu_id, into = tax_cols[1:2], sep = "\\|", fill = "right", extra = "drop") %>%
         rename_with(~ str_split(.x, "-", simplify = TRUE)[,2],
             .cols = -c(Kingdom,Phylum,Class,Order,Family,Genus,Species)
         ) %>%
@@ -143,7 +143,7 @@ sgb_phylum_otu_tax <- assigned_otu_tax_sgb %>%
 ### Fill in missing taxonomic ranks
 tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
 filled_sgb_species_otu_tax <- sgb_species_otu_tax %>%
-    mutate(Kingdom = ifelse(Kingdom == "Unassigned", "d__Unassigned", Kingdom)) %>%
+    mutate(Kingdom = ifelse(grepl("Unassigned|Unclassified|UNCLASSIFIED", Kingdom), "d__Unassigned", Kingdom)) %>%
     mutate(
         across(
         Kingdom:Species,
@@ -301,7 +301,7 @@ gtdb_phylum_otu_tax <- assigned_otu_tax_gtdb %>%
 ### Fill in missing taxonomic ranks
 tax_cols <- c("Kingdom","Phylum","Class","Order","Family","Genus","Species")
 filled_gtdb_species_otu_tax <- gtdb_species_otu_tax %>%
-    mutate(Kingdom = ifelse(Kingdom == "Unassigned", "d__Unassigned", Kingdom)) %>%
+    mutate(Kingdom = ifelse(grepl("Unassigned|Unclassified|UNCLASSIFIED", Kingdom), "d__Unassigned", Kingdom)) %>%
     mutate(
         across(
         Kingdom:Species,
