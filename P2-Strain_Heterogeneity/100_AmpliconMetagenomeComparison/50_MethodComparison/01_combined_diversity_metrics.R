@@ -281,6 +281,7 @@ output_otu_summary <- otu_per_sample_tbl %>%
     ) %>%
     arrange(Database,Method)
 
+# write.csv(output_otu_summary, file = "output_otu_summary.csv")
 
 #### Visualization
 
