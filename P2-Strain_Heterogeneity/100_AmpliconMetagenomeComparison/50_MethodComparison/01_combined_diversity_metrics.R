@@ -210,14 +210,23 @@ singlem_OTU_gtdb_TAX <- singlem_OTU_gtdb_filtered %>%
 
 singlem_OTU_gtdb_meco <- microtable$new( otu_table = singlem_OTU_gtdb_OTU, tax_table = singlem_OTU_gtdb_TAX, sample_table = metadata_df)
 
-# Comparison of different methods
-vsearch_OTU_silva_meco
-dada2_ASV_silva_meco
-vsearch_gtdb_meco
-dada2_ASV_gtdb_meco
-mp4_OTU_sgb_meco
-mp4_OTU_gtdb_meco
-singlem_OTU_gtdb_meco
+
+
+###################################
+# Comparison of different methods #
+###################################
+meco_objects <- list(
+vsearch_OTU_silva_meco = vsearch_OTU_silva_meco,
+dada2_ASV_silva_meco = dada2_ASV_silva_meco,
+vsearch_OTU_gtdb_meco = vsearch_OTU_gtdb_meco,
+dada2_ASV_gtdb_meco = dada2_ASV_gtdb_meco,
+mp4_OTU_sgb_meco = mp4_OTU_sgb_meco,
+mp4_OTU_gtdb_meco = mp4_OTU_gtdb_meco,
+singlem_OTU_gtdb_meco = singlem_OTU_gtdb_meco
+)
+
+## Save the MECO objects
+# saveRDS(meco_objects, file = "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/50_MethodComparison/meco_objects.rds")
 
 method_list <- c("vsearch_OTU_silva_meco","dada2_ASV_silva_meco","vsearch_OTU_gtdb_meco","dada2_ASV_gtdb_meco","mp4_OTU_sgb_meco","mp4_OTU_gtdb_meco","singlem_OTU_gtdb_meco")
 

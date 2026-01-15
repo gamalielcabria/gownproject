@@ -1,0 +1,7 @@
+"ref","method","mantel_r","p_value","p_adj"
+"vsearch_OTU_gtdb_meco","vsearch_OTU_silva_meco",0.999833790409707,1e-04,0.00015
+"vsearch_OTU_gtdb_meco","dada2_ASV_silva_meco",0.770203608558721,1e-04,0.00015
+"vsearch_OTU_gtdb_meco","dada2_ASV_gtdb_meco",0.771127392047002,1e-04,0.00015
+"vsearch_OTU_gtdb_meco","singlem_OTU_gtdb_meco",0.654723195423113,1e-04,0.00015
+"vsearch_OTU_gtdb_meco","mp4_OTU_sgb_meco",0.204092255070486,0.0392,0.04704
+"vsearch_OTU_gtdb_meco","mp4_OTU_gtdb_meco",0.00257624864954708,0.4593,0.4593
