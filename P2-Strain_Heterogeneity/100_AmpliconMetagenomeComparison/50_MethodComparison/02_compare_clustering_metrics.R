@@ -406,8 +406,11 @@ compare_methods_mantel <- function(bray_list, methodA, methodB,
   vegan::mantel(dA, dB, method = cor_method, permutations = permutations)
 }
 
-### EDIT THIS!!!
-mantel_res <- compare_methods_mantel(bray_by_method, "vsearch_OTU_gtdb_meco", "singlem_OTU_gtdb_meco")
+##################### EDIT THIS!!! ##############################
+method_b <- "singlem_OTU_gtdb_meco"
+method_a <- "dada2_ASV_gtdb_meco"
+
+mantel_res <- compare_methods_mantel(bray_by_method, method_a, method_b)
 mantel_res
 
 ### PLOT Mantel results across multiple method comparisons
@@ -427,8 +430,9 @@ dist_scatter_df <- function(bray_list, methodA, methodB) {
     dist_B = mB[idx]
   )
 }
-method_a <- "vsearch_OTU_gtdb_meco"
-method_b <- "singlem_OTU_gtdb_meco"
+
+
+
 df_scatter <- dist_scatter_df(bray_by_method, method_a, method_b)
 
 pretty_method <- function(x) {
@@ -474,18 +478,18 @@ plot_beta_bray_scatter <- ggplot(df_scatter, aes(dist_A, dist_B)) +
 
 plot_beta_bray_scatter
 
-# ggsave(
-#   file = file.path(figure_path, "Figure_SX_beta_diversity_bray_scatter.png"),
-#   plot_beta_bray_scatter,
-#   width = 6,
-#   height = 5,
-#   dpi = 300
-# )
+ggsave(
+  file = file.path(figure_path, paste0("Figure_SX_beta_diversity_bray_scatter_",pretty_method(method_a),"_",pretty_method(method_b),".png")),
+  plot_beta_bray_scatter,
+  width = 6,
+  height = 5,
+  dpi = 300
+)
 
-# saveRDS(
-#   plot_beta_bray_scatter,
-#   file = file.path(figure_path, "Figure_SX_beta_diversity_bray_scatter.rds")
-# )
+saveRDS(
+  plot_beta_bray_scatter,
+  file = file.path(figure_path, paste0("Figure_SX_beta_diversity_bray_scatter_",pretty_method(method_a),"_",pretty_method(method_b),".rds"))
+)
 
 # Comparison of multiple samples to a reference:
 ref <- "vsearch_OTU_gtdb_meco"
@@ -505,6 +509,6 @@ mantel_table <- map_dfr(others, function(m) {
 
 mantel_table
 
-# write.csv(   mantel_table,   row.names = FALSE
-#   file = file.path(figure_path, "Table_SX_beta_diversity_mantel_results.csv"),
-# )
+write.csv(   mantel_table,   row.names = FALSE,
+  file = file.path(figure_path, paste0("Table_SX_beta_diversity_mantel_results_",pretty_method(method_a),"_",pretty_method(method_b),".csv") )
+)
