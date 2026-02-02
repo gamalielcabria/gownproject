@@ -40,16 +40,16 @@ THREADS="${SLURM_CPUS_PER_TASK:-1}"
 # -------------------------
 # Option A: explicit pairs (recommended)
 # Put the combos you actually want to compare.
-PAIRS=(
-  "280 260"
-  "270 250"
-  "260 240"
-  "250 230"
-)
+# PAIRS=(
+#   "280 260"
+#   "270 250"
+#   "260 240"
+#   "250 230"
+# )
 
 # Option B: grid search (uncomment if you want a grid)
-# F_LIST=(300 290 280 270 260 250)
-# R_LIST=(280 270 260 250 240 230)
+F_LIST=(300 290 280 270 260 250)
+R_LIST=(280 270 260 250 240 230)
 
 # -------------------------
 # Environment
@@ -115,10 +115,15 @@ sum_denoise_stats() {
   # Sum numeric columns across all samples (skip header)
   # Columns in stats.tsv typically:
   # sample-id, input, filtered, denoised, merged, non-chimeric
+  # IMPORTANT FIX: don't use variable name "in" (reserved keyword in awk)
   awk -F'\t' 'NR>1{
-    in+=$2; filt+=$3; den+=$4; mer+=$5; non+=$6
+    n_in   += $2
+    n_filt += $3
+    n_den  += $4
+    n_mer  += $5
+    n_non  += $6
   } END{
-    printf "%d\t%d\t%d\t%d\t%d", in, filt, den, mer, non
+    printf "%d\t%d\t%d\t%d\t%d", n_in, n_filt, n_den, n_mer, n_non
   }' "$tsv"
 }
 
@@ -181,16 +186,16 @@ run_one() {
 }
 
 # Run explicit pairs:
-for pair in "${PAIRS[@]}"; do
-  run_one $pair
-done
+# for pair in "${PAIRS[@]}"; do
+#   run_one $pair
+# done
 
 # Or run grid search (uncomment if using F_LIST/R_LIST):
-# for f in "${F_LIST[@]}"; do
-#   for r in "${R_LIST[@]}"; do
-#     run_one "$f" "$r"
-#   done
-# done
+for f in "${F_LIST[@]}"; do
+  for r in "${R_LIST[@]}"; do
+    run_one "$f" "$r"
+  done
+done
 
 echo
 echo "DONE."
