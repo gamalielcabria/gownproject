@@ -2,6 +2,8 @@
 library(dada2)
 library(tidyverse)
 
+# Set WD and input path
+setwd("/home/glbcabria/Workbench/P0/GOWN_DADA2_explor")
 input <- "/home/glbcabria/Workbench/P0/qc" #Contains raw *fastq.gz 
 
 # Taking in inputs for SLURM
