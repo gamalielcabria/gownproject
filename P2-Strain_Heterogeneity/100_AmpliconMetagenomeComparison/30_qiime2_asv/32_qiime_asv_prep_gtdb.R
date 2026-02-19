@@ -1,14 +1,15 @@
+# File
 # Script for preparing the qiime taxonomy and otu table inputs
 library(tidyverse)
 library(microeco)
 
 # Set Working Directory
-setwd("/home/glbcabria/Workbench")
+# setwd("/home/glbcabria/Workbench")
 
 # Import OTU Counts, taxa, and metadata
 ## File Path of inputs
-qiime_otu_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/02_qiime2_asv_gtdb/asv-table.tsv.gz"
-qiime_tax_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/02_qiime2_asv_gtdb/taxonomy.tsv.gz"
+qiime_otu_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/03_qiime2_asv_gtdb_24-25/asv-table.tsv.gz"
+qiime_tax_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/03_qiime2_asv_gtdb_24-25/taxonomy.tsv.gz"
 
 outpath <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv"
 
@@ -75,9 +76,22 @@ combined_otu_tax_gtdb <- otu_gtdb_qdf %>%
 tax_cols <- c("OTUs", "Kingdom", "Phylum", "Class", "Order",
               "Family", "Genus", "Species")
 
-bact_combined_qOTU <- combined_otu_tax_gtdb %>%
-    select(OTUs,Kingdom,Phylum,Class,Order,Family,Genus,Species,starts_with("MDI")) %>%
-    rename_with(~ str_split(.x, "\\.", simplify = TRUE)[,4],
+## Fixing Column names (Added Paniz Extraction Code)
+combined_otu_tax_gtdb2 <- combined_otu_tax_gtdb %>%
+  rename_with(
+    ~ str_remove(.x, "^(DMO-|MDI-)")
+  )
+
+colnames(combined_otu_tax_gtdb2) <-
+  str_replace(
+    colnames(combined_otu_tax_gtdb2),
+    "(ARCH|BACT)\\.([0-9]+[A-Za-z]*)(?=\\.)",
+    "\\1.P\\2"
+  )
+
+bact_combined_qOTU <- combined_otu_tax_gtdb2 %>%
+    select(OTUs,Kingdom,Phylum,Class,Order,Family,Genus,Species,starts_with("MDI"), contains("BACT", ignore.case = TRUE)) %>%
+    rename_with(~ str_split(.x, "\\.", simplify = TRUE)[,2],
         .cols = -c(OTUs,Kingdom,Phylum,Class,Order,Family,Genus,Species)
     ) %>%
     select(
@@ -86,13 +100,13 @@ bact_combined_qOTU <- combined_otu_tax_gtdb %>%
     ) %>%
     filter( grepl("Bacteria|Unassigned", Kingdom) ) %>%
     rowwise() %>%
-    filter(!(sum(c_across(C1:E9), na.rm = TRUE) == 0) ) %>%
+    filter(!(sum(across(-all_of(tax_cols)), na.rm = TRUE) == 0) ) %>%
     ungroup() %>%
     mutate(OTUs = gsub("OTU_", "bOTU_", OTUs))
 
-arch_combined_qOTU <- combined_otu_tax_gtdb %>%
-    select(OTUs,Kingdom,Phylum,Class,Order,Family,Genus,Species,starts_with("DMO")) %>%
-    rename_with(~ str_split(.x, "\\.", simplify = TRUE)[,4],
+arch_combined_qOTU <- combined_otu_tax_gtdb2 %>%
+    select(OTUs,Kingdom,Phylum,Class,Order,Family,Genus,Species,starts_with("DMO"), contains("ARC", ignore.case = TRUE)) %>%
+    rename_with(~ str_split(.x, "\\.", simplify = TRUE)[,2],
         .cols = -c(OTUs,Kingdom,Phylum,Class,Order,Family,Genus,Species)
     ) %>%
     select(
@@ -101,7 +115,7 @@ arch_combined_qOTU <- combined_otu_tax_gtdb %>%
     ) %>%
     filter( grepl("Archaea|Unassigned", Kingdom) ) %>%
     rowwise() %>%
-    filter(!(sum(c_across(C1:E9), na.rm = TRUE) == 0) ) %>%
+    filter( !(sum(across(-all_of(tax_cols)), na.rm = TRUE) == 0)) %>%
     ungroup() %>%
     mutate(OTUs = gsub("OTU_", "aOTU_", OTUs))
 
@@ -118,24 +132,30 @@ write.csv(gtdb_bact_arch_combined_ASV, file = paste0(outpath, "/gtdb_bact_arch_c
 # bact_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
 # arch_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
 
-# ## Separate OTU and Taxa tables
-# otu_table_gtdb_all <- gtdb_bact_arch_combined_OTU2 %>%
-#     select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
-#     column_to_rownames(var = "OTUs")
-# tax_table_gtdb_all <- gtdb_bact_arch_combined_OTU %>%
-#     select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
-#     column_to_rownames(var = "OTUs")
 
-# otu_table_gtdb_bac <- bact_combined_qOTU2 %>%
-#     select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
-#     column_to_rownames(var = "OTUs")
-# tax_table_gtdb_bac <- bact_combined_qOTU2 %>%
-#     select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
-#     column_to_rownames(var = "OTUs")
 
-# otu_table_gtdb_arch <- arch_combined_qOTU2 %>%
-#     select(-Kingdom, -Phylum, -Class, -Order, -Family, -Genus, -Species) %>%
-#     column_to_rownames(var = "OTUs")
-# tax_table_gtdb_arch <- arch_combined_qOTU2 %>%
-#     select(OTUs, Kingdom, Phylum, Class, Order, Family, Genus, Species) %>%
-#     column_to_rownames(var = "OTUs")
+# Create Metadata for the combined ASV table
+## Get only sample columns (remove taxonomy columns)
+sample_names <- colnames(combined_otu_tax_gtdb2)
+
+sample_names_clean <- sample_names %>%
+  ## remove taxonomy columns
+  .[! . %in% c("Kingdom","Phylum","Class","Order","Family","Genus","Species","OTUs")] %>%
+  tibble(SampleID = .)
+
+# Parse metadata
+metadata <- sample_names_clean %>%
+  separate(SampleID,
+           into = c("User", "ExpYear", "Domain", "GenomeCode", "Well"),
+           sep = "\\.",
+           fill = "right") %>%
+  mutate(
+    Year = paste0("20", str_extract(ExpYear, "^[0-9]{2}")),
+    Experiment = ExpYear,
+    GenomeCode = str_remove(GenomeCode, "^ARCH|^BACT", ignore.case = TRUE   )
+  ) %>%
+  select(SampleID, User, Experiment, Year, Domain, GenomeCode, Well)
+
+# Make rownames for phyloseq
+metadata_phyloseq <- metadata %>%
+  column_to_rownames("SampleID")
