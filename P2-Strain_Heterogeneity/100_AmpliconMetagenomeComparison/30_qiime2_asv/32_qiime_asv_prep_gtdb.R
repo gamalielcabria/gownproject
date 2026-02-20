@@ -4,7 +4,7 @@ library(tidyverse)
 library(microeco)
 
 # Set Working Directory
-# setwd("/home/glbcabria/Workbench")
+setwd("/home/glbcabria/Workbench")
 
 # Import OTU Counts, taxa, and metadata
 ## File Path of inputs
@@ -12,6 +12,7 @@ qiime_otu_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeCom
 qiime_tax_gtdb <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv/03_qiime2_asv_gtdb_24-25/taxonomy.tsv.gz"
 
 outpath <- "gownproject/P2-Strain_Heterogeneity/100_AmpliconMetagenomeComparison/30_qiime2_asv"
+output_tag <- "GOWN24-25"
 
 ## Importing inputs
 otu_gtdb_qdf <- read_tsv(qiime_otu_gtdb, skip = 1) %>%
@@ -127,7 +128,7 @@ arch_combined_qOTU <- combined_otu_tax_gtdb2 %>%
 gtdb_bact_arch_combined_ASV <- bind_rows(bact_combined_qOTU, arch_combined_qOTU)
 
 ## Write the combined OTU and Taxa tables to CSV files
-write.csv(gtdb_bact_arch_combined_ASV, file = paste0(outpath, "/gtdb_bact_arch_combined_qiimeASV.csv")) 
+write.csv(gtdb_bact_arch_combined_ASV, file = paste0(outpath, "/gtdb_bact_arch_combined_qiimeASV_", output_tag,".csv")) 
 # gtdb_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/gtdb_bact_arch_combined_OTU.csv")) %>% select(-X)
 # bact_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
 # arch_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
@@ -146,16 +147,22 @@ sample_names_clean <- sample_names %>%
 # Parse metadata
 metadata <- sample_names_clean %>%
   separate(SampleID,
-           into = c("User", "ExpYear", "Domain", "GenomeCode", "Well"),
+           into = c("ExpCode","GenomeCode","Well"),
            sep = "\\.",
+           fill = "right",
+           remove = FALSE) %>%
+  separate(ExpCode,
+           into = c("User", "ExpYear", "Domain"),
+           sep = "_",
            fill = "right") %>%
   mutate(
     Year = paste0("20", str_extract(ExpYear, "^[0-9]{2}")),
-    Experiment = ExpYear,
-    GenomeCode = str_remove(GenomeCode, "^ARCH|^BACT", ignore.case = TRUE   )
+    Experiment = str_remove(ExpYear, "^[0-9]{2}")
   ) %>%
   select(SampleID, User, Experiment, Year, Domain, GenomeCode, Well)
 
 # Make rownames for phyloseq
 metadata_phyloseq <- metadata %>%
   column_to_rownames("SampleID")
+
+write.csv(metadata_phyloseq, file = paste0(outpath, "/gtdb_bact_arch_combined_qiimeASV_", output_tag,".metadata.csv")) 
