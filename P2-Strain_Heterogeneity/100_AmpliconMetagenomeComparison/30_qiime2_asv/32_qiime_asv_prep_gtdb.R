@@ -120,22 +120,36 @@ arch_combined_qOTU <- combined_otu_tax_gtdb2 %>%
     ungroup() %>%
     mutate(OTUs = gsub("OTU_", "aOTU_", OTUs))
 
-# unassigned_combined_qOTU <- combined_otu_tax_gtdb %>%
-#     filter( grepl("Unassigned", Kingdom) ) 
-#     nrow(unassigned_combined_qOTU)
+# COMBINING BACT AND ARCH
+## Filter and Matches
+tax_cols <- c("OTUs","Kingdom","Phylum","Class","Order","Family","Genus","Species")
 
+bact_samples <- setdiff(colnames(bact_combined_qOTU), tax_cols)
+arch_samples <- setdiff(colnames(arch_combined_qOTU), tax_cols)
+shared_samples <- intersect(bact_samples, arch_samples)
 
-gtdb_bact_arch_combined_ASV <- bind_rows(bact_combined_qOTU, arch_combined_qOTU)
+## Fusion!
+bact_combined_qOTU_shared <- bact_combined_qOTU %>%
+  select(all_of(c(tax_cols, shared_samples)))
 
+arch_combined_qOTU_shared <- arch_combined_qOTU %>%
+  select(all_of(c(tax_cols, shared_samples)))
+
+gtdb_bact_arch_combined_ASV <- bind_rows(bact_combined_qOTU_shared, arch_combined_qOTU_shared)
 ## Write the combined OTU and Taxa tables to CSV files
 write.csv(gtdb_bact_arch_combined_ASV, file = paste0(outpath, "/gtdb_bact_arch_combined_qiimeASV_", output_tag,".csv")) 
-# gtdb_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/gtdb_bact_arch_combined_OTU.csv")) %>% select(-X)
-# bact_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
-# arch_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
+
+## gtdb_bact_arch_combined_OTU2 <- read.csv(paste0(outpath, "/gtdb_bact_arch_combined_OTU.csv")) %>% select(-X)
+## bact_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("bOTU", OTUs) )
+## arch_combined_qOTU2 <- gtdb_bact_arch_combined_OTU2 %>% filter( grepl("aOTU", OTUs) )
 
 
 
-# Create Metadata for the combined ASV table
+
+##############################################
+# Create Metadata for the combined ASV table #
+##############################################
+
 ## Get only sample columns (remove taxonomy columns)
 sample_names <- colnames(combined_otu_tax_gtdb2)
 
