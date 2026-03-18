@@ -33,8 +33,10 @@ find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
 
 ############################# PROCESSING INPUTS #############################
 
+# setwd('~/github/gownproject/P3/Results/DenitrificationRate')
+
 # Working Directory
-input <- '~/combined'
+input <- '/home/gam/github/gownproject/P3/Results/DenitrificationRate/20250926'
 #input_day <- 'D87LIQ' # 'FECH4MNH2'
 
 # Determine if Amount is in PPM or PCT MOLE
@@ -528,4 +530,5 @@ ggsave(Plot_DNP_Table_ED, filename = paste0('DenitrificationRate_ElectronDonors'
 ggsave(Plot_DNP_Table_All, filename = paste0('DenitrificationRate_SED','.png'),
        width = 14, height = 10, units = 'in', dpi = 300)
 
-
+write.csv(Table_Slopes, 'DenitrificationRate_SED_Summary_Slopes.csv', row.names = FALSE)
+write.csv(slopes_table, 'DenitrificationRate_SED_Individual_Slopes.csv', row.names = FALSE)
