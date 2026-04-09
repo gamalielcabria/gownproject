@@ -1,0 +1,24 @@
+sample	coverage	taxonomy	GW	relabund_pct
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.08	Root; d__Archaea	GW429	25.6532
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	3.13	Root; d__Bacteria	GW429	74.3468
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.09	Root; d__Bacteria; p__Patescibacteria	GW429	25.8907
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.45	Root; d__Bacteria; p__Chloroflexota	GW429	10.6888
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.34	Root; d__Bacteria; p__Desulfobacterota	GW429	8.07601
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.68	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia	GW429	16.152
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.76	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria	GW429	41.8052
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.85	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia	GW429	20.19
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.68	Root; d__Bacteria; p__Patescibacteria; c__ABY1	GW429	16.152
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.4	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia	GW429	33.2542
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.48	Root; d__Bacteria; p__Omnitrophota; c__Koll11	GW429	35.1544
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.53	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Woesearchaeales	GW429	12.5891
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.69	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__SCGC-AAA011-G17	GW429	16.3895
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	3.3	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales	GW429	78.3848
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.04	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__Dehalococcoidales	GW429	24.7031
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.11	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales	GW429	2.61283
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	1.7	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1	GW429	40.38
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.4	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-38-27	GW429	9.50119
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.57	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__MHMH01	GW429	13.5392
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.4	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__Dehalococcoidales; f__UBA2162	GW429	9.50119
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.4	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__2-01-FULL-45-10; f__2-01-FULL-45-10	GW429	9.50119
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	3.17	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae	GW429	75.2969
+GLC_25GOWN_SHMG-GW429-G22-20251210__R1_TCCATTGC-AGACCGTA	0.8	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__UBA1562	GW429	19.0024

@@ -1,0 +1,599 @@
+sample	coverage	taxonomy	GW	relabund_pct
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.77	Root; d__Archaea	GW218	3.62694
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	20.46	Root; d__Bacteria	GW218	96.3731
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.75	Root; d__Archaea; p__Halobacteriota	GW218	3.53274
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.64	Root; d__Archaea; p__Thermoplasmatota	GW218	3.0146
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.18	Root; d__Archaea; p__Thermoproteota	GW218	5.55817
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.87	Root; d__Bacteria; p__Patescibacteria	GW218	22.9392
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.7	Root; d__Bacteria; p__Desulfobacterota	GW218	12.7179
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Pseudomonadota	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.07	Root; d__Bacteria; p__Verrucomicrobiota	GW218	0.329722
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.31	Root; d__Bacteria; p__Chloroflexota	GW218	6.17051
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.16	Root; d__Bacteria; p__Nitrospirota	GW218	0.75365
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Omnitrophota	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.14	Root; d__Bacteria; p__Bacteroidota	GW218	10.0801
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.59	Root; d__Bacteria; p__Acidobacteriota	GW218	7.4894
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.72	Root; d__Bacteria; p__Actinomycetota	GW218	8.10174
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Gemmatimonadota	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Electryoneota	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.91	Root; d__Bacteria; p__Elusimicrobiota	GW218	4.28639
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.8	Root; d__Bacteria; p__Planctomycetota	GW218	3.76825
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Spirochaetota	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Margulisbacteria	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Myxococcota	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.53	Root; d__Bacteria; p__Cyanobacteriota	GW218	2.49647
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Bdellovibrionota	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__WOR-3	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.7	Root; d__Bacteria; p__Armatimonadota	GW218	3.29722
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Bacillota_D	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Archaea; p__Halobacteriota; c__Methanosarcinia	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.39	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia	GW218	6.54734
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.66	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia	GW218	7.81912
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Archaea; p__Aenigmatarchaeota; c__Aenigmatarchaeia	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Archaea; p__Thermoplasmatota; c__Thermoplasmata	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Archaea; p__Thermoproteota; c__Bathyarchaeia	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.05	Root; d__Archaea; p__Iainarchaeota; c__Iainarchaeia	GW218	0.235516
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	11.18	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria	GW218	52.6613
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.35	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia	GW218	25.2002
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.89	Root; d__Bacteria; p__Patescibacteria; c__ABY1	GW218	27.7438
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.04	Root; d__Bacteria; p__Patescibacteria; c__UBA1384	GW218	4.89873
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Patescibacteria; c__WWE3	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Patescibacteria; c__Gracilibacteria	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobacteria	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.61	Root; d__Bacteria; p__Desulfobacterota; c__WTBG01	GW218	2.87329
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.05	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria	GW218	4.94583
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.04	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria	GW218	19.0297
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.36	Root; d__Bacteria; p__Verrucomicrobiota; c__Kiritimatiellia	GW218	6.40603
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.31	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae	GW218	6.17051
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Verrucomicrobiota; c__Lentisphaeria	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.33	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia	GW218	15.6854
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Chloroflexota; c__Limnocylindria	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.93	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae	GW218	9.09091
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Chloroflexota; c__Chloroflexia	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Nitrospirota; c__Nitrospiria	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.69	Root; d__Bacteria; p__Bacillota_I; c__Bacilli_A	GW218	3.25012
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.58	Root; d__Bacteria; p__Bacillota_A; c__Clostridia	GW218	12.1526
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.92	Root; d__Bacteria; p__Omnitrophota; c__Koll11	GW218	13.7541
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.68	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia	GW218	7.91333
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Acidobacteriota; c__Aminicenantia	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Acidobacteriota; c__Terriglobia	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.29	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia	GW218	1.36599
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.23	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes	GW218	5.79369
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Actinomycetota; c__Humimicrobiia	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Actinomycetota; c__Acidimicrobiia	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.08	Root; d__Bacteria; p__Actinomycetota; c__Thermoleophilia	GW218	5.08714
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Caldisericota; c__Caldisericia	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Gemmatimonadota; c__Gemmatimonadetes	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.87	Root; d__Bacteria; p__Elusimicrobiota; c__Endomicrobiia	GW218	4.09797
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Elusimicrobiota; c__Elusimicrobia	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Planctomycetota; c__Planctomycetia	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Spirochaetota; c__Spirochaetia	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.58	Root; d__Bacteria; p__Margulisbacteria; c__WOR-1	GW218	7.4423
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.7	Root; d__Bacteria; p__Myxococcota; c__Polyangia	GW218	3.29722
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__UBA10199; c__UBA10199	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Krumholzibacteriota; c__Krumholzibacteria	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.37	Root; d__Archaea; p__Halobacteriota; c__Methanosarcinia; o__Methanosarcinales	GW218	1.74282
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.16	Root; d__Archaea; p__Halobacteriota; c__Methanomicrobia; o__Methanomicrobiales	GW218	0.75365
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.22	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales	GW218	5.74659
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.16	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Woesearchaeales	GW218	10.1743
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.77	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__SCGC-AAA011-G17	GW218	3.62694
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.88	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia; o__Anstonellales	GW218	4.14508
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia; o__Norongarragalinales	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Archaea; p__Aenigmatarchaeota; c__Aenigmatarchaeia; o__Aenigmatarchaeales	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.27	Root; d__Archaea; p__Aenigmatarchaeota; c__Aenigmatarchaeia; o__CG10238-14	GW218	1.27179
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.58	Root; d__Archaea; p__Iainarchaeota; c__Iainarchaeia; o__Iainarchaeales	GW218	2.73198
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	45.13	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales	GW218	212.577
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.73	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__RBG-13-40-8-A	GW218	3.43853
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	6.98	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257	GW218	32.878
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.74	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9973	GW218	12.9063
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.49	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Portnoybacterales	GW218	2.30805
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Moranbacterales	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.56	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__2-02-FULL-40-12	GW218	2.63778
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.55	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__PFEM01	GW218	2.59067
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.82	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__GWA2-44-7	GW218	3.86246
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.33	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1400	GW218	6.26472
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA12405	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.13	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA10105	GW218	0.612341
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1406	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.73	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__UBA2591	GW218	12.8592
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.23	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507	GW218	5.79369
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__Magasanikbacterales	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__SG8-24	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.33	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__UBA12157	GW218	1.5544
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__XYA2-FULL-43-10	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Patescibacteria; c__Dojkabacteria; o__SC72	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Patescibacteria; c__Kazan-3B-28; o__Kazan-3B-28	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Patescibacteria; c__Gracilibacteria; o__UBA1369	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.1	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobacteria; o__Desulfobacterales	GW218	5.18135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.73	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales	GW218	26.9901
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Desulfobacterota; c__Desulfovibrionia; o__Desulfovibrionales	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobulbia; o__Desulfobulbales	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.98	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales	GW218	14.0367
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Xanthomonadales	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.91	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Pseudomonadales	GW218	4.28639
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Enterobacterales	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.08	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales	GW218	5.08714
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Caulobacterales	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Reyranellales	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Palsa-1439	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Opitutales	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Limisphaerales	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Verrucomicrobiales	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Verrucomicrobiota; c__Lentisphaeria; o__Oligosphaerales	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.22	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9	GW218	5.74659
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.13	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__Dehalococcoidales	GW218	24.1639
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__SZUA-161	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Chloroflexota; c__Limnocylindria; o__Limnocylindrales	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.64	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales	GW218	3.0146
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.02	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales	GW218	4.80452
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Bacillota_I; c__Bacilli_A; o__Izemoplasmatales	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Bacteria; p__Bacillota_A; c__Clostridia; o__Oscillospirales	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Bacillota_A; c__Clostridia; o__Peptostreptococcales	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Campylobacterota; c__Campylobacteria; o__Campylobacterales	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Zapsychrales	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.07	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Flavobacteriales	GW218	5.04004
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.16	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales	GW218	24.3052
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Cytophagales	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Chitinophagales	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.14	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__NS11-12g	GW218	0.659444
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.75	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__Ignavibacteriales	GW218	3.53274
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__SJA-28	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.74	Root; d__Bacteria; p__Bacteroidota; c__Kapaibacteriia; o__Kapaibacteriales	GW218	3.48563
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Acidobacteriota; c__Vicinamibacteria; o__Vicinamibacterales	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.49	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia; o__Anaerosomatales	GW218	7.01837
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes; o__Propionibacteriales	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes; o__S36-B12	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes; o__Actinomycetales	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.11	Root; d__Bacteria; p__Actinomycetota; c__Acidimicrobiia; o__Acidimicrobiales	GW218	9.93877
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Caldisericota; c__Caldisericia; o__UBA6126	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.43	Root; d__Bacteria; p__Gemmatimonadota; c__Gemmatimonadetes; o__Gemmatimonadales	GW218	2.02544
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Atribacterota; c__JS1; o__SB-45	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.31	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__Phycisphaerales	GW218	1.4602
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__Sedimentisphaerales	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Planctomycetota; c__MHYJ01; o__JACQXL01	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Planctomycetota; c__Planctomycetia; o__Pirellulales	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Spirochaetota; c__Spirochaetia; o__Treponematales	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Dependentiae; c__Babeliae; o__Babeliales	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.69	Root; d__Bacteria; p__Chlamydiota; c__Chlamydiia; o__Chlamydiales	GW218	3.25012
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.14	Root; d__Bacteria; p__Desulfobacterota_C; c__Deferrisomatia; o__Deferrisomatales	GW218	5.36976
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__CSP1-3; c__CSP1-3; o__CSP1-3	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Cloacimonadota; c__Cloacimonadia; o__Cloacimonadales	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Bacillota_D; c__Dethiobacteria; o__DTU022	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Archaea; p__Halobacteriota; c__Methanosarcinia; o__Methanosarcinales; f__Methanoperedenaceae	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.39	Root; d__Archaea; p__Halobacteriota; c__Methanomicrobia; o__Methanomicrobiales; f__Methanospirillaceae	GW218	1.83702
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.71	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1	GW218	36.3165
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.37	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__SCGC-AAA011-G17; f__GW2011-AR17	GW218	1.74282
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.61	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia; o__Anstonellales; f__Anstonellaceae	GW218	7.58361
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.42	Root; d__Archaea; p__Aenigmatarchaeota; c__Aenigmatarchaeia; o__CG10238-14; f__SCSR01	GW218	1.97833
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Archaea; p__Thermoplasmatota; c__JASEFT01; o__JASEFT01; f__JAUWIS01	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.1	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__Staskawiczbacteraceae	GW218	19.3123
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.66	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__UBA6532	GW218	3.10881
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.5	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__DAOVPY01	GW218	2.35516
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.44	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__MHMH01	GW218	6.78285
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	9.65	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11	GW218	45.4545
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.39	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-36-15	GW218	6.54734
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.63	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-38-27	GW218	12.3881
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__CSSED10-335	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.53	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__CG1-02-41-26	GW218	11.9171
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.27	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAHCRE01	GW218	1.27179
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAGMDC01	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.45	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__UBA5633	GW218	6.82996
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.52	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAGGXC01	GW218	2.44936
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JANBVM01	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__PEYH01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.53	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__2-12-FULL-40-12	GW218	2.49647
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.43	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__DG-74-3	GW218	2.02544
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.66	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__RBG-13-40-8-A; f__RBG-13-40-8-A	GW218	3.10881
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.93	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__GWB1-50-10	GW218	37.3528
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	10.89	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933	GW218	51.2953
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.97	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__Colwellbacteraceae	GW218	9.27932
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.25	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA6257	GW218	1.17758
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.71	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__02-FULL-45-10c	GW218	3.34432
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__Brennerbacteraceae	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.41	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__2-01-FULL-56-20	GW218	1.93123
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.41	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__WO2-44-18	GW218	1.93123
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.62	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAHIHE01	GW218	2.9204
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	9.29	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAGLIN01	GW218	43.7588
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9973; f__UBA9973	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.69	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Portnoybacterales; f__GWB1-42-6	GW218	3.25012
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.59	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Portnoybacterales; f__UBA2143	GW218	2.77909
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.81	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9983; f__UBA9983	GW218	3.81536
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA10092; f__UBA10092	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	6.13	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__GWA2-44-7; f__UBA8517	GW218	28.8742
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.92	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1400; f__CG1-02-47-37	GW218	4.33349
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1400; f__MFAQ01	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA12405; f__UBA12405	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UM-FILTER-40-11; f__UM-FILTER-40-11	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.82	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA10105; f__UBA927	GW218	13.2831
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1406; f__GWC2-37-13	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.31	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__UBA2591; f__UBA4787	GW218	1.4602
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__VMTK01	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__GWC2-42-12	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.3	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__UBA12465	GW218	1.41309
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.36	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__Magasanikbacterales; f__UBA922	GW218	6.40603
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.2	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__Veblenbacterales; f__UBA10138	GW218	0.942063
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.15	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__UBA12157; f__JAENIV01	GW218	0.706547
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.49	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__UBA12157; f__UBA12157	GW218	2.30805
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__XYA2-FULL-43-10; f__CAINNR01	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.41	Root; d__Bacteria; p__Patescibacteria; c__Dojkabacteria; o__SC72; f__SC72	GW218	1.93123
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.22	Root; d__Bacteria; p__Patescibacteria; c__WWE3; o__UBA101185; f__UBA10185	GW218	1.03627
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.33	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__JACQWR01	GW218	1.5544
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.17	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA5619	GW218	5.51107
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__Smithellaceae	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.36	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__Fen-1087	GW218	1.69571
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA8958	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.36	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA2185	GW218	6.40603
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.08	Root; d__Bacteria; p__Desulfobacterota; c__BSN033; o__BSN033; f__UBA1163	GW218	0.376825
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Desulfobacterota; c__Desulfovibrionia; o__Desulfovibrionales; f__Desulfovibrionaceae	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobulbia; o__Desulfobulbales; f__Desulfurivibrionaceae	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Desulfobacterota; c__UBA8473; o__UBA8473; f__UBA8473	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.41	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobaccia; o__Desulfobaccales; f__0-14-0-80-60-11	GW218	1.93123
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.06	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Methylophilaceae	GW218	4.99293
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.95	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae	GW218	37.447
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Thiobacillaceae	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Sulfuricellaceae	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.84	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae	GW218	8.66698
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__SG8-39	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.12	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Gallionellaceae	GW218	0.565238
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Nitrosomonadaceae	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.27	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae	GW218	10.6924
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.98	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Xanthomonadales; f__Xanthomonadaceae	GW218	4.61611
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Pseudomonadales; f__Pseudomonadaceae	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.08	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Legionellales; f__Legionellaceae	GW218	5.08714
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.72	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Beijerinckiaceae	GW218	3.39143
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.25	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Xanthobacteraceae	GW218	5.88789
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Hyphomicrobiaceae	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Rhizobiaceae	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Caulobacterales; f__Caulobacteraceae	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.67	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Sphingomonadales; f__Sphingomonadaceae	GW218	3.15591
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhodobacterales; f__Rhodobacteraceae	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.9	Root; d__Bacteria; p__Verrucomicrobiota; c__Kiritimatiellia; o__JAAZAB01; f__JAAZAB01	GW218	4.23928
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.54	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Palsa-1439; f__Palsa-1439	GW218	11.9642
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.64	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Opitutales; f__Opitutaceae	GW218	3.0146
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Limisphaerales; f__UBA11358	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Verrucomicrobiales; f__Verrucomicrobiaceae	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.89	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620	GW218	18.3231
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.3	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5629	GW218	6.12341
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.4	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__AB-539-J10	GW218	6.59444
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.6	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__Dehalococcoidales; f__RBG-16-60-22	GW218	7.5365
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__SZUA-161; f__SpSt-899	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.5	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__JACPPY01; f__JACPPY01	GW218	2.35516
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.96	Root; d__Bacteria; p__Chloroflexota; c__Limnocylindria; o__Limnocylindrales; f__CSP1-4	GW218	9.23222
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.05	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Anaerolineaceae	GW218	9.65615
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.29	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Villigracilaceae	GW218	6.07631
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.14	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__UBA1546	GW218	0.659444
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.34	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__SM23-35	GW218	15.7325
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.24	Root; d__Bacteria; p__Nitrospirota; c__Nitrospiria; o__Nitrospirales; f__Nitrospiraceae	GW218	1.13048
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.04	Root; d__Bacteria; p__Bacillota_I; c__Bacilli_A; o__Izemoplasmatales; f__UBA5603	GW218	9.60904
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.17	Root; d__Bacteria; p__Campylobacterota; c__Campylobacteria; o__Campylobacterales; f__Sulfurimonadaceae	GW218	0.800754
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.26	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae	GW218	34.1969
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Zapsychrales; f__Aceulaceae	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.9	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Flavobacteriales; f__Flavobacteriaceae	GW218	8.9496
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.79	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__F082	GW218	3.72115
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.42	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__UBA932	GW218	1.97833
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.35	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__VadinHA17	GW218	1.64861
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.22	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__Prolixibacteraceae	GW218	1.03627
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.0	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Cytophagales; f__Cyclobacteriaceae	GW218	4.71032
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.39	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Chitinophagales; f__Chitinophagaceae	GW218	1.83702
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.21	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__NS11-12g; f__UKL13-3	GW218	0.989166
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.22	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__BY39	GW218	1.03627
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.13	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__SZUA-254	GW218	0.612341
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__Ignavibacteriales; f__Ignavibacteriaceae	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.12	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__SJA-28; f__OLB5	GW218	0.565238
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.74	Root; d__Bacteria; p__Bacteroidota; c__Kapaibacteriia; o__Kapaibacteriales; f__UBA2268	GW218	3.48563
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Acidobacteriota; c__Vicinamibacteria; o__Vicinamibacterales; f__UBA2999	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.47	Root; d__Bacteria; p__Acidobacteriota; c__Terriglobia; o__Bryobacterales; f__Bryobacteraceae	GW218	2.21385
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__CALINM01; c__CALINM01; o__CALINM01; f__CALINM01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.58	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia; o__Anaerosomatales; f__Anaerosomataceae	GW218	7.4423
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.37	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia; o__Anaerosomatales; f__PHET01	GW218	1.74282
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes; o__Propionibacteriales; f__Propionibacteriaceae	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes; o__S36-B12; f__S36-B12	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Actinomycetota; c__Actinomycetes; o__Actinomycetales; f__Microbacteriaceae	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.28	Root; d__Bacteria; p__Actinomycetota; c__Humimicrobiia; o__Humimicrobiales; f__Humimicrobiaceae	GW218	1.31889
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Actinomycetota; c__Acidimicrobiia; o__Acidimicrobiales; f__JACDCH01	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Actinomycetota; c__Geothermincolia; o__Fen-727; f__Anoxymicrobiaceae	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Gemmatimonadota; c__Gemmatimonadetes; o__Gemmatimonadales; f__Gemmatimonadaceae	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Electryoneota; c__RPQS01; o__RPQS01; f__RPQS01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Elusimicrobiota; c__Elusimicrobia; o__Elusimicrobiales; f__UBA9959	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.42	Root; d__Bacteria; p__Elusimicrobiota; c__UBA8919; o__UBA8919; f__UBA8919	GW218	1.97833
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.23	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__Phycisphaerales; f__SM1A02	GW218	1.08337
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.11	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__SM23-33; f__SM23-33	GW218	0.518135
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__Sedimentisphaerales; f__SG8-4	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Planctomycetota; c__MHYJ01; o__JACQXL01; f__JACQXL01	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.06	Root; d__Bacteria; p__Spirochaetota; c__Spirochaetia; o__Treponematales; f__UBA12059	GW218	0.282619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Chlamydiota; c__Chlamydiia; o__Chlamydiales; f__Parachlamydiaceae	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.75	Root; d__Bacteria; p__Chlamydiota; c__Chlamydiia; o__Chlamydiales; f__SM23-39	GW218	8.24305
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.52	Root; d__Bacteria; p__Desulfobacterota_C; c__Deferrisomatia; o__Deferrisomatales; f__Deferrisomataceae	GW218	2.44936
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Bacteria; p__Desulfobacterota_C; c__Deferrisomatia; o__Deferrisomatales; f__JACRMM01	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.12	Root; d__Bacteria; p__CSP1-3; c__CSP1-3; o__CSP1-3; f__CSP1-3	GW218	0.565238
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.53	Root; d__Bacteria; p__Cloacimonadota; c__Cloacimonadia; o__Cloacimonadales; f__Cloacimonadaceae	GW218	2.49647
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Bacillota_D; c__Dethiobacteria; o__DTU022; f__DTU022	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	8.73	Root; d__Archaea; p__Halobacteriota; c__Methanosarcinia; o__Methanosarcinales; f__Methanoperedenaceae; g__Methanoperedens	GW218	41.1211
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Archaea; p__Halobacteriota; c__Methanomicrobia; o__Methanomicrobiales; f__Methanospirillaceae; g__MVRE01	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.22	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1; g__JAKLIN01	GW218	5.74659
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.77	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1; g__RBG-13-33-26	GW218	3.62694
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.43	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1; g__ASMP01	GW218	2.02544
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1; g__VGKQ01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.9	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Pacearchaeales; f__GW2011-AR1; g__JAHIEM01	GW218	4.23928
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.5	Root; d__Archaea; p__Nanoarchaeota; c__Nanoarchaeia; o__Woesearchaeales; f__JAUYGA01; g__JAUYGA01	GW218	2.35516
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.49	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia; o__Anstonellales; f__Anstonellaceae; g__UBA10161	GW218	7.01837
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia; o__Anstonellales; f__Anstonellaceae; g__JAGVIA01	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.34	Root; d__Archaea; p__Micrarchaeota; c__Micrarchaeia; o__Anstonellales; f__Anstonellaceae; g__JAPLWY01	GW218	6.31182
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Archaea; p__Aenigmatarchaeota; c__Aenigmatarchaeia; o__Aenigmatarchaeales; f__DAIDAN01; g__DAIDAN01	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.35	Root; d__Archaea; p__Thermoplasmatota; c__JASEFT01; o__JASEFT01; f__JAUWIS01; g__JASEEW01	GW218	15.7796
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.04	Root; d__Archaea; p__Thermoplasmatota; c__Thermoplasmata; o__UBA10834; f__UBA10834; g__COMBO-56-21	GW218	0.188413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.76	Root; d__Bacteria; p__UBA6262; c__UBA6262; o__UBA6262; f__UBA6262; g__UBA6262	GW218	8.29016
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.53	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__Staskawiczbacteraceae; g__JAHIOM01	GW218	16.6274
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.92	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__Staskawiczbacteraceae; g__XYD1-FULL-39-28	GW218	18.4644
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.37	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__Staskawiczbacteraceae; g__JACPYG01	GW218	1.74282
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.49	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__Staskawiczbacteraceae; g__JAHJTG01	GW218	2.30805
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.83	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__MHMH01; g__JACPGX01	GW218	8.61988
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	27.24	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11; g__JAPLXL01	GW218	128.309
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.48	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11; g__BS750m-G71	GW218	16.3919
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.41	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11; g__CSSED10-83	GW218	1.93123
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.87	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11; g__JAUSLA01	GW218	4.09797
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11; g__JAQUAA01	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.28	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-36-15; g__RBG-13-36-15	GW218	6.0292
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.36	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAGUVE01; g__JAGUVE01	GW218	34.6679
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.8	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JASEJS01; g__JASEJS01	GW218	22.6095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	22.58	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAHIOY01; g__JAHIOY01	GW218	106.359
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.52	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-38-27; g__JAUWYA01	GW218	7.15968
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.54	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-38-27; g__JAHCRG01	GW218	2.54357
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.47	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-38-27; g__JAQTZP01	GW218	2.21385
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.69	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-38-27; g__PEYC01	GW218	3.25012
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.43	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-46-15; g__GWA2-46-15	GW218	6.73575
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.39	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__PETJ01; g__PETJ01	GW218	15.968
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.87	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__DG-74-1; g__DG-74-1	GW218	8.80829
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.36	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__CSSED10-335; g__CSSED10-335	GW218	1.69571
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.78	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAHXGN01; g__JAHXGN01	GW218	22.5153
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.07	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__CG1-02-41-26; g__CG1-02-41-26	GW218	5.04004
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.55	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__CG1-02-41-26; g__STD1-80	GW218	2.59067
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.49	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAGMAB01; g__JAGMAB01	GW218	2.30805
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.64	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAHCRE01; g__JAHCRE01	GW218	3.0146
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.86	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAHCRE01; g__JAHCRF01	GW218	4.05087
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAGMDC01; g__JAGLYZ01	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.56	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAQTPW01; g__JAQTPW01	GW218	7.34809
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.57	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__Paceibacteraceae; g__Paceibacter	GW218	7.3952
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.02	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GCA-002787255; g__GCA-002787255	GW218	4.80452
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__JAGGSE01; g__JAGGSE01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__RBG-13-40-8-A; f__RBG-13-40-8-A; g__JAUYCU01	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.53	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__GWB1-50-10; g__JASEHZ01	GW218	7.20678
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.99	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__GWB1-50-10; g__JAGUWR01	GW218	18.7942
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.36	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__GWB1-50-10; g__JAKANR01	GW218	1.69571
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	26.88	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__JAUYBE01	GW218	126.613
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.76	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__UM-FILTER-39-64	GW218	13.0005
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.34	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__JAJZBA01	GW218	15.7325
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.16	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__CAJVXI01	GW218	5.46397
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.62	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__JAFGBB01	GW218	2.9204
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.14	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__QYPD01	GW218	5.36976
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.47	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__MFKM01; g__MFKM01	GW218	21.0551
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.52	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__Colwellbacteraceae; g__JAHXGO01	GW218	2.44936
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__Colwellbacteraceae; g__2-12-FULL-43-11	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.73	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA6257; g__DAOVIY01	GW218	8.14885
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.44	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__02-FULL-45-10c; g__JAHILT01	GW218	6.78285
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__Brennerbacteraceae; g__UBA1567	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	9.01	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAHIHE01; g__JAHILZ01	GW218	42.4399
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.33	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAGLIN01; g__JARGGI01	GW218	20.3957
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	14.13	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAGLIN01; g__JAGLOZ01	GW218	66.5568
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.84	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAGLIN01; g__JAGLLA01	GW218	18.0876
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.17	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAGLIN01; g__JAHYJV01	GW218	5.51107
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.97	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAGLIN01; g__DAOWDS01	GW218	9.27932
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.38	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9973; f__UBA9973; g__UBA9973	GW218	34.7621
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.91	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9973; f__UBA12445; g__UBA12445	GW218	4.28639
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.71	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9973; f__W02-35-19; g__WO2-35-19	GW218	3.34432
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.59	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Portnoybacterales; f__GWB1-42-6; g__UBA8475	GW218	12.1997
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.53	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Portnoybacterales; f__UBA2143; g__WO2-40-15	GW218	2.49647
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.47	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9983; f__UBA9983; g__JAHIOX01	GW218	6.92416
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.05	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__GCA-002779875; f__GCA-002779875; g__GCA-002779875	GW218	14.3665
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.3	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA10092; f__UBA10092; g__UBA10092	GW218	6.12341
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.06	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__PFEM01; f__JAPLYW01; g__JAPLYW01	GW218	14.4136
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.71	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__GWA2-44-7; f__UBA8517; g__GWF1-31-35	GW218	12.765
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.58	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__GWA2-44-7; f__UBA8517; g__UBA12026	GW218	2.73198
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__GWA2-44-7; f__UBA8517; g__JAHKAL01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.1	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1400; f__CG1-02-47-37; g__JAPLVF01	GW218	9.89166
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1400; f__CG1-02-47-37; g__CG1-02-47-37	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1400; f__MFAQ01; g__UBA2277	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.31	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA12405; f__UBA12405; g__UBA12158	GW218	6.17051
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UM-FILTER-40-11; f__UM-FILTER-40-11; g__UM-FILTER-40-11	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.9	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA10105; f__UBA927; g__CAIJMI01	GW218	8.9496
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA10105; f__UBA927; g__UBA927	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.53	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UM-FILTER-39-15; f__UM-FILTER-39-15; g__UM-FILTER-39-15	GW218	2.49647
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.48	Root; d__Bacteria; p__Patescibacteria; c__Microgenomatia; o__UBA1406; f__GWC2-37-13; g__GWC2-37-13	GW218	6.97127
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.62	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__UBA2591; f__CALHIP01; g__CALHIP01	GW218	21.7617
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.45	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__UBA2591; f__UBA4787; g__JAQUSN01	GW218	6.82996
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__UBA2591; f__UBA4787; g__UBA4787	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.24	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__VMTK01; g__JAHIME01	GW218	5.84079
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__GWC2-42-12; g__JACPHD01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__UBA12465; g__GCA-002840305	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__JAQTRU01; g__JAQTRU01	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__Veblenbacterales; f__UBA10138; g__UBA10138	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__UBA12157; f__JAENIV01; g__JAMCZU01	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.48	Root; d__Bacteria; p__Patescibacteria; c__UBA1384; o__UBA12157; f__JAENIV01; g__JAENIV01	GW218	2.26095
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.25	Root; d__Bacteria; p__Patescibacteria; c__WWE3; o__UBA101185; f__UBA10185; g__JAAZNV01	GW218	5.88789
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.04	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobacteria; o__Desulfobacterales; f__Desulfatirhabdiaceae; g__RAAP-1	GW218	9.60904
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.45	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__JACQWR01; g__JAPLJV01	GW218	16.2506
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.02	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA5619; g__UBA5619	GW218	9.51484
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA5619; g__JAHJXP01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.35	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA5619; g__JAKAFS01	GW218	15.7796
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.11	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__CG2-30-49-12; g__CG2-30-49-12	GW218	9.93877
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__Smithellaceae; g__Smithella	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.75	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__Smithellaceae; g__UBA8904	GW218	3.53274
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.49	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__UBA8958; g__UBA8958	GW218	2.30805
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.63	Root; d__Bacteria; p__Desulfobacterota; c__BSN033; o__BSN033; f__UBA1163; g__RBG-16-49-23	GW218	12.3881
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Desulfobacterota; c__Desulfovibrionia; o__Desulfovibrionales; f__Desulfomicrobiaceae; g__Desulfomicrobium	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.01	Root; d__Bacteria; p__Desulfobacterota; c__QYQD01; o__QYQD01; f__QYQD01; g__QYQD01	GW218	0.0471032
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Desulfobacterota; c__UBA8473; o__UBA8473; f__UBA8473; g__UBA8473	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.39	Root; d__Bacteria; p__Desulfobacterota; c__Desulfobaccia; o__Desulfobaccales; f__0-14-0-80-60-11; g__0-14-0-80-60-11	GW218	1.83702
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.89	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Methylophilaceae; g__UBA6140	GW218	4.19218
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.28	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Rubrivivax	GW218	10.7395
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.91	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Acidovorax	GW218	8.9967
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.58	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Giesbergeria	GW218	21.5732
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.84	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Hydrogenophaga	GW218	3.95667
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.56	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Rhodoferax	GW218	2.63778
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.08	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Thiobacillaceae; g__PFJX01	GW218	0.376825
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.15	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Thiobacillaceae; g__Thiobacillus	GW218	0.706547
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.99	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Sulfuricellaceae; g__Sulfurimicrobium	GW218	9.37353
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.06	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Sulfuricellaceae; g__Sulfuricella	GW218	4.99293
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.09	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Sulfuricystis	GW218	5.13424
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.6	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Sulfuritalea	GW218	21.6675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.43	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Desulfobacillus	GW218	2.02544
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.59	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Rugosibacter	GW218	2.77909
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.54	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__SG8-39; g__RBG-16-66-20	GW218	7.25389
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.95	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Gallionellaceae; g__Sideroxyarcus	GW218	9.18512
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__UBA4132	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.92	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__JABFRC01	GW218	9.04381
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__Methylobacter_A	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.17	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__Methylovulum	GW218	5.51107
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.18	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Xanthomonadales; f__Xanthomonadaceae; g__Aquimonas	GW218	5.55817
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.3	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Pseudomonadales; f__Pseudohongiellaceae; g__Pseudohongiella	GW218	1.41309
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.02	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Beijerinckiaceae; g__Methylocystis	GW218	23.6458
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.34	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Beijerinckiaceae; g__Methylobacterium	GW218	1.60151
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.18	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Xanthobacteraceae; g__Bradyrhizobium	GW218	0.847857
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.74	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Aestuariivirgaceae; g__Aestuariivirga	GW218	3.48563
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Hyphomicrobiaceae; g__Hyphomicrobium_C	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Caulobacterales; f__Caulobacteraceae; g__Phenylobacterium	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.26	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Caulobacterales; f__Caulobacteraceae; g__Brevundimonas	GW218	5.935
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.62	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Reyranellales; f__Reyranellaceae; g__Reyranella	GW218	2.9204
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.14	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Sphingomonadales; f__Sphingomonadaceae; g__Sphingobium	GW218	0.659444
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.76	Root; d__Bacteria; p__Verrucomicrobiota; c__Kiritimatiellia; o__JAAZAB01; f__JAAZAB01; g__VSJD01	GW218	8.29016
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.18	Root; d__Bacteria; p__Verrucomicrobiota; c__Kiritimatiellia; o__CAIQIC01; f__JAGNIJ01; g__JAGNIJ01	GW218	14.9788
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.66	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Palsa-1439; f__Palsa-1439; g__Palsa-1439	GW218	7.81912
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.97	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Opitutales; f__Opitutaceae; g__Didemnitutus	GW218	4.56901
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.7	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620; g__VGOF01	GW218	3.29722
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.69	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620; g__9FT-COMBO-48-23	GW218	17.3811
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.71	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620; g__JACNFS01	GW218	3.34432
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.09	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620; g__UBA5620	GW218	5.13424
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.37	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5629; g__CAIMUM01	GW218	1.74282
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__AB-539-J10; g__RBG-13-51-36	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__JACPPY01; f__JACPPY01; g__JACPRR01	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.08	Root; d__Bacteria; p__Chloroflexota; c__Limnocylindria; o__Limnocylindrales; f__CSP1-4; g__CAIXZV01	GW218	9.79746
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.43	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Anaerolineaceae; g__UBA6170	GW218	6.73575
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.85	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Anaerolineaceae; g__Pelolinea	GW218	4.00377
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Anaerolineaceae; g__UBA6107	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.02	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Villigracilaceae; g__Villigracilis	GW218	0.0942063
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.81	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Villigracilaceae; g__UBA12087	GW218	3.81536
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.77	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Villigracilaceae; g__CG2-30-58-95	GW218	8.33726
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.81	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__UBA1546; g__UBA1546	GW218	27.3669
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.03	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__SM23-35; g__VGWX01	GW218	4.85163
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.77	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__SM23-35; g__JALHSV01	GW218	3.62694
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.64	Root; d__Bacteria; p__Bacillota_I; c__Bacilli_A; o__Izemoplasmatales; f__UBA5603; g__UBA5603	GW218	3.0146
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.95	Root; d__Bacteria; p__Bacillota_I; c__Bacilli_A; o__Izemoplasmatales; f__UBA5603; g__JAUXXX01	GW218	4.4748
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	20.45	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__UBA6249	GW218	96.326
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__UBA6233	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.43	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__Sherwoodlollariibacterium	GW218	11.4461
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.02	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Zapsychrales; f__Aceulaceae; g__CALGLP01	GW218	4.80452
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gorgyraeales; f__Gorgyraeaceae; g__UBA10183	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.66	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__Lentimicrobiaceae; g__Lentimicrobium	GW218	3.10881
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.84	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__UBA4417; g__UBA4417	GW218	8.66698
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.56	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__JAAYJT01; g__JAAYJT01	GW218	2.63778
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.91	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Bacteroidales; f__Prolixibacteraceae; g__Draconibacterium	GW218	8.9967
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.97	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Cytophagales; f__Cyclobacteriaceae; g__ELB16-189	GW218	18.7
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.49	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Chitinophagales; f__Chitinophagaceae; g__Flavipsychrobacter	GW218	2.30805
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.37	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__NS11-12g; f__UKL13-3; g__B1	GW218	1.74282
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.63	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__UBA10329; f__UBA10329; g__UBA10329	GW218	2.9675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.56	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__BY39; g__JASEGV01	GW218	16.7687
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.24	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__BY39; g__JAHJRJ01	GW218	10.5511
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.38	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__SZUA-254; g__JASEHD01	GW218	1.78992
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.71	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__Ignavibacteriales; f__Ignavibacteriaceae; g__IGN3	GW218	22.1856
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.6	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__SJA-28; f__OLB5; g__OLB5	GW218	26.3778
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.24	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__Ch128b; f__Ch128b; g__JAHJVF01	GW218	1.13048
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Acidobacteriota; c__Aminicenantia; o__Aminicenantales; f__RBG-16-66-30; g__RBG-16-66-30	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Acidobacteriota; c__Terriglobia; o__Bryobacterales; f__Bryobacteraceae; g__PNKE01	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.18	Root; d__Bacteria; p__CALINM01; c__CALINM01; o__CALINM01; f__CALINM01; g__CALINM01	GW218	10.2685
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.42	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia; o__Anaerosomatales; f__Anaerosomataceae; g__UBA6100	GW218	1.97833
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.52	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia; o__Anaerosomatales; f__JAUXNU01; g__JAUXNU01	GW218	2.44936
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.38	Root; d__Bacteria; p__Actinomycetota; c__Humimicrobiia; o__Humimicrobiales; f__Humimicrobiaceae; g__Hydromicrobium	GW218	1.78992
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.26	Root; d__Bacteria; p__Actinomycetota; c__Humimicrobiia; o__Humimicrobiales; f__Humimicrobiaceae; g__JAHILC01	GW218	1.22468
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Actinomycetota; c__Acidimicrobiia; o__Acidimicrobiales; f__JACDCH01; g__VFJN01	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.01	Root; d__Bacteria; p__Actinomycetota; c__Geothermincolia; o__Fen-727; f__Anoxymicrobiaceae; g__JAHIPE01	GW218	0.0471032
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.71	Root; d__Bacteria; p__Gemmatimonadota; c__Gemmatimonadetes; o__Gemmatimonadales; f__Gemmatimonadaceae; g__PNKF01	GW218	3.34432
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.8	Root; d__Bacteria; p__Atribacterota; c__JS1; o__SB-45; f__34-128; g__34-128	GW218	3.76825
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Elusimicrobiota; c__UBA8919; o__UBA8919; f__UBA8919; g__UBA8919	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.8	Root; d__Bacteria; p__Elusimicrobiota; c__UBA5214; o__UBA5214; f__UBA5214; g__UBA5214	GW218	3.76825
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__Phycisphaerales; f__SM1A02; g__UBA966	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__SM23-33; f__SM23-33; g__JAUWNJ01	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Planctomycetota; c__MHYJ01; o__JACQXL01; f__JACQXL01; g__JACRIK01	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.45	Root; d__Bacteria; p__Spirochaetota; c__Spirochaetia; o__Treponematales; f__UBA12059; g__SZUA-370	GW218	2.11964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Margulisbacteria; c__WOR-1; o__JAPLLA01; f__JAPLLA01; g__JAPLLA01	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.46	Root; d__Bacteria; p__Myxococcota; c__Polyangia; o__HGW-17; f__HGW-17; g__HGW-17	GW218	2.16675
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.5	Root; d__Bacteria; p__Desulfobacterota_C; c__Deferrisomatia; o__Deferrisomatales; f__JARGFW01; g__JARGFW01	GW218	2.35516
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.42	Root; d__Bacteria; p__Desulfobacterota_C; c__Deferrisomatia; o__Deferrisomatales; f__JACRMM01; g__JACRMM01	GW218	1.97833
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.88	Root; d__Bacteria; p__Lithacetigenota; c__HKB111; o__HKB111; f__HKB111; g__Lithacetigena	GW218	8.85539
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.58	Root; d__Bacteria; p__CSP1-3; c__CSP1-3; o__CSP1-3; f__CSP1-3; g__VGFA01	GW218	2.73198
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.01	Root; d__Bacteria; p__Ratteibacteria; c__UBA8468; o__MWAK01; f__MWAK01; g__JAHJUB01	GW218	4.75742
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.08	Root; d__Archaea; p__Halobacteriota; c__Methanosarcinia; o__Methanosarcinales; f__Methanoperedenaceae; g__Methanoperedens; s__Methanoperedens sp018900975	GW218	23.9284
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	23.24	Root; d__Archaea; p__Halobacteriota; c__Methanosarcinia; o__Methanosarcinales; f__Methanoperedenaceae; g__Methanoperedens; s__Methanoperedens sp018899795	GW218	109.468
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.6	Root; d__Archaea; p__Thermoplasmatota; c__Thermoplasmata; o__UBA10834; f__UBA10834; g__COMBO-56-21; s__COMBO-56-21 sp022865445	GW218	2.82619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.55	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__RBG-13-42-11; g__JAPLXL01; s__JAPLXL01 sp026396115	GW218	21.4319
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.23	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__Paceibacterales; f__GWA2-46-15; g__GWA2-46-15; s__GWA2-46-15 sp018895125	GW218	5.79369
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	15.4	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__UBA9933; g__JAUYBE01; s__JAUYBE01 sp030693235	GW218	72.5389
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	5.79	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA6257; f__MFKM01; g__MFKM01; s__MFKM01 sp030693325	GW218	27.2727
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.8	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__JAHIHE01; f__JAHIHE01; g__JAHILZ01; s__JAHILZ01 sp018896765	GW218	8.47857
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.73	Root; d__Bacteria; p__Patescibacteria; c__Paceibacteria; o__UBA9983; f__UBA9983; g__JAHIOX01; s__JAHIOX01 sp018895015	GW218	3.43853
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.09	Root; d__Bacteria; p__Patescibacteria; c__ABY1; o__BM507; f__VMTK01; g__JAHIME01; s__JAHIME01 sp030693295	GW218	5.13424
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.12	Root; d__Bacteria; p__Desulfobacterota; c__Syntrophia; o__Syntrophales; f__CG2-30-49-12; g__CG2-30-49-12; s__CG2-30-49-12 sp001873675	GW218	5.27555
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.39	Root; d__Bacteria; p__Desulfobacterota; c__BSN033; o__BSN033; f__UBA1163; g__RBG-16-49-23; s__RBG-16-49-23 sp030017685	GW218	15.968
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.36	Root; d__Bacteria; p__Desulfobacterota; c__BSN033; o__BSN033; f__UBA1163; g__RBG-16-49-23; s__RBG-16-49-23 sp018333715	GW218	6.40603
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	7.33	Root; d__Bacteria; p__Desulfobacterota; c__QYQD01; o__QYQD01; f__QYQD01; g__QYQD01; s__QYQD01 sp007280345	GW218	34.5266
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	19.51	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Methylophilaceae; g__Methylotenera; s__Methylotenera sp030652995	GW218	91.8983
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	39.28	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Methylophilaceae; g__Methylotenera; s__Methylotenera sp030684185	GW218	185.021
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.78	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Rubrivivax; s__Rubrivivax sp030653385	GW218	3.67405
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.3	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Rubrivivax; s__Rubrivivax sp030693565	GW218	6.12341
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	8.11	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Hydrogenophaga; s__Hydrogenophaga sp030653975	GW218	38.2007
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.82	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Hydrogenophaga; s__Hydrogenophaga sp022844385	GW218	3.86246
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.7	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Burkholderiaceae; g__Hydrogenophaga; s__Hydrogenophaga sp030656115	GW218	3.29722
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.96	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Thiobacillaceae; g__PFJX01; s__PFJX01 sp030653935	GW218	4.5219
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.22	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Thiobacillaceae; g__Thiobacillus; s__Thiobacillus sp030692355	GW218	5.74659
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	6.85	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Sulfuricellaceae; g__Sulfurimicrobium; s__Sulfurimicrobium sp030652035	GW218	32.2657
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.66	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Sulfuricystis; s__Sulfuricystis sp030682595	GW218	12.5294
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.77	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Sulfuricystis; s__Sulfuricystis sp030652245	GW218	13.0476
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.91	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Sulfuritalea; s__Sulfuritalea sp030680805	GW218	18.4173
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.47	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Burkholderiales; f__Rhodocyclaceae; g__Sulfuritalea; s__Sulfuritalea hydrogenivorans_A	GW218	6.92416
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.84	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__UBA4132; s__UBA4132 sp030654015	GW218	8.66698
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.24	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__UBA4132; s__UBA4132 sp030693155	GW218	19.9717
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	34.71	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__JABFRC01; s__JABFRC01 sp030699345	GW218	163.495
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	12.43	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__JABFRC01; s__JABFRC01 sp030693065	GW218	58.5492
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.81	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__Methylicorpusculum; s__Methylicorpusculum sp030651835	GW218	17.9463
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	10.77	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__Methylobacter_A; s__Methylobacter_A sp030684815	GW218	50.7301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	12.67	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Methylococcales; f__Methylomonadaceae; g__Methylobacter_A; s__Methylobacter_A sp030653175	GW218	59.6797
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	9.66	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Pseudomonadales; f__Pseudomonadaceae; g__Pseudomonas_E; s__Pseudomonas_E sp030684895	GW218	45.5016
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.73	Root; d__Bacteria; p__Pseudomonadota; c__Gammaproteobacteria; o__Pseudomonadales; f__Pseudohongiellaceae; g__Pseudohongiella; s__Pseudohongiella sp030651695	GW218	3.43853
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	10.18	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Beijerinckiaceae; g__Methylocystis; s__Methylocystis sp009773555	GW218	47.951
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	3.71	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Beijerinckiaceae; g__Methylocystis; s__Methylocystis rosea_A	GW218	17.4753
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.49	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Beijerinckiaceae; g__Methylobacterium; s__Methylobacterium radiotolerans	GW218	7.01837
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.02	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Rhizobiales; f__Xanthobacteraceae; g__Bradyrhizobium; s__Bradyrhizobium sp030697065	GW218	4.80452
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.76	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Parvibaculales; f__Parvibaculaceae; g__Parvibaculum; s__Parvibaculum sp030694575	GW218	8.29016
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Pseudomonadota; c__Alphaproteobacteria; o__Sphingomonadales; f__Sphingomonadaceae; g__Sphingobium; s__Sphingobium yanoikuyae	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.66	Root; d__Bacteria; p__Verrucomicrobiota; c__Verrucomicrobiae; o__Opitutales; f__Opitutaceae; g__Didemnitutus; s__Didemnitutus sp030682505	GW218	3.10881
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.86	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620; g__9FT-COMBO-48-23; s__9FT-COMBO-48-23 sp016865855	GW218	13.4715
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.38	Root; d__Bacteria; p__Chloroflexota; c__Dehalococcoidia; o__GIF9; f__UBA5620; g__9FT-COMBO-48-23; s__9FT-COMBO-48-23 sp026389735	GW218	6.50024
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.79	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Anaerolineaceae; g__UBA6170; s__UBA6170 sp030653365	GW218	3.72115
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.44	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Villigracilaceae; g__Villigracilis; s__Villigracilis sp030583885	GW218	2.07254
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.4	Root; d__Bacteria; p__Chloroflexota; c__Anaerolineae; o__Anaerolineales; f__Villigracilaceae; g__CG2-30-58-95; s__CG2-30-58-95 sp030018695	GW218	6.59444
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	10.65	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__UBA1546; g__UBA1546; s__UBA1546 sp018896985	GW218	50.1649
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.81	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__UBA1546; g__UBA1546; s__UBA1546 sp016195565	GW218	13.236
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Nitrospirota; c__Thermodesulfovibrionia; o__Thermodesulfovibrionales; f__SM23-35; g__VGWX01; s__VGWX01 sp016873615	GW218	3.20301
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	33.45	Root; d__Bacteria; p__Campylobacterota; c__Campylobacteria; o__Campylobacterales; f__Sulfurimonadaceae; g__Sulfuricurvum; s__Sulfuricurvum sp030693335	GW218	157.56
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.88	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__UBA6249; s__UBA6249 sp018897555	GW218	8.85539
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	10.81	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__UBA6249; s__UBA6249 sp030693145	GW218	50.9185
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	2.31	Root; d__Bacteria; p__Omnitrophota; c__Koll11; o__Gygaellales; f__Profunditerraquicolaceae; g__UBA6249; s__UBA6249 sp022013085	GW218	10.8808
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.57	Root; d__Bacteria; p__Bacteroidota; c__Bacteroidia; o__Flavobacteriales; f__Flavobacteriaceae; g__JAGXRT01; s__JAGXRT01 sp030694835	GW218	2.68488
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	4.5	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__BY39; g__JASEGV01; s__JASEGV01 sp030682385	GW218	21.1964
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__BY39; g__JASEGV01; s__JASEGV01 sp030017895	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	1.25	Root; d__Bacteria; p__Bacteroidota; c__UBA10030; o__UBA10030; f__BY39; g__JAHJRJ01; s__JAHJRJ01 sp018830765	GW218	5.88789
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.8	Root; d__Bacteria; p__Bacteroidota; c__Ignavibacteria; o__Ch128b; f__Ch128b; g__JAHJVF01; s__JAHJVF01 sp018828505	GW218	3.76825
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.5	Root; d__Bacteria; p__Actinomycetota; c__Coriobacteriia; o__Anaerosomatales; f__JAUXNU01; g__JAUXNU01; s__JAUXNU01 sp030682655	GW218	2.35516
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.76	Root; d__Bacteria; p__Actinomycetota; c__Humimicrobiia; o__Humimicrobiales; f__Humimicrobiaceae; g__Hydromicrobium; s__Hydromicrobium sp018894445	GW218	3.57984
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.6	Root; d__Bacteria; p__Actinomycetota; c__Humimicrobiia; o__Humimicrobiales; f__Humimicrobiaceae; g__JAHILC01; s__JAHILC01 sp018897225	GW218	2.82619
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.51	Root; d__Bacteria; p__Actinomycetota; c__Geothermincolia; o__Fen-727; f__Anoxymicrobiaceae; g__JAHIPE01; s__JAHIPE01 sp018894655	GW218	2.40226
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.4	Root; d__Bacteria; p__Planctomycetota; c__Phycisphaerae; o__Phycisphaerales; f__UBA1924; g__JAJTGZ01; s__JAJTGZ01 sp030680655	GW218	1.88413
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.55	Root; d__Bacteria; p__CSP1-3; c__CSP1-3; o__CSP1-3; f__CSP1-3; g__VGFA01; s__VGFA01 sp031082185	GW218	2.59067
+GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.81	Root; d__Bacteria; p__Ratteibacteria; c__UBA8468; o__MWAK01; f__MWAK01; g__JAHJUB01; s__JAHJUB01 sp018829455	GW218	3.81536

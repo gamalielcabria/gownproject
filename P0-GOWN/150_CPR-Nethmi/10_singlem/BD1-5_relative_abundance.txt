@@ -1,13 +1,7 @@
-GLC_22GOWN_SHMG-GW218-G47-20251210__singlem.taxa.relabund.txt:GLC_22GOWN_SHMG-GW218-G47-20251210__R1_GTACCACA-TGTTGTGG	0.68	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	3.20301
-GLC_23GOWN_SHMG-GW265-L05-20251210__singlem.taxa.relabund.txt:GLC_23GOWN_SHMG-GW265-L05-20251210__R1_CTTGACGA-TTGTGTGC	10.68	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	64.0288
-GLC_24GOWN_SHMG-GW114-L48-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW114-L48-20251210__R1_CAACCGAG-CACAGGTA	0.04	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164	0.739372
-GLC_24GOWN_SHMG-GW114-L48-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW114-L48-20251210__R1_CAACCGAG-CACAGGTA	1.2	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	22.1811
-GLC_24GOWN_SHMG-GW218-L42-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW218-L42-20251210__R1_CCTATGCA-ATCGACTC	0.17	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5	1.9037
-GLC_24GOWN_SHMG-GW218-L42-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW218-L42-20251210__R1_CCTATGCA-ATCGACTC	0.11	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	1.2318
-GLC_24GOWN_SHMG-GW218-L42-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW218-L42-20251210__R1_CCTATGCA-ATCGACTC	0.51	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA2023	5.71109
-GLC_24GOWN_SHMG-GW218-L42-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW218-L42-20251210__R1_CCTATGCA-ATCGACTC	72.38	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	810.526
-GLC_24GOWN_SHMG-GW265-L52-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW265-L52-20251210__R1_TGTTCGCC-TCCTACCT	0.17	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5	0.681909
-GLC_24GOWN_SHMG-GW265-L52-20251210__singlem.taxa.relabund.txt:GLC_24GOWN_SHMG-GW265-L52-20251210__R1_TGTTCGCC-TCCTACCT	1.42	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	5.69595
-GLC_25GOWN_SHMG-GW265NG1-G01-20251210__singlem.taxa.relabund.txt:GLC_25GOWN_SHMG-GW265NG1-G01-20251210__R1_TTACCGAC-CGTATTCG	0.23	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5	1.46497
-GLC_25GOWN_SHMG-GW265NG5-G01-20251210__singlem.taxa.relabund.txt:GLC_25GOWN_SHMG-GW265NG5-G01-20251210__R1_AAGACCGT-CAATCGAC	0.17	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5	0.770276
-GLC_25GOWN_SHMG-GW265NG5-G01-20251210__singlem.taxa.relabund.txt:GLC_25GOWN_SHMG-GW265NG5-G01-20251210__R1_AAGACCGT-CAATCGAC	0.57	Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164; g__UBA6164; s__UBA6164 sp030683605	2.58269
+GLC_22GOWN_SHMG-GW218-G47-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	0.06
+GLC_23GOWN_SHMG-GW265-L05-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	1.32
+GLC_24GOWN_SHMG-GW114-L48-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	0.14
+GLC_24GOWN_SHMG-GW218-L42-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	3.2
+GLC_24GOWN_SHMG-GW218-L42-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA2023	0.02
+GLC_24GOWN_SHMG-GW265-L52-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	0.1
+GLC_25GOWN_SHMG-GW265NG5-G01-20251210__relabund-family.tsv:Root; d__Bacteria; p__Patescibacteria; c__JAEDAM01; o__BD1-5; f__UBA6164	0.02
