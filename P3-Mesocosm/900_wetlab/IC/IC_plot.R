@@ -1,7 +1,7 @@
 #R
 library(tidyverse)
 
-folder <- "/home/gam/github/gownproject/P3/IC"
+folder <- "/home/gam/github/gownproject/P3-Mesocosm/900_wetlab/IC"
 setwd(folder)
 files <- list.files(folder, pattern = "\\.csv$", full.names = TRUE)
 
@@ -56,7 +56,7 @@ dat_num <- dat %>%
     Amount    = as.numeric(Amount),
     Sample    = recode(Sample,
       CO = "Coal",
-      CL = "Control",
+      CL = "No_Rocks",
       SH = "Shale",
       SS = "Sandstone",
       SA = "Sand",
@@ -67,7 +67,8 @@ dat_num <- dat %>%
   )
 
 sum_df <- dat_num %>%
-  filter(Sample != "BLANK") %>%
+  filter(!(Sample %in% c("BLANK"))) %>%
+  filter(Chemical %in% c("Sulfate", "Acetate")) %>%
   group_by(Chemical, Sample, Timepoint) %>%
   summarise(
     n    = n(),
@@ -86,14 +87,33 @@ plot_IC <- ggplot(sum_df, aes(x = Timepoint, y = mean, color = Sample, group = S
   geom_errorbar(aes(ymin = mean - sd, ymax = mean + sd),
                 width = 0.15, linewidth = 0.8) +
   facet_wrap(~ Chemical, scales = "free_y") +
-  scale_color_jco(name = "Sample") +         # use jco palette for lines/legend
+  scale_color_manual(
+    values = c(
+      "Coal"      = "#0073C2",
+      "Sand"      = "#EFC000",
+      "Sandstone" = "#868686",
+      "Shale"     = "#CD534C",
+      "No_Rocks"  = "black"
+    )
+  ) +
   labs(x = "Timepoint (days)", y = "Mean Amount (mg/L)") +
   theme_minimal(base_size = 13)+
   theme(
-    strip.text = element_text(size = 10, face = "bold"),   # small + minimal
-    strip.background = element_blank()                     # removes shading/box
+    aspect.ratio = 1,
+    axis.text = element_text(size = 18),
+    axis.title.y = element_text(size = 18),
+    axis.title.x = element_text(size = 18),
+    strip.placement = "outside",
+    strip.background = element_blank(),
+    strip.text = element_text(face = "bold", size = 18),
+    # legend.position = c(1, 0),
+    # legend.justification = c(1, 0),
+    legend.text = element_text(size = 18),
+    legend.title = element_blank()
+    # legend.position = "none"
   )
 
-ggsave("IC_plot_day78.png", plot_IC, width = 1800, height = 1000, units = "px", dpi = 150)
+plot_IC
+ggsave("IC_plot_day_sulfate_acetate.png", plot_IC, width = 14, height = 6, dpi = 300, bg = "white")
 #write.csv(sum_df, "IC_summary_leaching_data.csv", row.names = FALSE)
 #write.csv(dat_num, "IC_all_leaching_data.csv", row.names = FALSE)

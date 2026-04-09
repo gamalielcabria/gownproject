@@ -18,12 +18,12 @@ suppressPackageStartupMessages({
   library(tibble)
 })
 
-input_folder <- "/home/glbcabria/Workbench/gownproject/P0-GOWN/300_TimeSeries/"
+input_folder <- "/home/gam/github/gownproject/P0-GOWN/300_TimeSeries/"
 
 # ----------------------------
 # 1) Read data
 # ----------------------------
-infile <- paste0(input_folder, "00_sampleoverlaps.csv")
+infile <- paste0(input_folder, "00_sampleoverlaps-MG.csv")
 
 df <- read.csv(
   infile,

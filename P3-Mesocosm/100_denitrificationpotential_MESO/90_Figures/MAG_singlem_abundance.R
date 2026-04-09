@@ -12,9 +12,9 @@ invisible(suppressWarnings(suppressPackageStartupMessages({
     })))
 
 # Set input and output paths
-assembly_input_path <- "gownproject/P3-Mesocosm/100_denitrificationpotential_MESO/20_assembly/04_gtdbtk/MLA_25MESO_SHMG_gtdbtk.bac120.summary.tsv"
+assembly_input_path <- "gownproject/P3-Mesocosm/100_denitrificationpotential_MESO/20_assembly/04_gtdbtk/MLA_25MESO_SHMG_gtdbtk.bac120.summary-comebin.tsv"
 singlem_input_path <- "gownproject/P3-Mesocosm/100_denitrificationpotential_MESO/30_taxonomicabundance/03_MESO25/03_MESO25_combined-profiles.summarise.wextras.tsv"
-checkm_input_path <- "gownproject/P3-Mesocosm/100_denitrificationpotential_MESO/20_assembly/03_refinedbins/03_checkm/MLA_25MESO_SHMG_checkm_summary.tsv"
+checkm_input_path <- "gownproject/P3-Mesocosm/100_denitrificationpotential_MESO/20_assembly/03_refinedbins/03_checkm/MLA_25MESO_SHMG_checkm_summary-comebin.tsv"
 output_path <- "gownproject/P3-Mesocosm/100_denitrificationpotential_MESO/90_Figures/"
 
 # FUNCTIONS
@@ -189,7 +189,7 @@ checkm_assembly_data <- checkm_data %>%
 # SAVE TABLES
 # ========================================
 # write.csv(assembly_singlem_data_combined, file.path(output_path, "assembly_singlem_data_combined.tsv"))
-# write.csv(assembly_checkm_data, file.path(output_path, "assembly_checkm_data.tsv"))
+# write.csv(checkm_assembly_data, file.path(output_path, "assembly_checkm_data.tsv"))
 
 # ========================================
 # PLOT TABLE
@@ -379,13 +379,13 @@ final_plot <- p_main / p_order +
 
 final_plot
 
-# ggsave(
-#   plot = final_plot,
-#   filename = file.path(output_path, "MAG_singlem_abundance_with_taxid_order.png"),
-#   width = 15,
-#   height = 10,
-#   dpi = 300
-# )
+ggsave(
+  plot = final_plot,
+  filename = file.path(output_path, "MAG_singlem_abundance_with_taxid_order.png"),
+  width = 15,
+  height = 10,
+  dpi = 300
+)
 
 # ===========================
 # Plot assembly metrics
@@ -493,13 +493,13 @@ p_metrics <- ggplot(plot_metrics, aes(x = x_label, y = value)) +
   ) +
   theme_bw() +
   theme(
-    axis.text.x.top = element_text(
-      angle = 90,
-      hjust = 0,
-      vjust = 0.5,
-      size = 7
-    ),
-    # axis.text.x.top = element_blank(),
+    # axis.text.x.top = element_text(
+    #   angle = 90,
+    #   hjust = 0,
+    #   vjust = 0.5,
+    #   size = 7
+    # ),
+    axis.text.x.top = element_blank(),
     axis.text.x.bottom = element_blank(),
     axis.ticks.x.bottom = element_blank(),
     axis.title.x = element_blank(),
@@ -523,13 +523,13 @@ final_metrics_plot
 
 
 final_combined <- p_main / p_order / p_metrics +
-  plot_layout(heights = c(10, 1.8, 6))
+  plot_layout(heights = c(8, 1.8, 6))
 final_combined
 
-# ggsave(
-#   plot = final_combined,
-#   filename = file.path(output_path, "MAG_abundance_and_metrics.png"),
-#   width = 15,
-#   height = 18,
-#   dpi = 300
-# )
+ggsave(
+  plot = final_combined,
+  filename = file.path(output_path, "MAG_abundance_and_metrics.png"),
+  width = 15,
+  height = 16,
+  dpi = 300
+)

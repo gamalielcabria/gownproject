@@ -192,7 +192,7 @@ cols <- c(
   "#9A4FBF",  # deeper purple
   "#C94A7C"   # stronger pink
 )
-meso_abund <- trans_abund$new(meso_meco, taxrank = "family", ntaxa = 18)
+meso_abund <- trans_abund$new(meso_meco, taxrank = "genus", ntaxa = 18)
 plot_abund_sed <- meso_abund$plot_bar(
   facet = "Setup",
   xtext_keep = FALSE,
@@ -202,18 +202,26 @@ plot_abund_sed <- meso_abund$plot_bar(
 
 plot_abund_sed
 
-
-
 # -----------------------------
 # Environmental correlation
 # -----------------------------
-meso_env <- trans_env$new(meso_meco, env_cols = c(4))
+meso_env <- trans_env$new(meso_meco, env_cols = c(2,4))
 meso_env$cal_diff(group = "Setup", method = "wilcox")
 meso_env$res_diff
 
-meso_env$cal_ordination(method = "RDA", dist_method = "bray", taxa_level="family")
-meso_env$trans_ordination(show_taxa = 10, adjust_arrow_length = TRUE)
-meso_env$plot_ordination(plot_color = "Setup")
+meso_env$cal_ordination(method = "RDA", dist_method = "bray", taxa_level="genus")
+meso_env$trans_ordination(show_taxa = 10, adjust_arrow_length = TRUE,  max_perc_env = 1.5, max_perc_tax = 1.0)
+plot_env <- meso_env$plot_ordination(plot_color = "Setup")
+plot_env
 
-meso_env$cal_mantel(use_measure = "bray")
-meso_env$res_mantel
+# ggsave(
+#   plot = plot_abund_sed,
+#   filename = file.path(output_path, "Singlem_Abundance_Barplot_Genus.png"),
+#   width = 10, height = 6, dpi = 300
+# )
+
+# ggsave(
+#   plot = plot_env,
+#   filename = file.path(output_path, "Singlem_RDA_Ordination_Genus.png"),
+#   width = 8, height = 6, dpi = 300
+# )
