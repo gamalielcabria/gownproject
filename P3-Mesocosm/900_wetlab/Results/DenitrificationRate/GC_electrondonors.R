@@ -36,7 +36,7 @@ find_N2O_firstmatch <- function(text, lower = 1.19, upper = 1.3) {
 # setwd('~/github/gownproject/P3/Results/DenitrificationRate')
 
 # Working Directory
-input <- '/home/gam/github/gownproject/P3/Results/DenitrificationRate/20250926'
+input <- '/home/gam/github/gownproject/P3-Mesocosm/900_wetlab/Results/DenitrificationRate/20250926'
 #input_day <- 'D87LIQ' # 'FECH4MNH2'
 
 # Determine if Amount is in PPM or PCT MOLE
@@ -165,10 +165,18 @@ GC_sed_df <- GC_filled %>%
 
 
 ########## Final Table for Publication ##############
+# Table_GC_Sediments <- GC_sed_df %>%
+#   select(Total_Time,Amount,Setup,Replicate) %>%
+#   as.data.frame()
 Table_GC_Sediments <- GC_sed_df %>%
-  select(Total_Time,Amount,Setup,Replicate) %>%
+  select(Total_Time, Amount, Setup, Replicate) %>%
+  group_by(Total_Time) %>%
+  mutate(Blank = mean(Amount[Setup == "Blank"], na.rm = TRUE)) %>%
+  ungroup() %>%
+  filter(Setup != "Blank") %>%
+  mutate(Amount = Amount - Blank) %>%
+  select(-Blank) %>%
   as.data.frame()
-  
 
 ######################### Adding Best Fit Line ##############################
 
@@ -532,3 +540,39 @@ ggsave(Plot_DNP_Table_All, filename = paste0('DenitrificationRate_SED','.png'),
 
 write.csv(Table_Slopes, 'DenitrificationRate_SED_Summary_Slopes.csv', row.names = FALSE)
 write.csv(slopes_table, 'DenitrificationRate_SED_Individual_Slopes.csv', row.names = FALSE)
+
+
+
+#====
+# slopes_table <- filtered_data %>%
+#   group_by(Setup, Replicate) %>%
+#   summarise(
+#     intercept = if (n() > 1) {
+#       coef(lm(Amount ~ Total_Time))[1]
+#     } else {
+#       NA_real_
+#     },
+#     slope = if (n() > 1) {
+#       coef(lm(Amount ~ Total_Time))[2]
+#     } else {
+#       NA_real_
+#     },
+#     r2 = if (n() > 1) {
+#       summary(lm(Amount ~ Total_Time))$r.squared
+#     } else {
+#       NA_real_
+#     },
+#     .groups = "drop"
+#   )
+
+# Table_Slopes <- slopes_table %>%
+#   ungroup() %>%
+#   group_by(Setup) %>%
+#   summarise(
+#     Mean_Intercept = round(mean(intercept, na.rm = TRUE), 3),
+#     SD_Intercept = round(sd(intercept, na.rm = TRUE), 3),
+#     Mean_Slope = round(mean(slope, na.rm = TRUE), 3),
+#     SD_Slope = round(sd(slope, na.rm = TRUE), 3),
+#     r2 = round(mean(r2, na.rm = TRUE), 3),
+#     Replicates = n()
+#   )
