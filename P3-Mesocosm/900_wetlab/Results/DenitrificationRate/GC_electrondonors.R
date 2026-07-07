@@ -533,13 +533,13 @@ Plot_DNP_Table_ED
 ###########################
 
 setwd('~/github/gownproject/P3/Results/DenitrificationRate')
-ggsave(Plot_DNP_Table_ED, filename = paste0('DenitrificationRate_ElectronDonors','.png'),
-       width = 14, height = 10, units = 'in', dpi = 300)
-ggsave(Plot_DNP_Table_All, filename = paste0('DenitrificationRate_SED','.png'),
-       width = 14, height = 10, units = 'in', dpi = 300)
+# ggsave(Plot_DNP_Table_ED, filename = paste0('DenitrificationRate_ElectronDonors','.png'),
+#        width = 14, height = 10, units = 'in', dpi = 300)
+# ggsave(Plot_DNP_Table_All, filename = paste0('DenitrificationRate_SED','.png'),
+#        width = 14, height = 10, units = 'in', dpi = 300)
 
-write.csv(Table_Slopes, 'DenitrificationRate_SED_Summary_Slopes.csv', row.names = FALSE)
-write.csv(slopes_table, 'DenitrificationRate_SED_Individual_Slopes.csv', row.names = FALSE)
+# write.csv(Table_Slopes, 'DenitrificationRate_SED_Summary_Slopes.csv', row.names = FALSE)
+# write.csv(slopes_table, 'DenitrificationRate_SED_Individual_Slopes.csv', row.names = FALSE)
 
 
 
