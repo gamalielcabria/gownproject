@@ -22,17 +22,20 @@ library(ggh4x)
 library(patchwork)
 library(cowplot)
 
-# --- locate and source the function ----------------------------------------
-fn_path <- if (file.exists("/home/glbcabria/Workbench/plotutilityscript/R/nested_dotplot.R")) {
-  "/home/glbcabria/Workbench/plotutilityscript/R/nested_dotplot.R"
-} else if (file.exists("nested_dotplot.R")) {
-  "nested_dotplot.R"
-} else {
-  stop("Could not find nested_dotplot.R. Set the path manually.")
-}
-# If you have installed the package instead, replace the source() line with:
-#   library(plotutilityscript)
-source(fn_path)
+# # --- locate and source the function ----------------------------------------
+# fn_path <- if (file.exists("/home/glbcabria/Workbench/plotutilityscript/R/nested_dotplot.R")) {
+#   "/home/glbcabria/Workbench/plotutilityscript/R/nested_dotplot.R"
+# } else if (file.exists("nested_dotplot.R")) {
+#   "nested_dotplot.R"
+# } else {
+#   stop("Could not find nested_dotplot.R. Set the path manually.")
+# }
+# # If you have installed the package instead, replace the source() line with:
+# #   library(plotutilityscript)
+# source(fn_path)
+
+remotes::install_github("gamalielcabria/plotutilityscript")
+library(plotutilityscript)
 
 # --- read the wide mock data ------------------------------------------------
 csv_path <- if (file.exists("/home/glbcabria/Workbench/gownproject/Training/dotplot_test_data.csv")) {
@@ -76,9 +79,8 @@ p2 <- nested_dotplot(
   x_col             = Replicate,
   y_col             = ASV,
   size_col          = RelAbund,
-  
   # Orientation of faceted plots
-  orientation       = "vertical",
+  orientation       = "horizontal",
 
   # Color parameters of inputs
   colour_col        = ASV,                     # <- different colour per ASV
@@ -105,12 +107,12 @@ p2 <- nested_dotplot(
 
   # Strip Layers
   ## Strip Colors
-  strip_by_layer    = FALSE,
-  strip_colour      = c("blue","black","gray20"),             # Border Color for strips
-  strip_fill        = c("#d8b365", "#5ab4ac", "#c2a5cf"),     # per-Category strip colours
-  strip_text_colour = c("#3d2a05", "#053b37", "#2a0d33"),     # Text in strip color (can be just 1 color: "white")
-  strip_text_face   = c("bold", "bold", "bold"),
-  strip_text_size   = c(25,20,15,10),                               # Size of Strip Levels (e.g. Type Col, Category Col)
+  strip_by_layer    = TRUE,
+  strip_colour      = c("black","black","gray20"),             # Border Color for strips
+  strip_fill        = c("#d8b365"),     # per-Category strip colours
+  strip_text_colour = c("#3d2a05"),     # Text in strip color (can be just 1 color: "white")
+  strip_text_face   = c("bold"),
+  strip_text_size   = c(25,20,10),       # Text Size of the Strip labels (e.g. Type Col, Category Col)
   
   ## Title is the First Level Name 
   title_colour      = c(cDNA = "#b35806", DNA = "#542788"),     # per-Type title colours
@@ -125,4 +127,4 @@ p2 <- nested_dotplot(
 
 p2
 
-ggsave2("/home/glbcabria/Workbench/plotutilityscript/man/figures/nested_dotplot-example-2.png", plot = p2, width = 12, height = 10, dpi = 300)
+ggsave2("/home/glbcabria/Workbench/plotutilityscript/man/figures/nested_dotplot.png", plot = p2, width = 12, height = 10, dpi = 300)
